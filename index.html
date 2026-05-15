@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khushluck Singh | Neural Portfolio</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.35;
+        animation: float 10s infinite ease-in-out;
+        z-index: -1;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) scale(1);
+        }
+        50% {
+          transform: translateY(-40px) scale(1.1);
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s ease;
+      }
+
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .glass {
+        background: rgba(10, 15, 30, 0.6);
+        backdrop-filter: blur(20px);
+      }
+
+      .pop {
+        animation: pop 0.5s ease forwards;
+      }
+
+      @keyframes pop {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-[#050816] text-white overflow-x-hidden">
+    <!-- BACKGROUND ORBS -->
+    <div class="orb w-72 h-72 bg-cyan-500 top-10 left-10"></div>
+    <div class="orb w-72 h-72 bg-purple-600 top-40 right-10"></div>
+    <div class="orb w-72 h-72 bg-blue-500 bottom-10 left-1/3"></div>
+
+    <!-- NAVBAR -->
+    <header
+      id="navbar"
+      class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] md:w-[90%] z-50 px-6 py-4 flex justify-between items-center rounded-full border border-white/10 transition-all duration-300 shadow-lg"
+    >
+      <!-- Logo -->
+      <div class="flex items-center space-x-3">
+        <img
+          src="assets/WhatsApp Image 2026-04-03 at 1.08.35 PM.jpeg"
+          class="w-10 h-10 rounded-full border border-cyan-400"
+        />
+
+        <h1
+          class="text-lg font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent"
+        >
+          Khushluck Singh
+        </h1>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex">
+        <ul class="flex space-x-6 text-sm">
+          <li><a href="#home" class="hover:text-cyan-400">Home</a></li>
+          <li><a href="#about" class="hover:text-cyan-400">About</a></li>
+          <li><a href="#projects" class="hover:text-cyan-400">Projects</a></li>
+          <li><a href="#youtube" class="hover:text-cyan-400">Skills</a></li>
+          <li>
+            <a href="#certification" class="hover:text-cyan-400"
+              >Certification</a
+            >
+          </li>
+          <li><a href="#contact" class="hover:text-cyan-400">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Button -->
+      <button id="menuBtn" class="md:hidden flex flex-col space-y-1">
+        <span class="w-6 h-0.5 bg-white"></span>
+        <span class="w-6 h-0.5 bg-white"></span>
+        <span class="w-6 h-0.5 bg-white"></span>
+      </button>
+
+      <!-- ✅ FIXED MOBILE MENU -->
+      <div
+        id="mobileMenu"
+        class="hidden absolute top-20 left-4 right-4 mx-auto bg-[#0B1020]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:hidden shadow-xl"
+      >
+        <ul class="flex flex-col space-y-4 text-center">
+          <li><a href="#home" class="hover:text-cyan-400">Home</a></li>
+          <li><a href="#about" class="hover:text-cyan-400">About</a></li>
+          <li><a href="#projects" class="hover:text-cyan-400">Projects</a></li>
+          <li><a href="#youtube" class="hover:text-cyan-400">Skills</a></li>
+          <li>
+            <a href="#certification" class="hover:text-cyan-400"
+              >Certification</a
+            >
+          </li>
+          <li><a href="#contact" class="hover:text-cyan-400">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section
+      id="home"
+      class="min-h-screen flex flex-col justify-center items-center text-center px-4"
+    >
+      <img
+        src="assets/Gemini_Generated_Image_6ge9646ge9646ge9.png"
+        class="w-40 h-40 rounded-full border-4 border-cyan-400 shadow-lg ring-4 ring-purple-900 reveal"
+      />
+
+      <h1 class="text-4xl md:text-6xl font-bold mt-6 reveal">
+        Hi, I'm <span class="text-cyan-400">Khushluck Singh</span>
+      </h1>
+
+      <p class="text-gray-400 mt-4 max-w-2xl reveal">
+        Developer • AI Creator • YouTuber Building futuristic web apps and
+        AI-powered tools.
+      </p>
+
+      <div class="mt-6 flex space-x-4 reveal">
+        <a
+          class="px-6 py-3 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full hover:scale-105 transition shadow-lg"
+        >
+          View Projects
+        </a>
+
+        <a
+          class="px-6 py-3 border border-white/20 rounded-full hover:border-cyan-400 transition"
+        >
+          Watch YouTube
+        </a>
+      </div>
+
+      <!-- STATS -->
+      <div class="grid grid-cols-3 gap-4 mt-12 max-w-xl reveal">
+        <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+          <h2 class="text-2xl text-cyan-400 font-bold">10+</h2>
+          <p class="text-sm text-gray-400">Projects</p>
+        </div>
+
+        <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+          <h2 class="text-2xl text-purple-400 font-bold">AI</h2>
+          <p class="text-sm text-gray-400">Skills</p>
+        </div>
+
+        <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+          <h2 class="text-2xl text-blue-400 font-bold">YouTube</h2>
+          <p class="text-sm text-gray-400">Creator</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24 px-6 text-center reveal">
+      <h2 class="text-3xl font-bold mb-4">About Me</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">
+        I started Neural Syntax in November 2025 because most AI content was
+        either repetitive, expensive, or incompetent, or not built for students.
+        My goal is to make AI education accessible, affordable, and practical
+        for learners who want clarity instead of hype. A 16-year-old creator in
+        Delhi, who is in Class 12 and has built a Python tool to break down AI
+        for students and runs a YouTube channel NeuralSyntax, decided to make AI
+        tuition free, useful, and real for Indian students.
+      </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-24 px-6 text-center reveal">
+      <h2 class="text-3xl font-bold mb-8">Projects</h2>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div
+          class="p-6 bg-white/5 border border-white/10 rounded-xl hover:scale-105 transition"
+        >
+          Student Performance Predictor
+        </div>
+
+        <div
+          class="p-6 bg-white/5 border border-white/10 rounded-xl hover:scale-105 transition"
+        >
+          AI-Powered Study Planner
+        </div>
+
+        <div
+          class="p-6 bg-white/5 border border-white/10 rounded-xl hover:scale-105 transition"
+        >
+          Neural Syntax YouTube
+        </div>
+      </div>
+
+      <p class="text-gray-400 mt-8 max-w-2xl mx-auto reveal">
+        This is a glance at my projects. You can view my entire project folder
+        on my Drive link below.
+      </p>
+
+      <button
+        class="mt-6 px-6 py-3 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full hover:scale-105 transition shadow-lg reveal"
+      >
+        <a
+          href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3"
+          class="text-white font-bold"
+          target="_blank"
+          >View All Projects</a
+        >
+      </button>
+    </section>
+    <section id="certification" class="py-20 px-6">
+      <!-- HEADER -->
+      <div class="text-center mb-10">
+        <h1 class="text-4xl font-bold">Certificates Vault</h1>
+        <p class="text-gray-400 mt-2">Interactive Achievement System</p>
+      </div>
+
+      <!-- FILTERS -->
+      <div class="flex justify-center gap-3 mb-10 flex-wrap">
+        <button
+          onclick="filterCerts('all')"
+          class="px-4 py-2 rounded-full bg-white/10 hover:bg-cyan-500/20"
+        >
+          All
+        </button>
+
+        <button
+          onclick="filterCerts('AI')"
+          class="px-4 py-2 rounded-full bg-white/10 hover:bg-cyan-500/20"
+        >
+          AI
+        </button>
+
+        <button
+          onclick="filterCerts('Web')"
+          class="px-4 py-2 rounded-full bg-white/10 hover:bg-blue-500/20"
+        >
+          Web
+        </button>
+
+        <button
+          onclick="filterCerts('Python')"
+          class="px-4 py-2 rounded-full bg-white/10 hover:bg-purple-500/20"
+        >
+          Python
+        </button>
+      </div>
+
+      <!-- GRID -->
+      <div
+        id="certGrid"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto"
+      ></div>
+    </section>
+
+    <!-- MODAL -->
+    <div
+      id="modal"
+      class="hidden fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50"
+    >
+      <div
+        class="bg-[#0B1020] p-6 rounded-2xl w-[90%] md:w-[500px] border border-white/10"
+      >
+        <h2 id="modalTitle" class="text-xl font-bold mb-4"></h2>
+
+        <img id="modalImg" class="rounded-lg border border-white/10 mb-4" />
+
+        <button
+          onclick="closeModal()"
+          class="w-full py-2 bg-cyan-500 rounded-lg hover:scale-105 transition"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <script>
+      /* -----------------------------
+   1. CERTIFICATE DATABASE (JSON)
+------------------------------*/
+      const certificates = [
+        {
+          title: "Build Your Own Chatbot",
+          category: "AI",
+          year: "2025",
+          issuer: "Devtown",
+          image: "assets/CBS-36-1.png",
+        },
+        {
+          title: "Prompt Engineering",
+          category: "AI",
+          year: "2025",
+          issuer: "Seekhe India",
+          image: "assets/cert2.png",
+        },
+        {
+          title: "ChatGPT Mastery 2025",
+          category: "AI",
+          year: "2025",
+          issuer: "Seekhe India",
+          image: "assets/Cert1.png",
+        },
+        {
+          title: "Tailwind CSS: Style Apps Like a Guru",
+          category: "Web",
+          year: "April 2026",
+          issuer: "Google Developer",
+          image: "assets/Google Certificate of CSS-1.png",
+        },
+        {
+          title: "Tailwind CSS: Style Apps Like a Guru",
+          category: "Web",
+          year: "April 2026",
+          issuer: "Microsoft Developer",
+          image: "assets/Microsoft Certification of CSS-1.png",
+        },
+        {
+          title: "Python Zero to Hero",
+          category: "Python",
+          year: "June 2025",
+          issuer: "Microsoft Developer",
+          image: "assets/Certificate from Microsoft-1.png",
+        },
+        {
+          title: "Python Zero to Hero",
+          category: "Python",
+          year: "2025",
+          issuer: "Google Developer",
+          image: "assets/Certificate from Google-1.png",
+        },
+        {
+          title: "Python Xero to Hero | DevTown Participation",
+          category: "Python",
+          year: "2025",
+          issuer: "DevTown",
+          image: "assets/DevTown Participation Certificate-1.png",
+        },
+        {
+          title: "Certificate of Appreciation | DevTown",
+          category: "Web",
+          year: "April 2026",
+          issuer: "Google Developer",
+          image: "assets/ZvHrSx-1.png",
+        },
+      ];
+
+      /* -----------------------------
+   2. RENDER FUNCTION
+------------------------------*/
+      const grid = document.getElementById("certGrid");
+
+      function renderCerts(data) {
+        grid.innerHTML = "";
+
+        data.forEach((cert, i) => {
+          const card = document.createElement("div");
+          card.className =
+            "p-5 rounded-2xl bg-white/5 border border-white/10 cursor-pointer hover:scale-[1.03] transition pop";
+
+          card.innerHTML = `
+      <div class="flex justify-between mb-2">
+        <span class="text-xs px-2 py-1 rounded-full bg-cyan-500/20">${cert.category}</span>
+        <span class="text-xs text-gray-400">${cert.year}</span>
+      </div>
+
+      <h3 class="text-lg font-semibold">${cert.title}</h3>
+
+      <p class="text-sm text-gray-400 mt-1">${cert.issuer}</p>
+    `;
+
+          card.onclick = () => openModal(cert);
+
+          grid.appendChild(card);
+        });
+      }
+
+      /* -----------------------------
+   3. FILTER SYSTEM
+------------------------------*/
+      function filterCerts(category) {
+        if (category === "all") renderCerts(certificates);
+        else renderCerts(certificates.filter((c) => c.category === category));
+      }
+
+      /* -----------------------------
+   4. MODAL SYSTEM
+------------------------------*/
+      function openModal(cert) {
+        document.getElementById("modal").classList.remove("hidden");
+        document.getElementById("modalTitle").innerText = cert.title;
+        document.getElementById("modalImg").src = cert.image;
+      }
+
+      function closeModal() {
+        document.getElementById("modal").classList.add("hidden");
+      }
+
+      /* -----------------------------
+   5. INITIAL LOAD (UNLOCK ANIMATION)
+------------------------------*/
+      window.onload = () => {
+        renderCerts(certificates);
+      };
+    </script>
+    <!-- SCRIPT -->
+    <script>
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      const reveals = document.querySelectorAll(".reveal");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      });
+
+      reveals.forEach((el) => observer.observe(el));
+    </script>
+
+    <!-- YOUTUBE SECTION -->
+    <section id="youtube" class="py-20 px-6 relative">
+      <div class="max-w-6xl mx-auto">
+        <h2
+          class="text-4xl font-bold mb-4 text-center bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent"
+        >
+          NeuralSyntax YouTube Channel
+        </h2>
+        <p class="text-center text-gray-400 mb-12">
+          Watch my latest tutorials and tech content
+        </p>
+
+        <div class="text-center mt-12">
+          <a
+            href="https://www.youtube.com/@NeuralSyntax-official"
+            class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full font-semibold hover:scale-105 transition"
+            target="_blank"
+          >
+            Visit YouTube Channel
+          </a>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="py-12">
+      <div class="max-w-2xl mx-auto">
+        <div class="mb-6 text-center">
+          <h3 class="text-2xl font-bold text-white">Contact Me</h3>
+          <p class="text-gray-400 text-sm">
+            Have a project or question? Send a message.
+          </p>
+        </div>
+
+        <form
+          action="https://forminit.com/f/q07fxftnwvs"
+          method="POST"
+          class="bg-[#061025] p-8 rounded-2xl border border-white/6 shadow-xl"
+        >
+          <div class="space-y-5">
+            <!-- Name -->
+            <label class="block text-sm">
+              <span class="text-gray-300 font-medium">Name</span>
+              <input
+                type="text"
+                name="fi-sender-fullName"
+                required
+                placeholder="Enter your name"
+                class="mt-2 w-full rounded-lg border border-white/8 bg-[#06131f] px-4 py-3 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
+              />
+            </label>
+
+            <!-- Email -->
+            <label class="block text-sm">
+              <span class="text-gray-300 font-medium">Email</span>
+              <input
+                type="email"
+                name="fi-sender-email"
+                required
+                placeholder="you@example.com"
+                class="mt-2 w-full rounded-lg border border-white/8 bg-[#06131f] px-4 py-3 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
+              />
+            </label>
+
+            <!-- Message -->
+            <label class="block text-sm">
+              <span class="text-gray-300 font-medium">Message</span>
+              <textarea
+                name="fi-text-message"
+                rows="5"
+                required
+                placeholder="Write your message..."
+                class="mt-2 w-full rounded-lg border border-white/8 bg-[#06131f] px-4 py-3 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
+              ></textarea>
+            </label>
+
+            <!-- Button -->
+            <button
+              type="submit"
+              class="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full font-semibold hover:scale-105 transition transform"
+            >
+              Send Message 🚀
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
