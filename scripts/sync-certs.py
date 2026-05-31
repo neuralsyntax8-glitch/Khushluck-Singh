@@ -22,7 +22,7 @@ ALLOWED_EXT = {".png", ".jpg", ".jpeg", ".gif", ".webp"}
 
 def run_gdown():
     """Download all files from the public Drive folder using gdown."""
-    cmd = [sys.executable, "-m", "gdown", "--folder", DRIVE_FOLDER_ID, "--output", str(ASSETS_DIR)
+    cmd = [sys.executable, "-m", "gdown", "--folder", DRIVE_FOLDER_ID, "--output", str(ASSETS_DIR)]
     result = subprocess.run(cmd, capture_output=True, text=True)
     print(result.stdout)
     if result.returncode != 0:
