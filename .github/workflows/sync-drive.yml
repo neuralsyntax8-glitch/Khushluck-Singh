@@ -1,0 +1,38 @@
+name: Sync Certificates from Drive
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install gdown
+        run: pip install gdown
+
+      - name: Sync certificates from Drive
+        run: python scripts/sync-certs.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "cert-sync-bot"
+          git config user.email "cert-sync-bot@users.noreply.github.com"
+          git add assets/ data/certificates.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-sync certificates from Google Drive"
+            git push
+          fi
