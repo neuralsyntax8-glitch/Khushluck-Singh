@@ -103,5 +103,12 @@
     "year": "2026",
     "issuer": "DevTown",
     "image": "assets/Certification of Appericiation.png"
+  },
+  {
+    "title": "Certification Of Participation Machine Learning Mastery 1",
+    "category": "AI",
+    "year": "2026",
+    "issuer": "Auto-Synced",
+    "image": "assets/Certification of Participation - Machine Learning Mastery-1.png"
   }
 ]
