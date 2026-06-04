@@ -3,573 +3,720 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Khushluck Singh | Neural Portfolio</title>
+    <title>NeuralSyntax — AI Builder, Developer & Tech Educator</title>
+    <meta name="description" content="NeuralSyntax by Khushluck Singh — 16-year-old developer building AI tools, educational products, and developer projects to help students learn technology." />
+    <meta name="keywords" content="AI, developer, tech educator, Python, machine learning, NeuralSyntax, Khushluck Singh" />
 
+    <meta property="og:title" content="NeuralSyntax — AI Builder, Developer & Tech Educator" />
+    <meta property="og:description" content="Building AI tools, educational products, and developer projects." />
+    <meta property="og:image" content="https://neuralsyntax8-glitch.github.io/Portfolio/assets/Gemini_Generated_Image_6ge9646ge9646ge9.png" />
+    <meta property="og:url" content="https://neuralsyntax8-glitch.github.io/Portfolio/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NeuralSyntax — AI Builder, Developer & Tech Educator" />
+    <meta name="twitter:description" content="Building AI tools, educational products, and developer projects." />
+    <meta name="twitter:image" content="https://neuralsyntax8-glitch.github.io/Portfolio/assets/Gemini_Generated_Image_6ge9646ge9646ge9.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Khushluck Singh",
+      "alternateName": "NeuralSyntax",
+      "description": "16-year-old AI builder, developer, and tech educator helping students learn through projects and content.",
+      "url": "https://neuralsyntax8-glitch.github.io/Portfolio/",
+      "image": "https://neuralsyntax8-glitch.github.io/Portfolio/assets/Gemini_Generated_Image_6ge9646ge9646ge9.png",
+      "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Python", "Web Development", "Prompt Engineering", "Educational Technology"],
+      "jobTitle": "AI Builder & Tech Educator",
+      "address": { "@type": "PostalAddress", "addressLocality": "Delhi", "addressCountry": "India" },
+      "sameAs": ["https://www.youtube.com/@NeuralSyntax-official", "https://github.com/neuralsyntax8-glitch"]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <style>
-      html {
-        scroll-behavior: smooth;
+      :root {
+        --cyan: #00E5D4;
+        --teal: #00CFC0;
+        --purple: #6B4DFF;
+        --pink: #9A4DFF;
+        --bg: #0c0c14;
+        --glass-bg: rgba(255,255,255,0.04);
+        --glass-border: rgba(255,255,255,0.07);
+        --glass-highlight: rgba(255,255,255,0.05);
+        --text-primary: #f0f0f5;
+        --text-secondary: #8e8ea0;
       }
 
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: 'Inter', -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--text-primary);
+      }
+      .font-orbitron { font-family: 'Orbitron', sans-serif; }
+
+      /* ─── Liquid Glass ─── */
+      .liquid-glass {
+        background: var(--glass-bg);
+        backdrop-filter: blur(32px) saturate(1.2);
+        -webkit-backdrop-filter: blur(32px) saturate(1.2);
+        border: 1px solid var(--glass-border);
+        border-top: 1px solid var(--glass-highlight);
+      }
+      .liquid-glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(28px) saturate(1.15);
+        -webkit-backdrop-filter: blur(28px) saturate(1.15);
+        border: 1px solid var(--glass-border);
+        border-top: 1px solid var(--glass-highlight);
+        border-radius: 18px;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .liquid-glass-card:hover {
+        border-color: rgba(0, 229, 212, 0.15);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 229, 212, 0.06);
+        transform: translateY(-3px);
+      }
+      .liquid-glass-deep {
+        background: rgba(255,255,255,0.06);
+        backdrop-filter: blur(40px) saturate(1.3);
+        -webkit-backdrop-filter: blur(40px) saturate(1.3);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-top: 1px solid rgba(255,255,255,0.06);
+        border-radius: 22px;
+      }
+
+      /* ─── Logo ─── */
+      .logo-text {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 1.05rem;
+        background: linear-gradient(135deg, #00E5D4 0%, #00CFC0 30%, #6B4DFF 70%, #9A4DFF 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ─── Gradients ─── */
+      .gradient-text {
+        background: linear-gradient(135deg, #00E5D4, #6B4DFF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .gradient-text-wide {
+        background: linear-gradient(135deg, #00E5D4 0%, #00CFC0 25%, #6B4DFF 65%, #9A4DFF 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ─── Buttons ─── */
+      .btn-primary {
+        background: linear-gradient(135deg, var(--cyan), var(--purple));
+        border-radius: 9999px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 24px rgba(0, 229, 212, 0.08);
+      }
+      .btn-primary:hover {
+        transform: scale(1.04);
+        box-shadow: 0 0 40px rgba(0, 229, 212, 0.18);
+      }
+      .btn-ghost {
+        border-radius: 9999px;
+        border: 1px solid rgba(255,255,255,0.1);
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .btn-ghost:hover {
+        border-color: rgba(0, 229, 212, 0.3);
+        background: rgba(0, 229, 212, 0.04);
+        box-shadow: 0 0 20px rgba(0, 229, 212, 0.04);
+      }
+
+      /* ─── Tags ─── */
+      .tag { border-radius: 9999px; font-size: 11px; padding: 2px 10px; border: 1px solid; font-weight: 500; }
+      .tag-cyan { background: rgba(0,229,212,0.06); color: #00E5D4; border-color: rgba(0,229,212,0.12); }
+      .tag-purple { background: rgba(107,77,255,0.06); color: #6B4DFF; border-color: rgba(107,77,255,0.12); }
+      .tag-blue { background: rgba(59,130,246,0.06); color: #60a5fa; border-color: rgba(59,130,246,0.12); }
+      .tag-green { background: rgba(52,211,153,0.06); color: #34d399; border-color: rgba(52,211,153,0.12); }
+
+      /* ─── Orbs ─── */
       .orb {
         position: absolute;
         border-radius: 50%;
-        filter: blur(80px);
-        opacity: 0.35;
-        animation: float 10s infinite ease-in-out;
-        z-index: -1;
+        filter: blur(120px);
+        opacity: 0.1;
+        pointer-events: none;
       }
-
       @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px) scale(1);
-        }
-        50% {
-          transform: translateY(-40px) scale(1.1);
-        }
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-24px) scale(1.04); }
       }
+      .orb-float { animation: float 16s infinite ease-in-out; }
 
+      /* ─── Reveal ─── */
       .reveal {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: all 0.8s ease;
+        opacity: 0; transform: translateY(28px);
+        transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
       }
-
-      .reveal.show {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .glass {
-        background: rgba(10, 15, 30, 0.6);
-        backdrop-filter: blur(20px);
-      }
-
-      .pop {
-        animation: pop 0.5s ease forwards;
-      }
+      .reveal.show { opacity: 1; transform: translateY(0); }
 
       @keyframes pop {
-        from {
-          opacity: 0;
-          transform: scale(0.8);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
+        from { opacity: 0; transform: scale(0.93); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      .pop { animation: pop 0.35s ease forwards; }
+
+      /* ─── Timeline ─── */
+      .timeline-track {
+        position: absolute;
+        left: 50%; top: 0; bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--cyan), var(--purple));
+        transform: translateX(-50%);
+        opacity: 0.4;
+      }
+      @media (max-width: 768px) { .timeline-track { left: 24px; } }
+      .timeline-dot {
+        width: 14px; height: 14px;
+        border-radius: 50%;
+        border: 3px solid var(--bg);
+        box-shadow: 0 0 0 2px var(--cyan);
+      }
+
+      /* ─── Misc ─── */
+      #certSearch:focus {
+        outline: none;
+        border-color: rgba(0, 229, 212, 0.3);
+        box-shadow: 0 0 0 3px rgba(0, 229, 212, 0.06);
+      }
+      ::-webkit-scrollbar { width: 5px; }
+      ::-webkit-scrollbar-track { background: var(--bg); }
+      ::-webkit-scrollbar-thumb { background: #2a2a3e; border-radius: 3px; }
+      .glow-line {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0,229,212,0.15), rgba(107,77,255,0.15), transparent);
+      }
+      .filter-btn {
+        font-size: 12px; padding: 5px 14px; border-radius: 9999px;
+        background: rgba(255,255,255,0.03); color: #8e8ea0;
+        border: 1px solid transparent;
+        transition: all 0.2s ease;
+      }
+      .filter-btn:hover { background: rgba(255,255,255,0.06); }
+      .filter-btn.active {
+        background: rgba(0,229,212,0.06);
+        border-color: rgba(0,229,212,0.2);
+        color: #00E5D4;
       }
     </style>
   </head>
 
-  <body class="bg-[#050816] text-white overflow-x-hidden">
-    <!-- BACKGROUND ORBS -->
-    <div class="orb w-72 h-72 bg-cyan-500 top-10 left-10"></div>
-    <div class="orb w-72 h-72 bg-purple-600 top-40 right-10"></div>
-    <div class="orb w-72 h-72 bg-blue-500 bottom-10 left-1/3"></div>
+  <body class="overflow-x-hidden antialiased">
 
-    <!-- NAVBAR -->
-    <header
-      id="navbar"
-      class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] md:w-[90%] z-50 px-6 py-4 flex justify-between items-center rounded-full border border-white/10 transition-all duration-300 shadow-lg"
-    >
-      <!-- Logo -->
-      <div class="flex items-center space-x-3">
-        <img
-          src="WhatsApp Image 2026-04-03 at 1.08.35 PM.jpeg"
-          class="w-10 h-10 rounded-full border border-cyan-400"
-        />
+    <!-- Ambient orbs -->
+    <div class="orb w-[500px] h-[500px] bg-[#00E5D4] top-[-10%] left-[-8%] orb-float"></div>
+    <div class="orb w-[600px] h-[600px] bg-[#6B4DFF] top-[25%] right-[-12%] orb-float" style="animation-delay: -4s;"></div>
+    <div class="orb w-[400px] h-[400px] bg-[#9A4DFF] bottom-[15%] left-[25%] orb-float" style="animation-delay: -8s;"></div>
+    <div class="orb w-[350px] h-[350px] bg-[#00CFC0] bottom-[30%] right-[20%] orb-float" style="animation-delay: -12s;"></div>
 
-        <h1
-          class="text-lg font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent"
-        >
-          Khushluck Singh
-        </h1>
-      </div>
-
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex">
-        <ul class="flex space-x-6 text-sm">
-          <li><a href="#home" class="hover:text-cyan-400">Home</a></li>
-          <li><a href="#about" class="hover:text-cyan-400">About</a></li>
-          <li><a href="#projects" class="hover:text-cyan-400">Projects</a></li>
-          <li><a href="#youtube" class="hover:text-cyan-400">Skills</a></li>
-          <li>
-            <a href="#certification" class="hover:text-cyan-400"
-              >Certification</a
-            >
-          </li>
-          <li><a href="#contact" class="hover:text-cyan-400">Contact</a></li>
-        </ul>
+    <!-- ==================== NAVBAR ==================== -->
+    <header id="navbar" class="fixed top-5 left-1/2 -translate-x-1/2 w-[94%] md:w-[88%] max-w-6xl z-50 liquid-glass rounded-2xl px-5 md:px-7 py-3 flex items-center justify-between transition-all duration-300 shadow-lg shadow-black/20">
+      <a href="#home" class="flex items-center gap-3">
+        <img src="assets/image.png" class="w-7 h-7 object-contain" alt="NeuralSyntax" />
+        <span class="logo-text">NeuralSyntax</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="#home" class="text-sm text-[#8e8ea0] hover:text-white transition-colors font-medium">Home</a>
+        <a href="#projects" class="text-sm text-[#8e8ea0] hover:text-white transition-colors font-medium">Projects</a>
+        <a href="#skills" class="text-sm text-[#8e8ea0] hover:text-white transition-colors font-medium">Skills</a>
+        <a href="#certificates" class="text-sm text-[#8e8ea0] hover:text-white transition-colors font-medium">Certificates</a>
+        <a href="#youtube" class="text-sm text-[#8e8ea0] hover:text-white transition-colors font-medium">YouTube</a>
+        <a href="#contact" class="text-sm text-[#8e8ea0] hover:text-white transition-colors font-medium">Contact</a>
       </nav>
-
-      <!-- Mobile Button -->
-      <button id="menuBtn" class="md:hidden flex flex-col space-y-1">
-        <span class="w-6 h-0.5 bg-white"></span>
-        <span class="w-6 h-0.5 bg-white"></span>
-        <span class="w-6 h-0.5 bg-white"></span>
+      <button id="menuBtn" class="md:hidden flex flex-col gap-1 p-1.5" aria-label="Menu">
+        <span class="block w-5 h-[1.5px] bg-gray-500 rounded-full transition"></span>
+        <span class="block w-5 h-[1.5px] bg-gray-500 rounded-full transition"></span>
+        <span class="block w-5 h-[1.5px] bg-gray-500 rounded-full transition"></span>
       </button>
-
-      <!-- ✅ FIXED MOBILE MENU -->
-      <div
-        id="mobileMenu"
-        class="hidden absolute top-20 left-4 right-4 mx-auto bg-[#0B1020]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:hidden shadow-xl"
-      >
-        <ul class="flex flex-col space-y-4 text-center">
-          <li><a href="#home" class="hover:text-cyan-400">Home</a></li>
-          <li><a href="#about" class="hover:text-cyan-400">About</a></li>
-          <li><a href="#projects" class="hover:text-cyan-400">Projects</a></li>
-          <li><a href="#youtube" class="hover:text-cyan-400">Skills</a></li>
-          <li>
-            <a href="#certification" class="hover:text-cyan-400"
-              >Certification</a
-            >
-          </li>
-          <li><a href="#contact" class="hover:text-cyan-400">Contact</a></li>
+      <div id="mobileMenu" class="hidden absolute top-16 left-4 right-4 liquid-glass rounded-2xl p-6 md:hidden shadow-2xl">
+        <ul class="flex flex-col gap-5 text-center">
+          <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+          <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+          <li><a href="#skills" class="text-gray-400 hover:text-white transition-colors">Skills</a></li>
+          <li><a href="#certificates" class="text-gray-400 hover:text-white transition-colors">Certificates</a></li>
+          <li><a href="#youtube" class="text-gray-400 hover:text-white transition-colors">YouTube</a></li>
+          <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
         </ul>
       </div>
     </header>
 
-    <!-- HERO -->
-    <section
-      id="home"
-      class="min-h-screen flex flex-col justify-center items-center text-center px-4"
-    >
-      <img
-        src="Gemini_Generated_Image_6ge9646ge9646ge9.png"
-        class="w-40 h-40 rounded-full border-4 border-cyan-400 shadow-lg ring-4 ring-purple-900 reveal"
-      />
-
-      <h1 class="text-4xl md:text-6xl font-bold mt-6 reveal">
-        Hi, I'm <span class="text-cyan-400">Khushluck Singh</span>
+    <!-- ==================== HERO ==================== -->
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-5 pt-28 relative">
+      <div class="relative inline-block">
+        <img src="assets/Gemini_Generated_Image_6ge9646ge9646ge9.png" class="w-28 h-28 md:w-32 md:h-32 rounded-full border-2 border-[#00E5D4]/20 shadow-xl shadow-black/30 reveal object-cover" alt="NeuralSyntax" />
+        <div class="absolute -bottom-0.5 -right-0.5 w-7 h-7 rounded-full liquid-glass-deep flex items-center justify-center shadow-lg">
+          <span class="text-[10px] text-[#00E5D4]">✦</span>
+        </div>
+      </div>
+      <p class="font-orbitron text-[11px] uppercase tracking-[0.3em] text-[#00E5D4]/50 mt-7 reveal">NeuralSyntax</p>
+      <h1 class="font-orbitron text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-semibold mt-4 max-w-5xl leading-[1.12] reveal" style="letter-spacing:1px;">
+        <span class="gradient-text-wide">Building AI Tools, Educational Products & Developer Projects</span>
       </h1>
-
-      <p class="text-gray-400 mt-4 max-w-2xl reveal">
-        Developer • AI Creator • YouTuber Building futuristic web apps and
-        AI-powered tools.
+      <p class="text-[#8e8ea0] text-sm md:text-base max-w-lg mt-5 leading-relaxed reveal">
+        I'm a 16-year-old developer from Delhi, building technology that helps students learn AI, programming, and modern development.
       </p>
-
-      <div class="mt-6 flex space-x-4 reveal">
-        <a
-          class="px-6 py-3 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full hover:scale-105 transition shadow-lg"
-        >
-          View Projects
-        </a>
-
-        <a
-          class="px-6 py-3 border border-white/20 rounded-full hover:border-cyan-400 transition"
-        >
-          Watch YouTube
-        </a>
+      <div class="flex flex-wrap justify-center gap-3 mt-8 reveal">
+        <a href="#projects" class="btn-primary px-7 py-2.5 text-sm text-white">View Projects</a>
+        <a href="#certificates" class="btn-ghost px-7 py-2.5 text-sm text-gray-300">Certificates</a>
+        <a href="#contact" class="btn-ghost px-7 py-2.5 text-sm text-gray-300">Contact</a>
       </div>
 
-      <!-- STATS -->
-      <div class="grid grid-cols-3 gap-4 mt-12 max-w-xl reveal">
-        <div class="bg-white/5 p-4 rounded-xl border border-white/10">
-          <h2 class="text-2xl text-cyan-400 font-bold">10+</h2>
-          <p class="text-sm text-gray-400">Projects</p>
-        </div>
-
-        <div class="bg-white/5 p-4 rounded-xl border border-white/10">
-          <h2 class="text-2xl text-purple-400 font-bold">AI</h2>
-          <p class="text-sm text-gray-400">Skills</p>
-        </div>
-
-        <div class="bg-white/5 p-4 rounded-xl border border-white/10">
-          <h2 class="text-2xl text-blue-400 font-bold">YouTube</h2>
-          <p class="text-sm text-gray-400">Creator</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="py-24 px-6 text-center reveal">
-      <h2 class="text-3xl font-bold mb-4">About Me</h2>
-      <p class="text-gray-400 max-w-2xl mx-auto">
-        I started Neural Syntax in November 2025 because most AI content was
-        either repetitive, expensive, or incompetent, or not built for students.
-        My goal is to make AI education accessible, affordable, and practical
-        for learners who want clarity instead of hype. A 16-year-old creator in
-        Delhi, who is in Class 12 and has built a Python tool to break down AI
-        for students and runs a YouTube channel NeuralSyntax, decided to make AI
-        tuition free, useful, and real for Indian students.
-      </p>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="py-24 px-6 text-center reveal">
-      <h2 class="text-3xl font-bold mb-8">Projects</h2>
-
-      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        <div
-          class="p-6 bg-white/5 border border-white/10 rounded-xl hover:scale-105 transition"
-        >
-          Student Performance Predictor
-        </div>
-
-        <div
-          class="p-6 bg-white/5 border border-white/10 rounded-xl hover:scale-105 transition"
-        >
-          AI-Powered Study Planner
-        </div>
-
-        <div
-          class="p-6 bg-white/5 border border-white/10 rounded-xl hover:scale-105 transition"
-        >
-          Neural Syntax YouTube
-        </div>
-      </div>
-
-      <p class="text-gray-400 mt-8 max-w-2xl mx-auto reveal">
-        This is a glance at my projects. You can view my entire project folder
-        on my Drive link below.
-      </p>
-
-      <button
-        class="mt-6 px-6 py-3 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full hover:scale-105 transition shadow-lg reveal"
-      >
-        <a
-          href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3"
-          class="text-white font-bold"
-          target="_blank"
-          >View All Projects</a
-        >
-      </button>
-    </section>
-    <section id="skills" class="py-20 px-6">
-      <div class="max-w-4xl mx-auto">
-        <!-- Heading -->
-        <div class="text-center mb-10">
-          <h2 class="text-4xl font-bold">Skills</h2>
-          <p class="text-gray-400 mt-2">My technical expertise</p>
-        </div>
-
-        <!-- Skill Card -->
-        <div
-          class="bg-gradient-to-br from-[#0B1020] to-[#050816] p-8 rounded-3xl border border-white/10 shadow-xl space-y-6"
-        >
-          <!-- Skill Item -->
-            <div>
-              <div class="flex justify-between mb-1">
-                <span>Python</span>
-                <span>95%</span>
-              </div>
-              <div class="w-full h-2 bg-white/10 rounded-full">
-                <div
-                  class="h-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"
-                  style="width: 95%"
-                ></div>
-              </div>
-            </div>
-
-          <div>
-            <div class="flex justify-between mb-1">
-              <span>HTML / CSS</span>
-              <span>94%</span>
-            </div>
-            <div class="w-full h-2 bg-white/10 rounded-full">
-              <div
-                class="h-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"
-                style="width: 94%"
-              ></div>
-            </div>
+      <!-- Trust strip -->
+      <div class="mt-16 w-full max-w-2xl reveal">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden" style="background:rgba(255,255,255,0.04);">
+          <div class="bg-[#0c0c14]/90 py-5 px-3 text-center">
+            <p class="text-xl md:text-2xl font-bold text-[#00E5D4]">10+</p>
+            <p class="text-[11px] text-gray-600 mt-1 uppercase tracking-widest font-medium">Projects</p>
           </div>
-
-          <div>
-            <div class="flex justify-between mb-1">
-              <span>JavaScript</span>
-              <span>82%</span>
-            </div>
-            <div class="w-full h-2 bg-white/10 rounded-full">
-              <div
-                class="h-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"
-                style="width: 82%"
-              ></div>
-            </div>
+          <div class="bg-[#0c0c14]/90 py-5 px-3 text-center">
+            <p class="text-xl md:text-2xl font-bold text-[#6B4DFF]">18+</p>
+            <p class="text-[11px] text-gray-600 mt-1 uppercase tracking-widest font-medium">Certificates</p>
           </div>
-
-          <div>
-            <div class="flex justify-between mb-1">
-              <span>AI / Prompt Engineering</span>
-              <span>90%</span>
-            </div>
-            <div class="w-full h-2 bg-white/10 rounded-full">
-              <div
-                class="h-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"
-                style="width: 90%"
-              ></div>
-            </div>
+          <div class="bg-[#0c0c14]/90 py-5 px-3 text-center">
+            <p class="text-xl md:text-2xl font-bold text-[#00E5D4]">AI</p>
+            <p class="text-[11px] text-gray-600 mt-1 uppercase tracking-widest font-medium">Creator</p>
           </div>
-
-          <div>
-            <div class="flex justify-between mb-1">
-              <span>SQLite / JSON Storage</span>
-              <span>78%</span>
-            </div>
-            <div class="w-full h-2 bg-white/10 rounded-full">
-              <div
-                class="h-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"
-                style="width: 78%"
-              ></div>
-            </div>
-          </div>
-
-          <div>
-            <div class="flex justify-between mb-1">
-              <span>Tailwind / UI Design</span>
-              <span>88%</span>
-            </div>
-            <div class="w-full h-2 bg-white/10 rounded-full">
-              <div
-                class="h-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"
-                style="width: 88%"
-              ></div>
-            </div>
+          <div class="bg-[#0c0c14]/90 py-5 px-3 text-center">
+            <p class="text-xl md:text-2xl font-bold text-[#9A4DFF]">YouTube</p>
+            <p class="text-[11px] text-gray-600 mt-1 uppercase tracking-widest font-medium">Educator</p>
           </div>
         </div>
       </div>
     </section>
-    <section id="certification" class="py-20 px-6">
-      <!-- HEADER -->
-      <div class="text-center mb-10">
-        <h1 class="text-4xl font-bold">Certificates Vault</h1>
-        <p class="text-gray-400 mt-2">Interactive Achievement System</p>
-      </div>
 
-      <!-- FILTERS -->
-      <div class="flex justify-center gap-3 mb-10 flex-wrap">
-        <button
-          onclick="filterCerts('all')"
-          class="px-4 py-2 rounded-full bg-white/10 hover:bg-cyan-500/20"
-        >
-          All
-        </button>
-
-        <button
-          onclick="filterCerts('AI')"
-          class="px-4 py-2 rounded-full bg-white/10 hover:bg-cyan-500/20"
-        >
-          AI
-        </button>
-
-        <button
-          onclick="filterCerts('Web')"
-          class="px-4 py-2 rounded-full bg-white/10 hover:bg-blue-500/20"
-        >
-          Web
-        </button>
-
-        <button
-          onclick="filterCerts('Python')"
-          class="px-4 py-2 rounded-full bg-white/10 hover:bg-purple-500/20"
-        >
-          Python
-        </button>
-      </div>
-
-      <!-- GRID -->
-      <div
-        id="certGrid"
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto"
-      ></div>
-    </section>
-
-    <!-- MODAL -->
-    <div
-      id="modal"
-      class="hidden fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50"
-    >
-      <div
-        class="bg-[#0B1020] p-6 rounded-2xl w-[90%] md:w-[500px] border border-white/10"
-      >
-        <h2 id="modalTitle" class="text-xl font-bold mb-4"></h2>
-
-        <img id="modalImg" class="rounded-lg border border-white/10 mb-4" />
-
-        <button
-          onclick="closeModal()"
-          class="w-full py-2 bg-cyan-500 rounded-lg hover:scale-105 transition"
-        >
-          Close
-        </button>
-      </div>
-    </div>
-
-    <script>
-      let certificates = [];
-
-      /* -----------------------------
-   2. RENDER FUNCTION
-------------------------------*/
-      const grid = document.getElementById("certGrid");
-
-      function renderCerts(data) {
-        grid.innerHTML = "";
-
-        data.forEach((cert, i) => {
-          const card = document.createElement("div");
-          card.className =
-            "p-5 rounded-2xl bg-white/5 border border-white/10 cursor-pointer hover:scale-[1.03] transition pop";
-
-          card.innerHTML = `
-      <div class="flex justify-between mb-2">
-        <span class="text-xs px-2 py-1 rounded-full bg-cyan-500/20">${cert.category}</span>
-        <span class="text-xs text-gray-400">${cert.year}</span>
-      </div>
-
-      <h3 class="text-lg font-semibold">${cert.title}</h3>
-
-      <p class="text-sm text-gray-400 mt-1">${cert.issuer}</p>
-    `;
-
-          card.onclick = () => openModal(cert);
-
-          grid.appendChild(card);
-        });
-      }
-
-      /* -----------------------------
-   3. FILTER SYSTEM
-------------------------------*/
-      function filterCerts(category) {
-        if (category === "all") renderCerts(certificates);
-        else renderCerts(certificates.filter((c) => c.category === category));
-      }
-
-      /* -----------------------------
-   4. MODAL SYSTEM
-------------------------------*/
-      function openModal(cert) {
-        document.getElementById("modal").classList.remove("hidden");
-        document.getElementById("modalTitle").innerText = cert.title;
-        document.getElementById("modalImg").src = cert.image;
-      }
-
-      function closeModal() {
-        document.getElementById("modal").classList.add("hidden");
-      }
-
-      /* -----------------------------
-   5. INITIAL LOAD (FETCH JSON + RENDER)
-------------------------------*/
-      window.onload = () => {
-        fetch('data/certificates.json')
-          .then(res => { if (!res.ok) throw new Error('Failed to load certificates'); return res.json(); })
-          .then(data => {
-            certificates = data;
-            renderCerts(certificates);
-          })
-          .catch(err => console.error('Certificate load error:', err));
-      };
-    </script>
-    <!-- SCRIPT -->
-    <script>
-      const menuBtn = document.getElementById("menuBtn");
-      const mobileMenu = document.getElementById("mobileMenu");
-
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-
-      const reveals = document.querySelectorAll(".reveal");
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          }
-        });
-      });
-
-      reveals.forEach((el) => observer.observe(el));
-    </script>
-
-    <!-- YOUTUBE SECTION -->
-    <section id="youtube" class="py-20 px-6 relative">
-      <div class="max-w-6xl mx-auto">
-        <h2
-          class="text-4xl font-bold mb-4 text-center bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent"
-        >
-          NeuralSyntax YouTube Channel
+    <!-- ==================== ABOUT ==================== -->
+    <section id="about" class="py-28 px-5">
+      <div class="max-w-3xl mx-auto">
+        <p class="font-orbitron text-xs uppercase tracking-[0.3em] text-[#00E5D4]/50 text-center reveal">About</p>
+        <h2 class="font-orbitron text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+          <span class="gradient-text">The NeuralSyntax Story</span>
         </h2>
-        <p class="text-center text-gray-400 mb-12">
-          Watch my latest tutorials and tech content
-        </p>
+        <div class="mt-10 space-y-4 text-sm md:text-base text-[#8e8ea0] leading-[1.8] reveal">
+          <p>I started coding in 2023 with Python. I was 13, in Delhi, and like most students, I had no idea where to begin. Tutorials were either too expensive or too shallow — so I decided to build my own path.</p>
+          <p>By 2024, I had built my first real projects. By 2025, I launched <span class="text-[#00E5D4] font-medium">NeuralSyntax</span> — a YouTube channel and learning initiative. The goal: make AI and programming education <span class="text-gray-200">accessible, practical, and free</span> for Indian students.</p>
+          <p>I don't just consume content. I build. Over three years, I have built <span class="text-gray-200">student performance predictors, AI study planners, automation scripts</span>, and more. Every project is published, every lesson is shared on YouTube.</p>
+          <p>I'm not a student showing homework. I'm a young AI builder and tech educator — building real tools, earning real certifications, and helping students learn through technology.</p>
+        </div>
+      </div>
+    </section>
 
-        <div class="text-center mt-12">
-          <a
-            href="https://www.youtube.com/@NeuralSyntax-official"
-            class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full font-semibold hover:scale-105 transition"
-            target="_blank"
-          >
+    <div class="max-w-4xl mx-auto px-5"><div class="glow-line"></div></div>
+
+    <!-- ==================== FEATURED PROJECT ==================== -->
+    <section class="py-20 px-5">
+      <div class="max-w-5xl mx-auto">
+        <p class="font-orbitron text-xs uppercase tracking-[0.3em] text-[#00E5D4]/50 text-center reveal">Featured</p>
+        <h2 class="font-orbitron text-xl md:text-2xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+          <span class="gradient-text">Project Spotlight</span>
+        </h2>
+        <div class="mt-10 liquid-glass-deep overflow-hidden reveal">
+          <div class="grid md:grid-cols-5">
+            <div class="md:col-span-3 p-7 md:p-10 flex flex-col justify-center">
+              <h3 class="font-orbitron text-lg md:text-xl font-semibold text-white" style="letter-spacing:0.5px;">Student Performance Predictor</h3>
+              <p class="text-sm text-[#8e8ea0] mt-3 leading-relaxed">A machine learning tool that predicts student academic performance based on study habits, attendance, and past scores — designed for Indian school systems.</p>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span class="tag tag-cyan">Python</span>
+                <span class="tag tag-purple">Machine Learning</span>
+                <span class="tag tag-green">Pandas</span>
+                <span class="tag tag-blue">Scikit-learn</span>
+              </div>
+              <div class="flex gap-5 mt-5">
+                <a href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3" target="_blank" class="text-sm text-[#00E5D4] hover:text-white transition flex items-center gap-1.5">
+                  View Project <span class="text-xs">↗</span>
+                </a>
+                <a href="https://github.com/neuralsyntax8-glitch" target="_blank" class="text-sm text-gray-500 hover:text-white transition flex items-center gap-1.5">
+                  GitHub <span class="text-xs">↗</span>
+                </a>
+              </div>
+            </div>
+            <div class="md:col-span-2 min-h-[200px] bg-gradient-to-br from-[#00E5D4]/3 to-[#6B4DFF]/5 flex items-center justify-center p-7">
+              <div class="text-center">
+                <span class="text-4xl">📊</span>
+                <p class="text-xs text-gray-600 mt-3 max-w-[200px]">ML-powered student performance analysis for Indian education systems</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROJECTS ==================== -->
+    <section id="projects" class="py-20 px-5">
+      <div class="max-w-5xl mx-auto">
+        <p class="font-orbitron text-xs uppercase tracking-[0.3em] text-[#00E5D4]/50 text-center reveal">Projects</p>
+        <h2 class="font-orbitron text-xl md:text-2xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+          <span class="gradient-text">Built & Shipped</span>
+        </h2>
+        <div class="grid md:grid-cols-3 gap-4 mt-10">
+          <div class="liquid-glass-card p-6 reveal">
+            <span class="text-2xl">🤖</span>
+            <h3 class="font-orbitron text-sm font-semibold text-white mt-4" style="letter-spacing:0.5px;">AI Study Planner</h3>
+            <p class="text-xs text-[#8e8ea0] mt-2 leading-relaxed">Generates personalized study schedules based on syllabus, deadlines, and learning pace.</p>
+            <div class="flex gap-1.5 mt-4 flex-wrap">
+              <span class="tag tag-cyan">Python</span>
+              <span class="tag tag-purple">AI</span>
+            </div>
+            <div class="flex gap-3 mt-4">
+              <a href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3" target="_blank" class="text-xs text-[#00E5D4] hover:text-white transition">Live ↗</a>
+              <a href="https://github.com/neuralsyntax8-glitch" target="_blank" class="text-xs text-gray-500 hover:text-white transition">GitHub ↗</a>
+            </div>
+          </div>
+          <div class="liquid-glass-card p-6 reveal">
+            <span class="text-2xl">📦</span>
+            <h3 class="font-orbitron text-sm font-semibold text-white mt-4" style="letter-spacing:0.5px;">Python Automation</h3>
+            <p class="text-xs text-[#8e8ea0] mt-2 leading-relaxed">Collection of automation scripts for file management, data cleaning, and repetitive tasks.</p>
+            <div class="flex gap-1.5 mt-4 flex-wrap">
+              <span class="tag tag-cyan">Python</span>
+              <span class="tag tag-green">Automation</span>
+            </div>
+            <div class="flex gap-3 mt-4">
+              <a href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3" target="_blank" class="text-xs text-[#00E5D4] hover:text-white transition">Live ↗</a>
+              <a href="https://github.com/neuralsyntax8-glitch" target="_blank" class="text-xs text-gray-500 hover:text-white transition">GitHub ↗</a>
+            </div>
+          </div>
+          <div class="liquid-glass-card p-6 reveal">
+            <span class="text-2xl">🎥</span>
+            <h3 class="font-orbitron text-sm font-semibold text-white mt-4" style="letter-spacing:0.5px;">NeuralSyntax YouTube</h3>
+            <p class="text-xs text-[#8e8ea0] mt-2 leading-relaxed">Educational channel teaching AI, Python, and programming to Indian students in practical terms.</p>
+            <div class="flex gap-1.5 mt-4 flex-wrap">
+              <span class="tag tag-blue">Content</span>
+              <span class="tag tag-purple">Education</span>
+            </div>
+            <div class="flex gap-3 mt-4">
+              <a href="https://www.youtube.com/@NeuralSyntax-official" target="_blank" class="text-xs text-[#00E5D4] hover:text-white transition">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-8 reveal">
+          <a href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3" target="_blank" class="btn-ghost inline-flex items-center gap-2 px-6 py-2.5 text-sm text-gray-300">
+            View All Projects <span class="text-xs">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-5"><div class="glow-line"></div></div>
+
+    <!-- ==================== SKILLS ==================== -->
+    <section id="skills" class="py-24 px-5">
+      <div class="max-w-5xl mx-auto">
+        <p class="font-orbitron text-xs uppercase tracking-[0.3em] text-[#00E5D4]/50 text-center reveal">Skills</p>
+        <h2 class="font-orbitron text-xl md:text-2xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+          <span class="gradient-text">Tools & Technologies</span>
+        </h2>
+        <div class="grid md:grid-cols-4 gap-4 mt-10">
+          <div class="liquid-glass-card p-5 reveal">
+            <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#00E5D4] font-semibold mb-4">Languages</p>
+            <ul class="space-y-2.5">
+              <li class="flex justify-between text-sm"><span class="text-gray-200">Python</span><span class="text-xs text-gray-600">Primary</span></li>
+              <li class="flex justify-between text-sm"><span class="text-gray-200">JavaScript</span><span class="text-xs text-gray-600">Intermediate</span></li>
+              <li class="flex justify-between text-sm"><span class="text-gray-200">HTML / CSS</span><span class="text-xs text-gray-600">Proficient</span></li>
+            </ul>
+          </div>
+          <div class="liquid-glass-card p-5 reveal">
+            <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#6B4DFF] font-semibold mb-4">AI & Data</p>
+            <ul class="space-y-2.5">
+              <li class="flex justify-between text-sm"><span class="text-gray-200">Machine Learning</span><span class="text-xs text-gray-600">Building</span></li>
+              <li class="flex justify-between text-sm"><span class="text-gray-200">Prompt Engineering</span><span class="text-xs text-gray-600">Applied</span></li>
+              <li class="flex justify-between text-sm"><span class="text-gray-200">Data Analysis</span><span class="text-xs text-gray-600">Pandas</span></li>
+            </ul>
+          </div>
+          <div class="liquid-glass-card p-5 reveal">
+            <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#9A4DFF] font-semibold mb-4">Web</p>
+            <ul class="space-y-2.5">
+              <li class="flex justify-between text-sm"><span class="text-gray-200">Tailwind CSS</span><span class="text-xs text-gray-600">UI Design</span></li>
+              <li class="flex justify-between text-sm"><span class="text-gray-200">Responsive Design</span><span class="text-xs text-gray-600">All Projects</span></li>
+              <li class="flex justify-between text-sm"><span class="text-gray-200">REST APIs</span><span class="text-xs text-gray-600">Integration</span></li>
+            </ul>
+          </div>
+          <div class="liquid-glass-card p-5 reveal">
+            <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#34d399] font-semibold mb-4">Tools</p>
+            <ul class="space-y-2.5">
+              <li class="flex justify-between text-sm"><span class="text-gray-200">Git & GitHub</span><span class="text-xs text-gray-600">Version Control</span></li>
+              <li class="flex justify-between text-sm"><span class="text-gray-200">VS Code</span><span class="text-xs text-gray-600">Editor</span></li>
+              <li class="flex justify-between text-sm"><span class="text-gray-200">Canva</span><span class="text-xs text-gray-600">Design</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-5"><div class="glow-line"></div></div>
+
+    <!-- ==================== CERTIFICATES ==================== -->
+    <section id="certificates" class="py-24 px-5">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center reveal">
+          <p class="font-orbitron text-xs uppercase tracking-[0.3em] text-[#00E5D4]/50">Learning</p>
+          <h2 class="font-orbitron text-xl md:text-2xl font-semibold mt-3" style="letter-spacing:1px;">
+            <span class="gradient-text">Certificate Vault</span>
+          </h2>
+          <p class="text-xs text-gray-600 mt-2" id="certSummary">Loading certificates...</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 items-center justify-between mt-8 reveal">
+          <div class="flex gap-2 flex-wrap">
+            <button onclick="filterCerts('all')" class="filter-btn active" data-filter="all">All</button>
+            <button onclick="filterCerts('AI')" class="filter-btn" data-filter="AI">AI</button>
+            <button onclick="filterCerts('Web')" class="filter-btn" data-filter="Web">Web</button>
+            <button onclick="filterCerts('Python')" class="filter-btn" data-filter="Python">Python</button>
+          </div>
+          <div class="flex gap-2 w-full sm:w-auto">
+            <input id="certSearch" type="text" placeholder="Search..." class="w-full sm:w-40 px-3 py-1.5 rounded-full bg-white/5 border border-white/5 text-xs text-white placeholder-gray-600" oninput="searchCerts(this.value)" />
+            <select id="certSort" onchange="sortCerts(this.value)" class="px-3 py-1.5 rounded-full bg-white/5 border border-white/5 text-xs text-gray-400">
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+              <option value="az">A-Z</option>
+              <option value="za">Z-A</option>
+            </select>
+          </div>
+        </div>
+        <div id="certGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8"></div>
+        <p id="certEmpty" class="text-center text-gray-600 text-sm mt-10 hidden">No certificates match your search.</p>
+      </div>
+    </section>
+
+    <!-- ==================== YOUTUBE ==================== -->
+    <section id="youtube" class="py-20 px-5">
+      <div class="max-w-4xl mx-auto">
+        <div class="liquid-glass-deep p-8 md:p-10 text-center reveal">
+          <p class="font-orbitron text-[11px] uppercase tracking-[0.3em] text-red-400/60">YouTube Channel</p>
+          <h2 class="font-orbitron text-xl md:text-2xl font-semibold mt-3" style="letter-spacing:1px;">
+            <span class="bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">NeuralSyntax</span>
+          </h2>
+          <p class="text-sm text-[#8e8ea0] mt-3 max-w-lg mx-auto leading-relaxed">Practical tutorials on AI, Python, and programming — designed for Indian students who want to learn without expensive courses or unnecessary complexity.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-sm mx-auto mt-6">
+            <div class="bg-white/5 rounded-xl py-3 px-3 border border-white/5">
+              <p class="text-sm font-semibold text-red-400">AI</p>
+              <p class="text-[11px] text-gray-600">Tutorials</p>
+            </div>
+            <div class="bg-white/5 rounded-xl py-3 px-3 border border-white/5">
+              <p class="text-sm font-semibold text-red-400">Python</p>
+              <p class="text-[11px] text-gray-600">Projects</p>
+            </div>
+            <div class="bg-white/5 rounded-xl py-3 px-3 border border-white/5">
+              <p class="text-sm font-semibold text-red-400">Tech</p>
+              <p class="text-[11px] text-gray-600">Education</p>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/@NeuralSyntax-official" target="_blank" class="inline-flex items-center gap-2 mt-6 btn-primary px-6 py-2.5 text-sm text-white">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             Visit YouTube Channel
           </a>
         </div>
       </div>
     </section>
-    <section id="contact" class="py-12">
-      <div class="max-w-2xl mx-auto">
-        <div class="mb-6 text-center">
-          <h3 class="text-2xl font-bold text-white">Contact Me</h3>
-          <p class="text-gray-400 text-sm">
-            Have a project or question? Send a message.
-          </p>
+
+    <!-- ==================== TIMELINE ==================== -->
+    <section id="journey" class="py-24 px-5">
+      <div class="max-w-3xl mx-auto">
+        <p class="font-orbitron text-xs uppercase tracking-[0.3em] text-[#00E5D4]/50 text-center reveal">Journey</p>
+        <h2 class="font-orbitron text-xl md:text-2xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+          <span class="gradient-text">The Path So Far</span>
+        </h2>
+        <div class="relative mt-12">
+          <div class="timeline-track"></div>
+          <div class="space-y-10">
+            <div class="relative pl-14 md:pl-0 md:flex md:justify-end md:pr-[52%] reveal">
+              <div class="absolute left-5 md:left-auto md:right-[calc(50%-7px)] top-1 timeline-dot" style="background:#00E5D4;box-shadow:0 0 0 2px #00E5D4;"></div>
+              <div class="liquid-glass-card p-5">
+                <p class="font-orbitron text-[11px] font-bold text-[#00E5D4]">2023</p>
+                <p class="text-sm font-semibold text-white mt-1">Started Coding</p>
+                <p class="text-xs text-[#8e8ea0] mt-1">Began with Python. Built first scripts and learned programming fundamentals.</p>
+              </div>
+            </div>
+            <div class="relative pl-14 md:pl-0 md:flex md:w-[52%] reveal">
+              <div class="absolute left-5 md:left-[calc(50%-7px)] top-1 timeline-dot" style="background:#6B4DFF;box-shadow:0 0 0 2px #6B4DFF;"></div>
+              <div class="liquid-glass-card p-5">
+                <p class="font-orbitron text-[11px] font-bold text-[#6B4DFF]">2024</p>
+                <p class="text-sm font-semibold text-white mt-1">Built First Projects</p>
+                <p class="text-xs text-[#8e8ea0] mt-1">Built automation tools, data analysis projects, and published code on GitHub.</p>
+              </div>
+            </div>
+            <div class="relative pl-14 md:pl-0 md:flex md:justify-end md:pr-[52%] reveal">
+              <div class="absolute left-5 md:left-auto md:right-[calc(50%-7px)] top-1 timeline-dot" style="background:#9A4DFF;box-shadow:0 0 0 2px #9A4DFF;"></div>
+              <div class="liquid-glass-card p-5">
+                <p class="font-orbitron text-[11px] font-bold text-[#9A4DFF]">2025</p>
+                <p class="text-sm font-semibold text-white mt-1">Launched NeuralSyntax</p>
+                <p class="text-xs text-[#8e8ea0] mt-1">Started the YouTube channel and learning initiative to make AI education free.</p>
+              </div>
+            </div>
+            <div class="relative pl-14 md:pl-0 md:flex md:w-[52%] reveal">
+              <div class="absolute left-5 md:left-[calc(50%-7px)] top-1 timeline-dot" style="background:#00E5D4;box-shadow:0 0 0 2px #00E5D4;"></div>
+              <div class="liquid-glass-card p-5">
+                <p class="font-orbitron text-[11px] font-bold text-[#00E5D4]">2026</p>
+                <p class="text-sm font-semibold text-white mt-1">Building AI Products</p>
+                <p class="text-xs text-[#8e8ea0] mt-1">Developing ML-powered study tools, portfolio automation, and scaling NeuralSyntax.</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <form
-          action="https://forminit.com/f/q07fxftnwvs"
-          method="POST"
-          class="bg-[#061025] p-8 rounded-2xl border border-white/6 shadow-xl"
-        >
-          <div class="space-y-5">
-            <!-- Name -->
-            <label class="block text-sm">
-              <span class="text-gray-300 font-medium">Name</span>
-              <input
-                type="text"
-                name="fi-sender-fullName"
-                required
-                placeholder="Enter your name"
-                class="mt-2 w-full rounded-lg border border-white/8 bg-[#06131f] px-4 py-3 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
-              />
-            </label>
+    <!-- ==================== ACHIEVEMENTS ==================== -->
+    <section class="py-20 px-5">
+      <div class="max-w-4xl mx-auto text-center reveal">
+        <p class="font-orbitron text-xs uppercase tracking-[0.3em] text-[#00E5D4]/50">Milestones</p>
+        <h2 class="font-orbitron text-xl md:text-2xl font-semibold mt-3" style="letter-spacing:1px;">
+          <span class="gradient-text">Achievements</span>
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
+          <div class="liquid-glass-card py-6 px-3"><p class="text-2xl md:text-3xl font-bold text-[#00E5D4]">10+</p><p class="text-[11px] text-gray-600 mt-1 uppercase tracking-wider">Projects</p></div>
+          <div class="liquid-glass-card py-6 px-3"><p class="text-2xl md:text-3xl font-bold text-[#6B4DFF]">18+</p><p class="text-[11px] text-gray-600 mt-1 uppercase tracking-wider">Certificates</p></div>
+          <div class="liquid-glass-card py-6 px-3"><p class="text-2xl md:text-3xl font-bold text-[#9A4DFF]">1</p><p class="text-[11px] text-gray-600 mt-1 uppercase tracking-wider">Channel</p></div>
+          <div class="liquid-glass-card py-6 px-3"><p class="text-2xl md:text-3xl font-bold text-[#00E5D4]">2</p><p class="text-[11px] text-gray-600 mt-1 uppercase tracking-wider">Automations</p></div>
+        </div>
+      </div>
+    </section>
 
-            <!-- Email -->
-            <label class="block text-sm">
-              <span class="text-gray-300 font-medium">Email</span>
-              <input
-                type="email"
-                name="fi-sender-email"
-                required
-                placeholder="you@example.com"
-                class="mt-2 w-full rounded-lg border border-white/8 bg-[#06131f] px-4 py-3 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
-              />
-            </label>
+    <div class="max-w-4xl mx-auto px-5"><div class="glow-line"></div></div>
 
-            <!-- Message -->
-            <label class="block text-sm">
-              <span class="text-gray-300 font-medium">Message</span>
-              <textarea
-                name="fi-text-message"
-                rows="5"
-                required
-                placeholder="Write your message..."
-                class="mt-2 w-full rounded-lg border border-white/8 bg-[#06131f] px-4 py-3 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
-              ></textarea>
-            </label>
-
-            <!-- Button -->
-            <button
-              type="submit"
-              class="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full font-semibold hover:scale-105 transition transform"
-            >
-              Send Message 🚀
-            </button>
+    <!-- ==================== CONTACT ==================== -->
+    <section id="contact" class="py-24 px-5">
+      <div class="max-w-2xl mx-auto">
+        <p class="font-orbitron text-xs uppercase tracking-[0.3em] text-[#00E5D4]/50 text-center reveal">Contact</p>
+        <h2 class="font-orbitron text-xl md:text-2xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+          <span class="gradient-text">Get in Touch</span>
+        </h2>
+        <p class="text-sm text-[#8e8ea0] text-center mt-3 reveal">Collaboration, student projects, or EdTech initiatives — reach out.</p>
+        <div class="mt-6 liquid-glass-card p-5 reveal">
+          <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#00E5D4]/80 font-semibold">Available For</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="tag tag-cyan">Collaborations</span>
+            <span class="tag tag-purple">Student Projects</span>
+            <span class="tag tag-blue">EdTech Initiatives</span>
+          </div>
+        </div>
+        <form action="https://forminit.com/f/q07fxftnwvs" method="POST" class="mt-5 liquid-glass-card p-6 md:p-8 reveal">
+          <div class="space-y-4">
+            <label class="block text-xs"><span class="text-gray-400 font-medium">Name</span>
+              <input type="text" name="fi-sender-fullName" required placeholder="Your name" class="mt-1.5 w-full rounded-lg bg-white/5 border border-white/5 px-4 py-2.5 text-sm text-white placeholder-gray-600 outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10 transition" /></label>
+            <label class="block text-xs"><span class="text-gray-400 font-medium">Email</span>
+              <input type="email" name="fi-sender-email" required placeholder="you@example.com" class="mt-1.5 w-full rounded-lg bg-white/5 border border-white/5 px-4 py-2.5 text-sm text-white placeholder-gray-600 outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10 transition" /></label>
+            <label class="block text-xs"><span class="text-gray-400 font-medium">Subject</span>
+              <input type="text" name="fi-text-subject" placeholder="What is this about?" class="mt-1.5 w-full rounded-lg bg-white/5 border border-white/5 px-4 py-2.5 text-sm text-white placeholder-gray-600 outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10 transition" /></label>
+            <label class="block text-xs"><span class="text-gray-400 font-medium">Message</span>
+              <textarea name="fi-text-message" rows="4" required placeholder="Write your message..." class="mt-1.5 w-full rounded-lg bg-white/5 border border-white/5 px-4 py-2.5 text-sm text-white placeholder-gray-600 outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10 transition resize-none"></textarea></label>
+            <button type="submit" class="btn-primary w-full py-2.5 text-sm text-white">Send Message</button>
           </div>
         </form>
       </div>
     </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="py-8 px-5 border-t border-white/5 text-center">
+      <p class="font-orbitron text-[11px] tracking-wider text-gray-600">&copy; 2026 NeuralSyntax — Built with HTML, Tailwind CSS & GitHub Actions</p>
+    </footer>
+
+    <!-- ==================== MODAL ==================== -->
+    <div id="modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4">
+      <div class="bg-[#141420] rounded-2xl w-full max-w-lg border border-white/5 overflow-hidden shadow-2xl">
+        <div class="p-5 pb-3 flex items-start justify-between">
+          <div>
+            <h2 id="modalTitle" class="font-orbitron text-sm font-semibold text-white" style="letter-spacing:0.5px;"></h2>
+            <p id="modalMeta" class="text-xs text-gray-500 mt-1"></p>
+          </div>
+          <button onclick="closeModal()" class="text-gray-500 hover:text-white transition text-lg leading-none">&times;</button>
+        </div>
+        <img id="modalImg" class="w-full max-h-[55vh] object-contain bg-black/60" />
+        <div class="p-5 pt-3">
+          <button onclick="closeModal()" class="w-full py-2 text-xs rounded-xl bg-white/5 hover:bg-white/10 transition text-gray-400 font-medium">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script>
+      let certificates = [];
+      const grid = document.getElementById("certGrid");
+      const emptyMsg = document.getElementById("certEmpty");
+      const summary = document.getElementById("certSummary");
+      let currentFilter = "all", currentSearch = "", currentSort = "newest";
+
+      function renderCerts(data) {
+        grid.innerHTML = "";
+        if (data.length === 0) { emptyMsg.classList.remove("hidden"); return; }
+        emptyMsg.classList.add("hidden");
+        data.forEach((cert) => {
+          const card = document.createElement("div");
+          const catClass = cert.category === 'AI' ? 'tag-cyan' : cert.category === 'Web' ? 'tag-blue' : 'tag-purple';
+          card.className = "liquid-glass-card p-5 cursor-pointer pop";
+          card.innerHTML = `<div class="flex justify-between items-center mb-3"><span class="tag ${catClass}">${cert.category}</span><span class="text-[11px] text-gray-600">${cert.year}</span></div><h3 class="text-sm font-semibold text-white leading-snug">${cert.title}</h3><p class="text-xs text-[#8e8ea0] mt-1.5">${cert.issuer}</p>`;
+          card.onclick = () => openModal(cert);
+          grid.appendChild(card);
+        });
+      }
+
+      function applyFilters() {
+        let result = certificates;
+        if (currentFilter !== "all") result = result.filter(c => c.category === currentFilter);
+        if (currentSearch) { const q = currentSearch.toLowerCase(); result = result.filter(c => c.title.toLowerCase().includes(q) || c.issuer.toLowerCase().includes(q) || c.category.toLowerCase().includes(q)); }
+        if (currentSort === "newest") result = [...result].sort((a, b) => (b.year||"").toString().localeCompare((a.year||"").toString()));
+        else if (currentSort === "oldest") result = [...result].sort((a, b) => (a.year||"").toString().localeCompare((b.year||"").toString()));
+        else if (currentSort === "az") result = [...result].sort((a, b) => a.title.localeCompare(b.title));
+        else if (currentSort === "za") result = [...result].sort((a, b) => b.title.localeCompare(a.title));
+        renderCerts(result);
+      }
+
+      function filterCerts(category) {
+        currentFilter = category;
+        document.querySelectorAll(".filter-btn").forEach(btn => { btn.classList.remove("active"); if (btn.dataset.filter === category) btn.classList.add("active"); });
+        applyFilters();
+      }
+      function searchCerts(v) { currentSearch = v; applyFilters(); }
+      function sortCerts(v) { currentSort = v; applyFilters(); }
+
+      function openModal(cert) {
+        document.getElementById("modal").classList.remove("hidden");
+        document.getElementById("modalTitle").innerText = cert.title;
+        document.getElementById("modalMeta").innerText = cert.issuer + " — " + cert.category;
+        document.getElementById("modalImg").src = cert.image;
+      }
+      function closeModal() { document.getElementById("modal").classList.add("hidden"); }
+      document.getElementById("modal").addEventListener("click", e => { if (e.target === e.currentTarget) closeModal(); });
+      document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+      window.onload = () => {
+        fetch('data/certificates.json')
+          .then(res => { if (!res.ok) throw new Error('Failed to load'); return res.json(); })
+          .then(data => {
+            certificates = data;
+            const counts = {};
+            certificates.forEach(c => { counts[c.category] = (counts[c.category] || 0) + 1; });
+            summary.innerText = `${certificates.length} certificates — ${Object.entries(counts).map(([k,v]) => `${v} ${k}`).join(', ')}. Continuously learning and validating skills.`;
+            applyFilters();
+          })
+          .catch(err => { console.error('Certificate load error:', err); summary.innerText = 'Could not load certificates.'; });
+      };
+    </script>
+
+    <script>
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+      document.querySelectorAll("#mobileMenu a").forEach(l => l.addEventListener("click", () => mobileMenu.classList.add("hidden")));
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); }); }, { threshold: 0.08 });
+      reveals.forEach(el => observer.observe(el));
+    </script>
   </body>
 </html>

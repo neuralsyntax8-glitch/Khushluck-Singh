@@ -89,40 +89,5 @@
     "year": "2026",
     "issuer": "BE10X",
     "image": "assets/Certificate_page-0001.jpg"
-  },
-  {
-    "title": "Tailwind CSS: Style Apps Like a Design Guru",
-    "category": "AI",
-    "year": "2026",
-    "issuer": "DevTown",
-    "image": "assets/wHWyn-1.png"
-  },
-  {
-    "title": "Certification Of Appericiation",
-    "category": "AI",
-    "year": "2026",
-    "issuer": "DevTown",
-    "image": "assets/Certification of Appericiation.png"
-  },
-  {
-    "title": "Certification Of Participation Machine Learning Mastery",
-    "category": "AI",
-    "year": "2026",
-    "issuer": "DevTown",
-    "image": "assets/Certification of Participation - Machine Learning Mastery-1.png"
-  },
-  {
-    "title": "Google Certificate Machine Learning Mastery",
-    "category": "AI",
-    "year": "2026",
-    "issuer": "Google Devloper",
-    "image": "assets/Google Certificate - Machine Learning Mastery_page-0001.jpg"
-  },
-  {
-    "title": "Microsoft Certificate Machine Learning Mastery",
-    "category": "AI",
-    "year": "2026",
-    "issuer": "Microsoft",
-    "image": "assets/Microsoft Certificate - Machine Learning Mastery_page-0001.jpg"
   }
 ]

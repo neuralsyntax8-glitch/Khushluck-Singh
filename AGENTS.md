@@ -10,18 +10,33 @@ Static portfolio (vanilla HTML/CSS/JS). Tailwind CSS v4 loaded via CDN. No build
 ## Structure
 | Path | Purpose |
 |---|---|
-| `index.html` | Entire app — hero, about, skills, projects, certifications, YouTube, contact form |
+| `index.html` | Entire single-page portfolio — 9 sections + modal |
 | `data/certificates.json` | Certificate data — loaded dynamically by `index.html` |
 | `assets/` | Profile photo, certificate images (PNG/JPEG files) |
 | `scripts/sync-certs.py` | Python script — downloads Drive images via gdown and updates certificates.json |
 | `.github/workflows/sync-drive.yml` | GitHub Actions — runs sync every 6 hours |
 | `.github/workflows/deploy.yml` | GitHub Pages deploy on push to `main` |
 
+## Sections (in order)
+1. **Navbar** — Glassmorphism sticky nav with mobile hamburger menu
+2. **Hero** — Headline, trust strip (projects/certs/AI/YouTube counts), CTAs
+3. **About** — First-person narrative: how Neural Syntax started
+4. **Featured Project** — Featured card with description, tech stack, links
+5. **Projects Grid** — 3 project cards with descriptions and links
+6. **Skills** — Categorized cards (Languages, AI & Data, Web Development, Tools)
+7. **Certificate Vault** — Search, sort, filter by category, modal preview, count summary
+8. **YouTube** — Neural Syntax channel presentation with topic cards
+9. **Timeline** — Vertical timeline: 2023→2024→2025→2026
+10. **Achievements** — Statistics grid (projects, certs, channel, automations)
+11. **Contact** — Availability badges, FormInit form with subject field
+12. **Footer** — Credit line
+
 ## Key details
+- **Brand positioning:** Young AI Builder, Developer & Tech Educator (not "student portfolio")
 - **Contact form** submits to FormInit.com (`https://forminit.com/f/q07fxftnwvs`)
-- **Certificates** stored in `data/certificates.json` — auto-synced from Drive via GitHub Actions 
+- **Certificates** stored in `data/certificates.json` — auto-synced from Drive via GitHub Actions
 - **Scroll animations** use a custom `IntersectionObserver` for `.reveal` elements
-- All styling is inline Tailwind utility classes or `<style>` block — no CSS files
+- **SEO** includes Open Graph, Twitter Cards, and Schema.org Person markup
 
 ## Auto-sync setup (GitHub Actions — no API keys needed)
 Drive folder is public, so the sync runs entirely in GitHub Actions:
