@@ -1251,7 +1251,7 @@
       document.getElementById("modal").addEventListener("click", e => { if (e.target === e.currentTarget) closeModal(); });
       document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
 
-      window.onload = () => {
+      document.addEventListener("DOMContentLoaded", () => {
         fetch('data/certificates.json')
           .then(res => { if (!res.ok) throw new Error('Failed to load'); return res.json(); })
           .then(data => {
@@ -1262,7 +1262,7 @@
             applyFilters();
           })
           .catch(err => { console.error('Certificate load error:', err); summary.innerText = 'Could not load certificates.'; });
-      };
+      });
     </script>
 
     <script>
@@ -1431,17 +1431,17 @@
           if (i < originalText.length) {
             heroHeading.textContent += originalText.charAt(i);
             i++;
-            setTimeout(typeChar, 28 + Math.random() * 20);
+            setTimeout(typeChar, 14 + Math.random() * 10);
           }
         }
-        setTimeout(typeChar, 600);
+        setTimeout(typeChar, 100);
       }
 
       // ─── Preloader ───
-      window.addEventListener("load", () => {
+      document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           document.getElementById("preloader").classList.add("fade");
-        }, 400);
+        }, 200);
       });
     </script>
 
