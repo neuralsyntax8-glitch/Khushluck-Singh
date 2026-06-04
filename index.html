@@ -1320,7 +1320,7 @@
       // ═══════════════════════════════════════════
       // NATIVE SCROLL EVENTS
       // ═══════════════════════════════════════════
-      window.addEventListener("scroll", () => {
+      function handleScroll() {
         const s = window.scrollY;
         const h = document.documentElement.scrollHeight - window.innerHeight;
         progressBar.style.width = h > 0 ? (s / h) * 100 + "%" : "0%";
@@ -1331,7 +1331,9 @@
           if (s >= sec.offsetTop - 200) current = sec.getAttribute("id");
         });
         navLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + current));
-      });
+      }
+      window.addEventListener("scroll", handleScroll);
+      handleScroll();
 
       backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
@@ -1538,90 +1540,43 @@
       });
 
       // ═══════════════════════════════════════════
-      // GSAP SCROLLTRIGGER ANIMATIONS
+      // GSAP SCROLLTRIGGER ANIMATIONS (graceful fallback)
       // ═══════════════════════════════════════════
-      gsap.registerPlugin(ScrollTrigger);
+      try { if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
 
-      // Split hero text
-      const heroText = document.getElementById("heroText");
-      if (heroText) {
-        const chars = heroText.textContent.split("");
-        heroText.innerHTML = chars.map(c => c === " " ? " " : `<span class="split-char">${c}</span>`).join("");
-        gsap.to(".split-char", {
-          opacity: 1,
-          y: 0,
-          rotationX: 0,
-          duration: 0.6,
-          stagger: 0.02,
-          ease: "power3.out",
-          delay: 0.15,
+        const heroText = document.getElementById("heroText");
+        if (heroText) {
+          const chars = heroText.textContent.split("");
+          heroText.innerHTML = chars.map(c => c === " " ? " " : `<span class="split-char">${c}</span>`).join("");
+          gsap.to(".split-char", {
+            opacity: 1, y: 0, rotationX: 0,
+            duration: 0.6, stagger: 0.02, ease: "power3.out", delay: 0.15,
+          });
+        }
+
+        document.querySelectorAll(".glow-line").forEach(line => {
+          ScrollTrigger.create({
+            trigger: line, start: "top 85%",
+            onEnter: () => {
+              line.style.transition = "transform 0.8s cubic-bezier(0.16,1,0.3,1), opacity 0.8s ease";
+              line.style.transform = "scaleX(1)";
+              line.style.opacity = "0.6";
+            },
+          });
         });
-      }
 
-      // Glow line bridges
-      document.querySelectorAll(".glow-line").forEach(line => {
-        ScrollTrigger.create({
-          trigger: line,
-          start: "top 85%",
-          onEnter: () => {
-            line.style.transition = "transform 0.8s cubic-bezier(0.16,1,0.3,1), opacity 0.8s ease";
-            line.style.transform = "scaleX(1)";
-            line.style.opacity = "0.6";
-          },
+        document.querySelectorAll(".timeline-item").forEach((item, i) => {
+          ScrollTrigger.create({
+            trigger: item, start: "top 80%",
+            onEnter: () => {
+              item.style.transition = `all 0.7s cubic-bezier(0.16,1,0.3,1) ${i * 0.12}s`;
+              item.style.opacity = "1";
+              item.style.transform = "translateX(0)";
+            },
+          });
         });
-      });
-
-      // Section title reveals
-      document.querySelectorAll(".section-title").forEach(title => {
-        ScrollTrigger.create({
-          trigger: title,
-          start: "top 80%",
-          onEnter: () => {
-            title.style.transition = "all 0.8s cubic-bezier(0.16,1,0.3,1)";
-            title.style.opacity = "1";
-            title.style.transform = "translateY(0)";
-          },
-        });
-      });
-
-      // Stagger card entrance
-      document.querySelectorAll(".projects-grid, .skills-grid, .testimonial-grid, #certGrid").forEach(grid => {
-        ScrollTrigger.create({
-          trigger: grid,
-          start: "top 75%",
-          onEnter: () => {
-            const cards = grid.querySelectorAll(".liquid-glass-card, .tilt-card");
-            cards.forEach((card, i) => {
-              card.style.transition = `all 0.6s cubic-bezier(0.16,1,0.3,1) ${i * 0.08}s`;
-              card.style.opacity = "1";
-              card.style.transform = "translateY(0)";
-            });
-          },
-        });
-      });
-
-      // Timeline stagger
-      document.querySelectorAll(".timeline-item").forEach((item, i) => {
-        ScrollTrigger.create({
-          trigger: item,
-          start: "top 80%",
-          onEnter: () => {
-            item.style.transition = `all 0.7s cubic-bezier(0.16,1,0.3,1) ${i * 0.12}s`;
-            item.style.opacity = "1";
-            item.style.transform = "translateX(0)";
-          },
-        });
-      });
-
-      // Marquee scale entrance
-      ScrollTrigger.create({
-        trigger: ".marquee-wrap",
-        start: "top 85%",
-        onEnter: () => {
-          const m = document.querySelector(".marquee-track");
-          if (m) { m.style.animationPlayState = "running"; }
-        },
-      });
+      } } catch(e) { console.warn("GSAP unavailable, using native animations"); }
 
       // ═══════════════════════════════════════════
       // TOAST
