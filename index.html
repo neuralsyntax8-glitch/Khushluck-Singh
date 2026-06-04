@@ -38,6 +38,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <style>
       :root {
@@ -318,7 +321,9 @@
       .glow-line {
         height: 1px;
         background: linear-gradient(90deg, transparent, rgba(0,229,212,0.12), rgba(107,77,255,0.12), transparent);
-        opacity: 0.6;
+        opacity: 0;
+        transform: scaleX(0);
+        transform-origin: center;
       }
       .filter-btn {
         font-size: 12px; padding: 6px 16px; border-radius: 9999px;
@@ -366,6 +371,9 @@
       /* ─── Smooth image radius ─── */
       .img-radius { border-radius: 24px; }
       .img-radius-sm { border-radius: 16px; }
+
+      /* ─── Content above particles ─── */
+      section, header, footer, #backToTop, #toast { position: relative; z-index: 1; }
 
       /* ─── Navbar scroll effect ─── */
       .navbar-scrolled {
@@ -418,6 +426,9 @@
         border-color: rgba(0, 229, 212, 0.3);
         box-shadow: 0 0 0 3px rgba(0, 229, 212, 0.06);
       }
+
+      /* ─── Particles canvas ─── */
+      #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 
       /* ─── Custom cursor ─── */
       .cursor-dot {
@@ -515,6 +526,35 @@
       /* ─── Active nav link ─── */
       .nav-link.active { color: var(--cyan) !important; }
 
+      /* ─── Lenis scroll ─── */
+      html.lenis { scroll-behavior: auto; overflow: hidden; }
+      html.lenis body { overflow: hidden; }
+
+      /* ─── GSAP reveal ─── */
+      .gsap-reveal { opacity: 0; transform: translateY(40px); }
+      .gsap-reveal-left { opacity: 0; transform: translateX(-60px); }
+      .gsap-reveal-right { opacity: 0; transform: translateX(60px); }
+      .gsap-reveal-scale { opacity: 0; transform: scale(0.85); }
+
+      /* ─── Split text ─── */
+      .split-char { display: inline-block; opacity: 0; transform: translateY(40px) rotateX(-20deg); }
+
+      /* ─── Magnetic buttons ─── */
+      .magnetic { position: relative; display: inline-flex; }
+
+      /* ─── Hero 3D layers ─── */
+      .hero-3d { perspective: 1200px; transform-style: preserve-3d; }
+      .hero-layer { transition: transform 0.3s ease-out; will-change: transform; }
+
+      /* ─── Section transition overlay ─── */
+      .section-bridge {
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--cyan), var(--purple), transparent);
+        opacity: 0;
+        transform: scaleX(0);
+        transition: none;
+      }
+
       /* ─── Card hover shine ─── */
       .shine {
         position: relative; overflow: hidden;
@@ -530,11 +570,14 @@
     </style>
   </head>
 
-  <body class="overflow-x-hidden antialiased">
+  <body class="overflow-x-hidden antialiased" style="overflow:hidden">
 
     <!-- Custom cursor -->
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Particles canvas -->
+    <canvas id="particles"></canvas>
 
     <!-- Noise overlay -->
     <div class="noise-overlay"></div>
@@ -586,13 +629,13 @@
     </header>
 
     <!-- ==================== HERO ==================== -->
-    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-5 pt-28 relative overflow-hidden">
-      <div class="flex flex-col items-center gap-5 reveal show">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 radius-full border border-[var(--glass-border)] bg-[var(--glass-bg)] text-xs text-[var(--text-muted)] badge-pulse">
+    <section id="home" class="hero-3d min-h-screen flex flex-col justify-center items-center text-center px-5 pt-28 relative overflow-hidden">
+      <div class="flex flex-col items-center gap-5 reveal show" style="transform:translateZ(60px)">
+        <div class="hero-layer hero-layer-3 inline-flex items-center gap-2 px-4 py-1.5 radius-full border border-[var(--glass-border)] bg-[var(--glass-bg)] text-xs text-[var(--text-muted)] badge-pulse">
           <span class="w-1.5 h-1.5 rounded-full bg-[#00E5D4]"></span>
           Young AI Builder · Developer · Tech Educator
         </div>
-        <div class="relative inline-block mt-2">
+        <div class="hero-layer hero-layer-2 relative inline-block mt-2">
           <img src="assets/Gemini_Generated_Image_6ge9646ge9646ge9.png" class="w-28 h-28 md:w-32 md:h-32 img-radius border-2 border-[#00E5D4]/20 shadow-2xl shadow-black/40 object-cover" alt="Khushluck Singh" />
           <div class="absolute -bottom-1 -right-1 w-8 h-8 radius-full liquid-glass-deep flex items-center justify-center shadow-lg">
             <span class="text-xs text-[#00E5D4]">✦</span>
@@ -600,23 +643,23 @@
         </div>
       </div>
 
-      <div class="mt-6 reveal show" style="transition-delay:0.1s">
+      <div class="hero-layer hero-layer-1 mt-6 reveal show" style="transition-delay:0.1s">
         <h1 class="font-orbitron heading-xl font-semibold max-w-5xl leading-[1.1] text-balance" style="letter-spacing:1px;">
-          <span class="gradient-text-wide">Building AI Products That Help Students Learn Smarter</span>
+          <span class="gradient-text-wide" id="heroText">Building AI Products That Help Students Learn Smarter</span>
         </h1>
       </div>
 
-      <p class="text-[var(--text-secondary)] text-sm md:text-base max-w-lg mt-5 leading-relaxed reveal show" style="transition-delay:0.2s">
+      <p class="hero-layer hero-layer-1 text-[var(--text-secondary)] text-sm md:text-base max-w-lg mt-5 leading-relaxed reveal show" style="transition-delay:0.2s">
         I'm Khushluck Singh, a <span class="text-[var(--text-primary)] font-medium">16-year-old developer</span> from Delhi building educational technology that makes AI and programming accessible to students across India.
       </p>
 
-      <div class="flex flex-wrap justify-center gap-3 mt-8 reveal show" style="transition-delay:0.3s">
-        <a href="#projects" class="btn-primary text-white">View Projects <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
-        <a href="#certificates" class="btn-ghost text-[var(--text-secondary)]">Certificates</a>
-        <a href="#contact" class="btn-ghost text-[var(--text-secondary)]">Contact</a>
+      <div class="hero-layer hero-layer-2 flex flex-wrap justify-center gap-3 mt-8 reveal show" style="transition-delay:0.3s">
+        <a href="#projects" class="btn-primary text-white magnetic">View Projects <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        <a href="#certificates" class="btn-ghost text-[var(--text-secondary)] magnetic">Certificates</a>
+        <a href="#contact" class="btn-ghost text-[var(--text-secondary)] magnetic">Contact</a>
       </div>
 
-      <div class="mt-16 w-full max-w-2xl reveal show" style="transition-delay:0.4s">
+      <div class="hero-layer hero-layer-0 mt-16 w-full max-w-2xl reveal show" style="transition-delay:0.4s">
         <div class="stat-grid grid grid-cols-2 md:grid-cols-4 gap-px radius-2xl overflow-hidden" style="background:var(--glass-border);">
           <div class="bg-[var(--trust-cell-bg)] py-6 px-3 text-center hover:bg-[var(--glass-simple)] transition-colors">
             <p class="text-2xl md:text-3xl font-bold text-[#00E5D4]"><span class="stat-num">10+</span></p>
@@ -1238,7 +1281,9 @@
     </script>
 
     <script>
-      // ─── Theme Toggle ───
+      // ═══════════════════════════════════════════
+      // THEME TOGGLE
+      // ═══════════════════════════════════════════
       const toggle = document.getElementById("themeToggle");
       const html = document.documentElement;
       function syncThemeIcons() {
@@ -1254,7 +1299,9 @@
         syncThemeIcons();
       });
 
-      // ─── Mobile Menu ───
+      // ═══════════════════════════════════════════
+      // MOBILE MENU
+      // ═══════════════════════════════════════════
       const menuBtn = document.getElementById("menuBtn");
       const mobileMenu = document.getElementById("mobileMenu");
       menuBtn.addEventListener("click", () => {
@@ -1266,85 +1313,185 @@
         menuBtn.classList.remove("active");
       }));
 
-      // ─── Scroll Reveal Observer ───
-      const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale");
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); });
-      }, { threshold: 0.08 });
-      reveals.forEach(el => observer.observe(el));
-
-      // ─── Navbar Scroll Effect ───
-      const navbar = document.getElementById("navbar");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 100) { navbar.classList.add("navbar-scrolled"); } else { navbar.classList.remove("navbar-scrolled"); }
-      });
-
-      // ─── Scroll Progress Bar ───
-      const progressBar = document.getElementById("scrollProgress");
-      window.addEventListener("scroll", () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        progressBar.style.width = docHeight > 0 ? (scrollTop / docHeight) * 100 + "%" : "0%";
-      });
-
-      // ─── Back to Top ───
-      const backToTop = document.getElementById("backToTop");
-      window.addEventListener("scroll", () => {
-        backToTop.classList.toggle("show", window.scrollY > 600);
-      });
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-
-      // ─── Active Nav Section Spy ───
-      const sections = document.querySelectorAll("section[id]");
-      const navLinks = document.querySelectorAll(".nav-link");
-      window.addEventListener("scroll", () => {
+      // ═══════════════════════════════════════════
+      // LENIS SMOOTH SCROLL
+      // ═══════════════════════════════════════════
+      const lenis = new Lenis({ lerp: 0.08, wheelMultiplier: 1.1, infinite: false });
+      lenis.on("scroll", e => {
+        progressBar.style.width = e.progress * 100 + "%";
+        backToTop.classList.toggle("show", e.actualScroll > 600);
+        // Active nav spy
         let current = "";
         sections.forEach(s => {
           const top = s.offsetTop - 200;
-          if (window.scrollY >= top) current = s.getAttribute("id");
+          if (e.actualScroll >= top) current = s.getAttribute("id");
         });
-        navLinks.forEach(l => {
-          l.classList.toggle("active", l.getAttribute("href") === "#" + current);
+        navLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + current));
+        // Navbar style
+        navbar.classList.toggle("navbar-scrolled", e.actualScroll > 100);
+      });
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+
+      // ─── Scroll Reveal Observer (fallback for non-GSAP) ───
+      const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale");
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); });
+      }, { threshold: 0.08 });
+      reveals.forEach(el => revealObserver.observe(el));
+
+      // ─── Refs ───
+      const navbar = document.getElementById("navbar");
+      const progressBar = document.getElementById("scrollProgress");
+      const backToTop = document.getElementById("backToTop");
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      backToTop.addEventListener("click", () => lenis.scrollTo(0, { duration: 1.2 }));
+
+      // ─── Nav clicks use Lenis ───
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener("click", e => {
+          const id = a.getAttribute("href");
+          if (id && id.length > 1) {
+            const target = document.querySelector(id);
+            if (target) { e.preventDefault(); lenis.scrollTo(target, { duration: 1.2 }); }
+          }
         });
       });
 
-      // ─── Custom Cursor ───
+      // ═══════════════════════════════════════════
+      // PARTICLES
+      // ═══════════════════════════════════════════
+      const canvas = document.getElementById("particles");
+      const ctx = canvas.getContext("2d");
+      let particles = [];
+      let mouse = { x: -1000, y: -1000 };
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+
+      class Particle {
+        constructor() { this.reset(); }
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 2 + 0.5;
+          this.speedX = (Math.random() - 0.5) * 0.3;
+          this.speedY = (Math.random() - 0.5) * 0.3;
+          this.opacity = Math.random() * 0.4 + 0.1;
+        }
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 150) {
+            const force = (150 - dist) / 150;
+            this.x -= dx * force * 0.008;
+            this.y -= dy * force * 0.008;
+          }
+          if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(0, 229, 212, ${this.opacity})`;
+          ctx.fill();
+        }
+      }
+
+      function initParticles() {
+        particles = [];
+        const count = Math.min(80, Math.floor((canvas.width * canvas.height) / 15000));
+        for (let i = 0; i < count; i++) particles.push(new Particle());
+      }
+      initParticles();
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(0, 229, 212, ${0.06 * (1 - dist / 120)})`;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animateParticles);
+      }
+      animateParticles();
+
+      document.addEventListener("mousemove", e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+      document.addEventListener("touchmove", e => { mouse.x = e.touches[0].clientX; mouse.y = e.touches[0].clientY; });
+
+      // ═══════════════════════════════════════════
+      // CUSTOM CURSOR
+      // ═══════════════════════════════════════════
       const dot = document.getElementById("cursorDot");
       const ring = document.getElementById("cursorRing");
-      let mouseX = 0, mouseY = 0;
+      let cursorX = 0, cursorY = 0;
       document.addEventListener("mousemove", e => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        dot.style.left = mouseX + "px";
-        dot.style.top = mouseY + "px";
-        ring.style.left = mouseX + "px";
-        ring.style.top = mouseY + "px";
+        cursorX = e.clientX;
+        cursorY = e.clientY;
+        dot.style.left = cursorX + "px";
+        dot.style.top = cursorY + "px";
+        ring.style.left = cursorX + "px";
+        ring.style.top = cursorY + "px";
       });
-      document.querySelectorAll("a, button, .tilt-card, .cursor-pointer").forEach(el => {
+      document.querySelectorAll("a, button, .tilt-card, .cursor-pointer, .magnetic").forEach(el => {
         el.addEventListener("mouseenter", () => ring.classList.add("hover"));
         el.addEventListener("mouseleave", () => ring.classList.remove("hover"));
       });
 
-      // ─── 3D Tilt Cards ───
-      document.querySelectorAll(".tilt-card").forEach(card => {
+      // ═══════════════════════════════════════════
+      // 3D TILT CARDS
+      // ═══════════════════════════════════════════
+      document.querySelectorAll(".tilt-card:not(.magnetic)").forEach(card => {
         card.addEventListener("mousemove", e => {
           const rect = card.getBoundingClientRect();
           const x = e.clientX - rect.left;
           const y = e.clientY - rect.top;
           const cx = rect.width / 2;
           const cy = rect.height / 2;
-          const rotX = ((y - cy) / cy) * -6;
-          const rotY = ((x - cx) / cx) * 6;
-          card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-4px)`;
+          card.style.transform = `perspective(1000px) rotateX(${((y - cy) / cy) * -6}deg) rotateY(${((x - cx) / cx) * 6}deg) translateY(-4px)`;
         });
         card.addEventListener("mouseleave", () => {
           card.style.transform = "perspective(1000px) rotateX(0) rotateY(0) translateY(0)";
         });
       });
 
-      // ─── Stats Counter ───
+      // ═══════════════════════════════════════════
+      // MAGNETIC BUTTONS
+      // ═══════════════════════════════════════════
+      document.querySelectorAll(".magnetic").forEach(btn => {
+        btn.addEventListener("mousemove", e => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+        });
+        btn.addEventListener("mouseleave", () => {
+          btn.style.transform = "";
+        });
+      });
+
+      // ═══════════════════════════════════════════
+      // STATS COUNTER
+      // ═══════════════════════════════════════════
       function animateCounter(el, target) {
         const isPlus = target.endsWith("+");
         const num = parseInt(target);
@@ -1359,15 +1506,16 @@
       const statObserver = new IntersectionObserver(entries => {
         entries.forEach(e => {
           if (e.isIntersecting) {
-            const nums = e.target.querySelectorAll(".stat-num");
-            nums.forEach(n => { animateCounter(n, n.textContent); });
+            e.target.querySelectorAll(".stat-num").forEach(n => animateCounter(n, n.textContent));
             statObserver.unobserve(e.target);
           }
         });
       }, { threshold: 0.3 });
       document.querySelectorAll(".stat-grid").forEach(g => statObserver.observe(g));
 
-      // ─── Parallax Orbs ───
+      // ═══════════════════════════════════════════
+      // PARALLAX ORBS
+      // ═══════════════════════════════════════════
       const orbs = document.querySelectorAll("[data-parallax]");
       document.addEventListener("mousemove", e => {
         const cx = window.innerWidth / 2;
@@ -1380,7 +1528,112 @@
         });
       });
 
-      // ─── Toast ───
+      // ═══════════════════════════════════════════
+      // HERO 3D MOUSE TRACKING
+      // ═══════════════════════════════════════════
+      document.querySelector(".hero-3d")?.addEventListener("mousemove", e => {
+        const rect = document.querySelector(".hero-3d").getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+        document.querySelectorAll(".hero-layer").forEach(l => {
+          const depth = parseFloat(l.dataset.depth) || parseFloat(l.className.match(/hero-layer-(\d)/)?.[1]) || 0;
+          const factor = depth * 8;
+          l.style.transform = `translateX(${x * factor}px) translateY(${y * factor}px)`;
+        });
+      });
+      document.querySelector(".hero-3d")?.addEventListener("mouseleave", () => {
+        document.querySelectorAll(".hero-layer").forEach(l => l.style.transform = "");
+      });
+
+      // ═══════════════════════════════════════════
+      // GSAP SCROLLTRIGGER ANIMATIONS
+      // ═══════════════════════════════════════════
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Split hero text
+      const heroText = document.getElementById("heroText");
+      if (heroText) {
+        const chars = heroText.textContent.split("");
+        heroText.innerHTML = chars.map(c => c === " " ? " " : `<span class="split-char">${c}</span>`).join("");
+        gsap.to(".split-char", {
+          opacity: 1,
+          y: 0,
+          rotationX: 0,
+          duration: 0.6,
+          stagger: 0.02,
+          ease: "power3.out",
+          delay: 0.15,
+        });
+      }
+
+      // Glow line bridges
+      document.querySelectorAll(".glow-line").forEach(line => {
+        ScrollTrigger.create({
+          trigger: line,
+          start: "top 85%",
+          onEnter: () => {
+            line.style.transition = "transform 0.8s cubic-bezier(0.16,1,0.3,1), opacity 0.8s ease";
+            line.style.transform = "scaleX(1)";
+            line.style.opacity = "0.6";
+          },
+        });
+      });
+
+      // Section title reveals
+      document.querySelectorAll(".section-title").forEach(title => {
+        ScrollTrigger.create({
+          trigger: title,
+          start: "top 80%",
+          onEnter: () => {
+            title.style.transition = "all 0.8s cubic-bezier(0.16,1,0.3,1)";
+            title.style.opacity = "1";
+            title.style.transform = "translateY(0)";
+          },
+        });
+      });
+
+      // Stagger card entrance
+      document.querySelectorAll(".projects-grid, .skills-grid, .testimonial-grid, #certGrid").forEach(grid => {
+        ScrollTrigger.create({
+          trigger: grid,
+          start: "top 75%",
+          onEnter: () => {
+            const cards = grid.querySelectorAll(".liquid-glass-card, .tilt-card");
+            cards.forEach((card, i) => {
+              card.style.transition = `all 0.6s cubic-bezier(0.16,1,0.3,1) ${i * 0.08}s`;
+              card.style.opacity = "1";
+              card.style.transform = "translateY(0)";
+            });
+          },
+        });
+      });
+
+      // Timeline stagger
+      document.querySelectorAll(".timeline-item").forEach((item, i) => {
+        ScrollTrigger.create({
+          trigger: item,
+          start: "top 80%",
+          onEnter: () => {
+            item.style.transition = `all 0.7s cubic-bezier(0.16,1,0.3,1) ${i * 0.12}s`;
+            item.style.opacity = "1";
+            item.style.transform = "translateX(0)";
+          },
+        });
+      });
+
+      // Marquee scale entrance
+      ScrollTrigger.create({
+        trigger: ".marquee-wrap",
+        start: "top 85%",
+        onEnter: () => {
+          const m = document.querySelector(".marquee-track");
+          if (m) { m.style.animationPlayState = "running"; }
+        },
+      });
+
+      // ═══════════════════════════════════════════
+      // TOAST
+      // ═══════════════════════════════════════════
       function showToast(msg) {
         const t = document.getElementById("toast");
         t.textContent = msg;
@@ -1388,13 +1641,9 @@
         setTimeout(() => t.classList.remove("show"), 3000);
       }
 
-      // ─── Contact form toast ───
       document.querySelector("#contact form")?.addEventListener("submit", e => {
         showToast("Message sent! I'll get back to you soon.");
       });
-
-      // ─── (typing effect removed for instant loading) ───
-
     </script>
 
     <!-- Back to top -->
