@@ -527,8 +527,7 @@
       .nav-link.active { color: var(--cyan) !important; }
 
       /* ─── Lenis scroll ─── */
-      html.lenis { scroll-behavior: auto; overflow: hidden; }
-      html.lenis body { overflow: hidden; }
+      html.lenis { scroll-behavior: auto; }
 
       /* ─── GSAP reveal ─── */
       .gsap-reveal { opacity: 0; transform: translateY(40px); }
@@ -570,7 +569,7 @@
     </style>
   </head>
 
-  <body class="overflow-x-hidden antialiased" style="overflow:hidden">
+  <body class="overflow-x-hidden antialiased">
 
     <!-- Custom cursor -->
     <div class="cursor-dot" id="cursorDot"></div>
@@ -1316,22 +1315,23 @@
       // ═══════════════════════════════════════════
       // LENIS SMOOTH SCROLL
       // ═══════════════════════════════════════════
-      const lenis = new Lenis({ lerp: 0.08, wheelMultiplier: 1.1, infinite: false });
-      lenis.on("scroll", e => {
-        progressBar.style.width = e.progress * 100 + "%";
-        backToTop.classList.toggle("show", e.actualScroll > 600);
-        // Active nav spy
-        let current = "";
-        sections.forEach(s => {
-          const top = s.offsetTop - 200;
-          if (e.actualScroll >= top) current = s.getAttribute("id");
+      let lenis;
+      try {
+        lenis = new Lenis({ lerp: 0.12, wheelMultiplier: 1.2, infinite: false });
+        lenis.on("scroll", e => {
+          progressBar.style.width = e.progress * 100 + "%";
+          backToTop.classList.toggle("show", e.actualScroll > 600);
+          let current = "";
+          sections.forEach(s => {
+            const top = s.offsetTop - 200;
+            if (e.actualScroll >= top) current = s.getAttribute("id");
+          });
+          navLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + current));
+          navbar.classList.toggle("navbar-scrolled", e.actualScroll > 100);
         });
-        navLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + current));
-        // Navbar style
-        navbar.classList.toggle("navbar-scrolled", e.actualScroll > 100);
-      });
-      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-      requestAnimationFrame(raf);
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+      } catch(e) { console.warn("Lenis unavailable, using native scroll"); }
 
       // ─── Scroll Reveal Observer (fallback for non-GSAP) ───
       const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale");
@@ -1347,15 +1347,18 @@
       const sections = document.querySelectorAll("section[id]");
       const navLinks = document.querySelectorAll(".nav-link");
 
-      backToTop.addEventListener("click", () => lenis.scrollTo(0, { duration: 1.2 }));
+      function smoothScroll(target) {
+        if (lenis) { lenis.scrollTo(target, { duration: 1.2 }); }
+        else { target.scrollIntoView({ behavior: "smooth" }); }
+      }
+      backToTop.addEventListener("click", () => smoothScroll(0));
 
-      // ─── Nav clicks use Lenis ───
       document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener("click", e => {
           const id = a.getAttribute("href");
           if (id && id.length > 1) {
             const target = document.querySelector(id);
-            if (target) { e.preventDefault(); lenis.scrollTo(target, { duration: 1.2 }); }
+            if (target) { e.preventDefault(); smoothScroll(target); }
           }
         });
       });
