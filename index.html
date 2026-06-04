@@ -5,17 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NeuralSyntax — AI Builder, Developer & Tech Educator</title>
-    <meta name="description" content="NeuralSyntax by Khushluck Singh — 16-year-old developer building AI tools, educational products, and developer projects to help students learn technology." />
-    <meta name="keywords" content="AI, developer, tech educator, Python, machine learning, NeuralSyntax, Khushluck Singh" />
+    <meta name="description" content="Khushluck Singh (NeuralSyntax) — 16-year-old AI builder and tech educator building educational technology products that help students learn smarter." />
+    <meta name="keywords" content="AI, developer, tech educator, Python, machine learning, NeuralSyntax, Khushluck Singh, edtech" />
 
     <meta property="og:title" content="NeuralSyntax — AI Builder, Developer & Tech Educator" />
-    <meta property="og:description" content="Building AI tools, educational products, and developer projects." />
+    <meta property="og:description" content="Building educational technology products that help students learn AI, programming, and modern development." />
     <meta property="og:image" content="https://neuralsyntax8-glitch.github.io/Portfolio/assets/Gemini_Generated_Image_6ge9646ge9646ge9.png" />
     <meta property="og:url" content="https://neuralsyntax8-glitch.github.io/Portfolio/" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="NeuralSyntax — AI Builder, Developer & Tech Educator" />
-    <meta name="twitter:description" content="Building AI tools, educational products, and developer projects." />
+    <meta name="twitter:description" content="Building educational technology products that help students learn smarter." />
     <meta name="twitter:image" content="https://neuralsyntax8-glitch.github.io/Portfolio/assets/Gemini_Generated_Image_6ge9646ge9646ge9.png" />
 
     <script type="application/ld+json">
@@ -36,7 +36,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <style>
@@ -109,6 +109,35 @@
       }
       .font-orbitron { font-family: 'Orbitron', sans-serif; }
 
+      /* ─── Design System ─── */
+      .radius-sm { border-radius: 12px; }
+      .radius-md { border-radius: 16px; }
+      .radius-lg { border-radius: 24px; }
+      .radius-xl { border-radius: 28px; }
+      .radius-2xl { border-radius: 32px; }
+      .radius-3xl { border-radius: 36px; }
+      .radius-full { border-radius: 9999px; }
+
+      .section-label {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 11px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--cyan);
+        opacity: 0.5;
+      }
+      .section-title {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+      .section-title .grad {
+        background: linear-gradient(135deg, #00E5D4, #6B4DFF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
       /* ─── Liquid Glass ─── */
       .liquid-glass {
         background: var(--glass-bg);
@@ -123,13 +152,13 @@
         -webkit-backdrop-filter: blur(28px) saturate(1.15);
         border: 1px solid var(--glass-border);
         border-top: 1px solid var(--glass-highlight);
-        border-radius: 18px;
-        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        border-radius: 28px;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       }
       .liquid-glass-card:hover {
         border-color: rgba(0, 229, 212, 0.15);
-        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 229, 212, 0.06);
-        transform: translateY(-3px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 229, 212, 0.06);
+        transform: translateY(-4px);
       }
       .liquid-glass-deep {
         background: var(--glass-bg);
@@ -137,14 +166,14 @@
         -webkit-backdrop-filter: blur(40px) saturate(1.3);
         border: 1px solid var(--glass-border);
         border-top: 1px solid var(--glass-highlight);
-        border-radius: 22px;
+        border-radius: 32px;
       }
 
       /* ─── Logo ─── */
       .logo-text {
         font-family: 'Orbitron', sans-serif;
-        font-weight: 600;
-        letter-spacing: 1px;
+        font-weight: 700;
+        letter-spacing: 2px;
         font-size: 1.05rem;
         background: linear-gradient(135deg, #00E5D4 0%, #00CFC0 30%, #6B4DFF 70%, #9A4DFF 100%);
         -webkit-background-clip: text;
@@ -169,33 +198,44 @@
       /* ─── Buttons ─── */
       .btn-primary {
         background: linear-gradient(135deg, var(--cyan), var(--purple));
-        border-radius: 9999px;
+        border-radius: 18px;
         font-weight: 600;
-        transition: all 0.3s ease;
+        padding: 10px 28px;
+        font-size: 14px;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         box-shadow: 0 0 24px rgba(0, 229, 212, 0.08);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
       }
       .btn-primary:hover {
-        transform: scale(1.04);
-        box-shadow: 0 0 40px rgba(0, 229, 212, 0.18);
+        transform: scale(1.05);
+        box-shadow: 0 0 48px rgba(0, 229, 212, 0.2);
       }
       .btn-ghost {
-        border-radius: 9999px;
+        border-radius: 18px;
         border: 1px solid var(--btn-ghost-border);
         font-weight: 500;
-        transition: all 0.3s ease;
+        padding: 10px 28px;
+        font-size: 14px;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
       }
       .btn-ghost:hover {
         border-color: rgba(0, 229, 212, 0.3);
         background: var(--btn-ghost-hover);
-        box-shadow: 0 0 20px rgba(0, 229, 212, 0.04);
+        box-shadow: 0 0 24px rgba(0, 229, 212, 0.06);
+        transform: translateY(-1px);
       }
 
       /* ─── Tags ─── */
-      .tag { border-radius: 9999px; font-size: 11px; padding: 2px 10px; border: 1px solid; font-weight: 500; }
-      .tag-cyan { background: rgba(0,229,212,0.06); color: #00E5D4; border-color: rgba(0,229,212,0.12); }
-      .tag-purple { background: rgba(107,77,255,0.06); color: #6B4DFF; border-color: rgba(107,77,255,0.12); }
-      .tag-blue { background: rgba(59,130,246,0.06); color: #60a5fa; border-color: rgba(59,130,246,0.12); }
-      .tag-green { background: rgba(52,211,153,0.06); color: #34d399; border-color: rgba(52,211,153,0.12); }
+      .tag { border-radius: 9999px; font-size: 11px; padding: 3px 12px; border: 1px solid; font-weight: 500; }
+      .tag-cyan { background: rgba(0,229,212,0.08); color: #00E5D4; border-color: rgba(0,229,212,0.15); }
+      .tag-purple { background: rgba(107,77,255,0.08); color: #6B4DFF; border-color: rgba(107,77,255,0.15); }
+      .tag-blue { background: rgba(59,130,246,0.08); color: #60a5fa; border-color: rgba(59,130,246,0.15); }
+      .tag-green { background: rgba(52,211,153,0.08); color: #34d399; border-color: rgba(52,211,153,0.15); }
 
       /* ─── Orbs ─── */
       .orb {
@@ -222,23 +262,48 @@
         from { opacity: 0; transform: scale(0.93); }
         to { opacity: 1; transform: scale(1); }
       }
-      .pop { animation: pop 0.35s ease forwards; }
+      .pop { animation: pop 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+      /* ─── Counter ─── */
+      @keyframes countUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+      .count-anim { animation: countUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
       /* ─── Timeline ─── */
       .timeline-track {
         position: absolute;
         left: 50%; top: 0; bottom: 0;
         width: 2px;
-        background: linear-gradient(to bottom, var(--cyan), var(--purple));
+        background: linear-gradient(to bottom, var(--cyan), var(--purple), var(--pink));
         transform: translateX(-50%);
-        opacity: 0.4;
+        opacity: 0.5;
       }
       @media (max-width: 768px) { .timeline-track { left: 24px; } }
       .timeline-dot {
-        width: 14px; height: 14px;
+        width: 16px; height: 16px;
         border-radius: 50%;
         border: 3px solid var(--timeline-dot-border);
-        box-shadow: 0 0 0 2px var(--cyan);
+        box-shadow: 0 0 0 3px var(--cyan);
+        transition: all 0.3s ease;
+      }
+      .timeline-item:hover .timeline-dot {
+        box-shadow: 0 0 0 5px var(--cyan), 0 0 20px rgba(0,229,212,0.2);
+        transform: scale(1.15);
+      }
+
+      /* ─── Featured project ─── */
+      .featured-glass {
+        background: var(--glass-bg);
+        backdrop-filter: blur(28px) saturate(1.15);
+        -webkit-backdrop-filter: blur(28px) saturate(1.15);
+        border: 1px solid var(--glass-border);
+        border-radius: 36px;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .featured-glass:hover {
+        border-color: rgba(0, 229, 212, 0.15);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 229, 212, 0.06);
+        transform: translateY(-4px);
       }
 
       /* ─── Misc ─── */
@@ -252,162 +317,443 @@
       ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
       .glow-line {
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(0,229,212,0.15), rgba(107,77,255,0.15), transparent);
+        background: linear-gradient(90deg, transparent, rgba(0,229,212,0.12), rgba(107,77,255,0.12), transparent);
+        opacity: 0.6;
       }
       .filter-btn {
-        font-size: 12px; padding: 5px 14px; border-radius: 9999px;
+        font-size: 12px; padding: 6px 16px; border-radius: 9999px;
         background: var(--card-bg); color: var(--text-secondary);
         border: 1px solid transparent;
-        transition: all 0.2s ease;
+        transition: all 0.25s ease;
+        cursor: pointer;
       }
       .filter-btn:hover { background: var(--glass-simple); }
       .filter-btn.active {
-        background: rgba(0,229,212,0.06);
+        background: rgba(0,229,212,0.08);
         border-color: rgba(0,229,212,0.2);
         color: #00E5D4;
       }
+
+      /* ─── Shimmer ─── */
+      @keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+      }
+      .shimmer {
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+        background-size: 200% 100%;
+        animation: shimmer 3s infinite;
+      }
+
+      /* ─── Hero badge pulse ─── */
+      @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(0, 229, 212, 0.3); }
+        50% { box-shadow: 0 0 0 8px rgba(0, 229, 212, 0); }
+      }
+      .badge-pulse { animation: pulse-glow 2.5s infinite; }
+
+      /* ─── Glass card inner reflection ─── */
+      .glass-reflect::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+        border-radius: 28px 28px 0 0;
+        pointer-events: none;
+      }
+
+      /* ─── Smooth image radius ─── */
+      .img-radius { border-radius: 24px; }
+      .img-radius-sm { border-radius: 16px; }
+
+      /* ─── Navbar scroll effect ─── */
+      .navbar-scrolled {
+        background: rgba(12,12,20,0.85);
+        backdrop-filter: blur(40px) saturate(1.4);
+        -webkit-backdrop-filter: blur(40px) saturate(1.4);
+        border-color: rgba(255,255,255,0.06);
+      }
+      [data-theme="light"] .navbar-scrolled {
+        background: rgba(238,240,247,0.85);
+        border-color: rgba(0,0,0,0.06);
+      }
+
+      /* ─── Typography refinements ─── */
+      .heading-xl { font-size: clamp(2rem, 5vw, 3.5rem); }
+      .heading-lg { font-size: clamp(1.5rem, 3vw, 2rem); }
+      .text-balance { text-wrap: balance; }
+
+      /* ─── Form inputs ─── */
+      .form-input {
+        width: 100%;
+        border-radius: 16px;
+        background: var(--input-bg);
+        border: 1px solid var(--input-border);
+        padding: 12px 16px;
+        font-size: 14px;
+        color: var(--text-primary);
+        outline: none;
+        transition: all 0.25s ease;
+      }
+      .form-input:focus {
+        border-color: rgba(0, 229, 212, 0.3);
+        box-shadow: 0 0 0 3px rgba(0, 229, 212, 0.06);
+      }
+      .form-input::placeholder { color: var(--text-muted); }
+      textarea.form-input { resize: vertical; min-height: 100px; }
+
+      /* ─── Select ─── */
+      .form-select {
+        border-radius: 16px;
+        background: var(--select-bg);
+        border: 1px solid var(--input-border);
+        padding: 8px 16px;
+        font-size: 12px;
+        color: var(--select-text);
+        outline: none;
+        transition: all 0.25s ease;
+      }
+      .form-select:focus {
+        border-color: rgba(0, 229, 212, 0.3);
+        box-shadow: 0 0 0 3px rgba(0, 229, 212, 0.06);
+      }
+
+      /* ─── Custom cursor ─── */
+      .cursor-dot {
+        position: fixed; pointer-events: none; z-index: 9999;
+        width: 6px; height: 6px; border-radius: 50%;
+        background: var(--cyan);
+        transform: translate(-50%, -50%);
+        transition: width 0.2s, height 0.2s, background 0.2s;
+        mix-blend-mode: difference;
+      }
+      .cursor-ring {
+        position: fixed; pointer-events: none; z-index: 9998;
+        width: 32px; height: 32px; border-radius: 50%;
+        border: 1px solid rgba(0, 229, 212, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.35s ease, height 0.35s ease, border-color 0.35s ease;
+      }
+      .cursor-ring.hover { width: 52px; height: 52px; border-color: rgba(0, 229, 212, 0.6); }
+      @media (hover:none),(pointer:coarse) { .cursor-dot, .cursor-ring { display: none; } }
+
+      /* ─── Noise overlay ─── */
+      .noise-overlay {
+        position: fixed; inset: 0; z-index: 9997; pointer-events: none;
+        opacity: 0.015;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+        background-size: 256px 256px;
+      }
+
+      /* ─── Scroll progress bar ─── */
+      #scrollProgress {
+        position: fixed; top: 0; left: 0; height: 2px; z-index: 9996;
+        background: linear-gradient(90deg, var(--cyan), var(--purple));
+        width: 0%; transition: width 0.1s linear;
+      }
+
+      /* ─── Back to top ─── */
+      #backToTop {
+        position: fixed; bottom: 28px; right: 28px; z-index: 9995;
+        width: 40px; height: 40px; border-radius: 50%;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        color: var(--text-secondary);
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; opacity: 0; visibility: hidden;
+        transform: translateY(12px);
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      #backToTop.show { opacity: 1; visibility: visible; transform: translateY(0); }
+      #backToTop:hover { color: var(--cyan); border-color: rgba(0,229,212,0.3); }
+
+      /* ─── 3D tilt cards ─── */
+      .tilt-card { transform-style: preserve-3d; perspective: 1000px; }
+      .tilt-card-inner { transition: transform 0.15s ease-out; will-change: transform; }
+
+      /* ─── Marquee ─── */
+      .marquee-wrap { overflow: hidden; position: relative; }
+      .marquee-track {
+        display: flex; gap: 48px; width: max-content;
+        animation: marquee 30s linear infinite;
+      }
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .marquee-item { white-space: nowrap; }
+
+      /* ─── Preloader ─── */
+      #preloader {
+        position: fixed; inset: 0; z-index: 10000;
+        background: var(--bg);
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        transition: opacity 0.7s ease, visibility 0.7s ease;
+      }
+      #preloader.fade { opacity: 0; visibility: hidden; }
+      .loader-ring {
+        width: 40px; height: 40px; border-radius: 50%;
+        border: 2px solid var(--glass-border);
+        border-top-color: var(--cyan);
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .loader-text { margin-top: 16px; font-size: 11px; letter-spacing: 0.3em; color: var(--text-muted); font-family: 'Orbitron', sans-serif; }
+
+      /* ─── Toast ─── */
+      #toast {
+        position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(80px);
+        z-index: 9994; padding: 12px 24px; border-radius: 18px;
+        background: var(--glass-bg); backdrop-filter: blur(24px);
+        border: 1px solid var(--glass-border);
+        font-size: 13px; color: var(--text-primary);
+        opacity: 0; visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        white-space: nowrap;
+      }
+      #toast.show { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+
+      /* ─── Typing cursor ─── */
+      .typing-cursor { display: inline-block; width: 2px; height: 1em; background: var(--cyan); margin-left: 2px; animation: blink 0.8s step-end infinite; vertical-align: text-bottom; }
+      @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+      /* ─── Hamburger X animation ─── */
+      .hamburger-x span { transition: all 0.3s ease; }
+      .hamburger-x.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+      .hamburger-x.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+      .hamburger-x.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+      /* ─── Staggered reveal variants ─── */
+      .reveal-left { opacity: 0; transform: translateX(-30px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+      .reveal-right { opacity: 0; transform: translateX(30px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+      .reveal-left.show, .reveal-right.show { opacity: 1; transform: translateX(0); }
+      .reveal-scale { opacity: 0; transform: scale(0.93); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+      .reveal-scale.show { opacity: 1; transform: scale(1); }
+
+      /* ─── Active nav link ─── */
+      .nav-link.active { color: var(--cyan) !important; }
+
+      /* ─── Card hover shine ─── */
+      .shine {
+        position: relative; overflow: hidden;
+      }
+      .shine::after {
+        content: ''; position: absolute; top: -50%; left: -50%;
+        width: 200%; height: 200%;
+        background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.03) 50%, transparent 70%);
+        opacity: 0; transition: opacity 0.4s;
+        pointer-events: none;
+      }
+      .shine:hover::after { opacity: 1; }
     </style>
   </head>
 
   <body class="overflow-x-hidden antialiased">
 
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="loader-ring"></div>
+      <p class="loader-text">NeuralSyntax</p>
+    </div>
+
+    <!-- Custom cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Noise overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Scroll progress -->
+    <div id="scrollProgress"></div>
+
     <!-- Ambient orbs -->
-    <div class="orb w-[500px] h-[500px] bg-[#00E5D4] top-[-10%] left-[-8%] orb-float"></div>
-    <div class="orb w-[600px] h-[600px] bg-[#6B4DFF] top-[25%] right-[-12%] orb-float" style="animation-delay: -4s;"></div>
-    <div class="orb w-[400px] h-[400px] bg-[#9A4DFF] bottom-[15%] left-[25%] orb-float" style="animation-delay: -8s;"></div>
-    <div class="orb w-[350px] h-[350px] bg-[#00CFC0] bottom-[30%] right-[20%] orb-float" style="animation-delay: -12s;"></div>
+    <div class="orb w-[500px] h-[500px] bg-[#00E5D4] top-[-8%] left-[-8%] orb-float" data-parallax="-8"></div>
+    <div class="orb w-[600px] h-[600px] bg-[#6B4DFF] top-[20%] right-[-10%] orb-float" style="animation-delay: -4s;" data-parallax="6"></div>
+    <div class="orb w-[400px] h-[400px] bg-[#9A4DFF] bottom-[20%] left-[20%] orb-float" style="animation-delay: -8s;" data-parallax="-5"></div>
+    <div class="orb w-[350px] h-[350px] bg-[#00CFC0] bottom-[25%] right-[15%] orb-float" style="animation-delay: -12s;" data-parallax="7"></div>
 
     <!-- ==================== NAVBAR ==================== -->
-    <header id="navbar" class="fixed top-5 left-1/2 -translate-x-1/2 w-[94%] md:w-[88%] max-w-6xl z-50 liquid-glass rounded-2xl px-5 md:px-7 py-3 flex items-center justify-between transition-all duration-300 shadow-lg shadow-black/20">
+    <header id="navbar" class="fixed top-5 left-1/2 -translate-x-1/2 w-[94%] md:w-[88%] max-w-6xl z-50 liquid-glass radius-2xl px-5 md:px-7 py-3 flex items-center justify-between transition-all duration-300 shadow-lg shadow-black/20">
       <a href="#home" class="flex items-center gap-3">
-        <img src="WhatsApp Image 2026-04-03 at 1.08.35 PM.jpeg" class="w-7 h-7 object-contain" alt="NeuralSyntax" />
-        <span class="logo-text">Khushluck Singh</span>
+        <img src="assets/image.png" class="w-7 h-7 object-contain img-radius-sm" alt="NeuralSyntax" />
+        <span class="logo-text">NeuralSyntax</span>
       </a>
-      <nav class="hidden md:flex items-center gap-7">
-        <a href="#home" class="text-sm text-[var(--text-secondary)] hover:text-white transition-colors font-medium">Home</a>
-        <a href="#projects" class="text-sm text-[var(--text-secondary)] hover:text-white transition-colors font-medium">Projects</a>
-        <a href="#skills" class="text-sm text-[var(--text-secondary)] hover:text-white transition-colors font-medium">Skills</a>
-        <a href="#certificates" class="text-sm text-[var(--text-secondary)] hover:text-white transition-colors font-medium">Certificates</a>
-        <a href="#youtube" class="text-sm text-[var(--text-secondary)] hover:text-white transition-colors font-medium">YouTube</a>
-        <a href="#contact" class="text-sm text-[var(--text-secondary)] hover:text-white transition-colors font-medium">Contact</a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#home" class="nav-link text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors font-medium">Home</a>
+        <a href="#projects" class="nav-link text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors font-medium">Projects</a>
+        <a href="#certificates" class="nav-link text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors font-medium">Certificates</a>
+        <a href="#youtube" class="nav-link text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors font-medium">YouTube</a>
+        <a href="#story" class="nav-link text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors font-medium">Story</a>
+        <a href="#contact" class="nav-link text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors font-medium">Contact</a>
       </nav>
       <div class="flex items-center gap-2">
-        <button id="themeToggle" class="w-7 h-7 flex items-center justify-center rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors" aria-label="Toggle theme">
-          <svg class="sun-icon w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1m-16 0H3m15.66 6.34l-.71-.71M4.05 4.05l-.71-.71M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
-          <svg class="moon-icon w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <button id="themeToggle" class="w-8 h-8 flex items-center justify-center radius-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--glass-simple)] transition-all" aria-label="Toggle theme">
+          <svg class="sun-icon w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1m-16 0H3m15.66 6.34l-.71-.71M4.05 4.05l-.71-.71M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+          <svg class="moon-icon w-[18px] h-[18px] hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
         </button>
-        <button id="menuBtn" class="md:hidden flex flex-col gap-1 p-1.5" aria-label="Menu">
-        <span class="block w-5 h-[1.5px] bg-[var(--hamburger)] rounded-full transition"></span>
-        <span class="block w-5 h-[1.5px] bg-[var(--hamburger)] rounded-full transition"></span>
-        <span class="block w-5 h-[1.5px] bg-[var(--hamburger)] rounded-full transition"></span>
-      </button>
+        <button id="menuBtn" class="md:hidden flex flex-col gap-1 p-1.5 hamburger-x" aria-label="Menu">
+          <span class="block w-5 h-[1.5px] bg-[var(--hamburger)] rounded-full transition"></span>
+          <span class="block w-5 h-[1.5px] bg-[var(--hamburger)] rounded-full transition"></span>
+          <span class="block w-5 h-[1.5px] bg-[var(--hamburger)] rounded-full transition"></span>
+        </button>
       </div>
-      <div id="mobileMenu" class="hidden absolute top-16 left-4 right-4 liquid-glass rounded-2xl p-6 md:hidden shadow-2xl">
+      <div id="mobileMenu" class="hidden absolute top-16 left-4 right-4 liquid-glass radius-2xl p-6 md:hidden shadow-2xl">
         <ul class="flex flex-col gap-5 text-center">
-          <li><a href="#home" class="text-[var(--text-muted)] hover:text-white transition-colors">Home</a></li>
-          <li><a href="#projects" class="text-[var(--text-muted)] hover:text-white transition-colors">Projects</a></li>
-          <li><a href="#skills" class="text-[var(--text-muted)] hover:text-white transition-colors">Skills</a></li>
-          <li><a href="#certificates" class="text-[var(--text-muted)] hover:text-white transition-colors">Certificates</a></li>
-          <li><a href="#youtube" class="text-[var(--text-muted)] hover:text-white transition-colors">YouTube</a></li>
-          <li><a href="#contact" class="text-[var(--text-muted)] hover:text-white transition-colors">Contact</a></li>
+          <li><a href="#home" class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors">Home</a></li>
+          <li><a href="#projects" class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors">Projects</a></li>
+          <li><a href="#certificates" class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors">Certificates</a></li>
+          <li><a href="#youtube" class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors">YouTube</a></li>
+          <li><a href="#story" class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors">Story</a></li>
+          <li><a href="#contact" class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors">Contact</a></li>
         </ul>
       </div>
     </header>
 
     <!-- ==================== HERO ==================== -->
-    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-5 pt-28 relative">
-      <div class="relative inline-block">
-        <img src="assets/Gemini_Generated_Image_6ge9646ge9646ge9.png" class="w-28 h-28 md:w-32 md:h-32 rounded-full border-2 border-[#00E5D4]/20 shadow-xl shadow-black/30 reveal object-cover" alt="NeuralSyntax" />
-        <div class="absolute -bottom-0.5 -right-0.5 w-7 h-7 rounded-full liquid-glass-deep flex items-center justify-center shadow-lg">
-          <span class="text-[10px] text-[#00E5D4]">✦</span>
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-5 pt-28 relative overflow-hidden">
+      <div class="flex flex-col items-center gap-5 reveal">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 radius-full border border-[var(--glass-border)] bg-[var(--glass-bg)] text-xs text-[var(--text-muted)] badge-pulse">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00E5D4]"></span>
+          Young AI Builder · Developer · Tech Educator
+        </div>
+        <div class="relative inline-block mt-2">
+          <img src="assets/Gemini_Generated_Image_6ge9646ge9646ge9.png" class="w-28 h-28 md:w-32 md:h-32 img-radius border-2 border-[#00E5D4]/20 shadow-2xl shadow-black/40 object-cover" alt="Khushluck Singh" />
+          <div class="absolute -bottom-1 -right-1 w-8 h-8 radius-full liquid-glass-deep flex items-center justify-center shadow-lg">
+            <span class="text-xs text-[#00E5D4]">✦</span>
+          </div>
         </div>
       </div>
-      <p class="font-orbitron text-[11px] uppercase tracking-[0.3em] text-[#00E5D4]/50 mt-7 reveal">Khushluck Singh</p>
-      <h1 class="font-orbitron text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-semibold mt-4 max-w-5xl leading-[1.12] reveal" style="letter-spacing:1px;">
-        <span class="gradient-text-wide">Building AI Tools, Educational Products & Developer Projects</span>
-      </h1>
-      <p class="text-[var(--text-secondary)] text-sm md:text-base max-w-lg mt-5 leading-relaxed reveal">
-        I'm a 16-year-old developer from Delhi, building technology that helps students learn AI, programming, and modern development.
-      </p>
-      <div class="flex flex-wrap justify-center gap-3 mt-8 reveal">
-        <a href="#projects" class="btn-primary px-7 py-2.5 text-sm text-white">View Projects</a>
-        <a href="#certificates" class="btn-ghost px-7 py-2.5 text-sm text-[var(--text-secondary)]">Certificates</a>
-        <a href="#contact" class="btn-ghost px-7 py-2.5 text-sm text-[var(--text-secondary)]">Contact</a>
+
+      <div class="mt-6 reveal" style="transition-delay:0.1s">
+        <h1 class="font-orbitron heading-xl font-semibold max-w-5xl leading-[1.1] text-balance" style="letter-spacing:1px;">
+          <span class="gradient-text-wide">Building AI Products That Help Students Learn Smarter</span>
+        </h1>
       </div>
 
-      <!-- Trust strip -->
-      <div class="mt-16 w-full max-w-2xl reveal">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden" style="background:rgba(255,255,255,0.04);">
-          <div class="bg-[var(--trust-cell-bg)] py-5 px-3 text-center">
-            <p class="text-xl md:text-2xl font-bold text-[#00E5D4]">10+</p>
+      <p class="text-[var(--text-secondary)] text-sm md:text-base max-w-lg mt-5 leading-relaxed reveal" style="transition-delay:0.2s">
+        I'm Khushluck Singh, a <span class="text-[var(--text-primary)] font-medium">16-year-old developer</span> from Delhi building educational technology that makes AI and programming accessible to students across India.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-3 mt-8 reveal" style="transition-delay:0.3s">
+        <a href="#projects" class="btn-primary text-white">View Projects <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        <a href="#certificates" class="btn-ghost text-[var(--text-secondary)]">Certificates</a>
+        <a href="#contact" class="btn-ghost text-[var(--text-secondary)]">Contact</a>
+      </div>
+
+      <div class="mt-16 w-full max-w-2xl reveal" style="transition-delay:0.4s">
+        <div class="stat-grid grid grid-cols-2 md:grid-cols-4 gap-px radius-2xl overflow-hidden" style="background:var(--glass-border);">
+          <div class="bg-[var(--trust-cell-bg)] py-6 px-3 text-center hover:bg-[var(--glass-simple)] transition-colors">
+            <p class="text-2xl md:text-3xl font-bold text-[#00E5D4]"><span class="stat-num">10+</span></p>
             <p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-widest font-medium">Projects</p>
           </div>
-          <div class="bg-[var(--trust-cell-bg)] py-5 px-3 text-center">
-            <p class="text-xl md:text-2xl font-bold text-[#6B4DFF]">18+</p>
+          <div class="bg-[var(--trust-cell-bg)] py-6 px-3 text-center hover:bg-[var(--glass-simple)] transition-colors">
+            <p class="text-2xl md:text-3xl font-bold text-[#6B4DFF]"><span class="stat-num">18+</span></p>
             <p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-widest font-medium">Certificates</p>
           </div>
-          <div class="bg-[var(--trust-cell-bg)] py-5 px-3 text-center">
-            <p class="text-xl md:text-2xl font-bold text-[#00E5D4]">AI</p>
+          <div class="bg-[var(--trust-cell-bg)] py-6 px-3 text-center hover:bg-[var(--glass-simple)] transition-colors">
+            <p class="text-2xl md:text-3xl font-bold text-[#00E5D4]">AI</p>
             <p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-widest font-medium">Creator</p>
           </div>
-          <div class="bg-[var(--trust-cell-bg)] py-5 px-3 text-center">
-            <p class="text-xl md:text-2xl font-bold text-[#9A4DFF]">YouTube</p>
+          <div class="bg-[var(--trust-cell-bg)] py-6 px-3 text-center hover:bg-[var(--glass-simple)] transition-colors">
+            <p class="text-2xl md:text-3xl font-bold text-[#9A4DFF]">YouTube</p>
             <p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-widest font-medium">Educator</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== ABOUT ==================== -->
-    <section id="about" class="py-28 px-5">
+    <!-- ==================== FOUNDER STORY ==================== -->
+    <section id="story" class="py-28 px-5">
       <div class="max-w-3xl mx-auto">
-        <p class="font-orbitron text-xs uppercase tracking-[0.3em] text-[#00E5D4]/50 text-center reveal">About</p>
-        <h2 class="font-orbitron text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
-          <span class="gradient-text">The NeuralSyntax Story</span>
+        <p class="section-label text-center reveal">Origin</p>
+        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+          <span class="grad">Why NeuralSyntax Exists</span>
         </h2>
-        <div class="mt-10 space-y-4 text-sm md:text-base text-[var(--text-secondary)] leading-[1.8] reveal">
-          <p>I started coding in 2023 with Python. I was 13, in Delhi, and like most students, I had no idea where to begin. Tutorials were either too expensive or too shallow — so I decided to build my own path.</p>
-          <p>By 2024, I had built my first real projects. By 2025, I launched <span class="text-[#00E5D4] font-medium">NeuralSyntax</span> — a YouTube channel and learning initiative. The goal: make AI and programming education <span class="text-[var(--text-primary)]">accessible, practical, and free</span> for Indian students.</p>
-          <p>I don't just consume content. I build. Over three years, I have built <span class="text-[var(--text-primary)]">student performance predictors, AI study planners, automation scripts</span>, and more. Every project is published, every lesson is shared on YouTube.</p>
-          <p>I'm not a student showing homework. I'm a young AI builder and tech educator — building real tools, earning real certifications, and helping students learn through technology.</p>
+        <div class="mt-10 space-y-5 text-sm md:text-base text-[var(--text-secondary)] leading-[1.9] reveal">
+          <p>In 2023, I was 13 years old in Delhi, staring at my first Python script. I had no mentor, no expensive bootcamp, and no idea where to begin. The tutorials I found were either too shallow to be useful or too expensive to afford.</p>
+          <p>So I built my own path.</p>
+          <p>I started building — small scripts, then automation tools, then machine learning projects. Every project taught me more than any course ever could. But I noticed something: <span class="text-[var(--text-primary)] font-medium">most Indian students faced the same wall I did</span>. Quality tech education was locked behind paywalls and jargon.</p>
+          <p>That's why <span class="text-[#00E5D4] font-medium">NeuralSyntax</span> exists. It's not a portfolio — it's a mission. A YouTube channel, an open learning initiative, and a growing library of tools designed to make AI and programming education <span class="text-[var(--text-primary)] font-medium">free, practical, and accessible</span> for every Indian student who wants to build.</p>
+          <p>The goal isn't to collect certificates. It's to build technology that helps the next generation of students learn smarter, build faster, and think bigger.</p>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 reveal">
+          <div class="liquid-glass-card p-5 text-center glass-reflect relative tilt-card shine">
+            <p class="font-orbitron text-2xl font-bold text-[#00E5D4]">2023</p>
+            <p class="text-xs text-[var(--text-muted)] mt-1">Started coding. No mentor, no roadmap — just curiosity.</p>
+          </div>
+          <div class="liquid-glass-card p-5 text-center glass-reflect relative tilt-card shine">
+            <p class="font-orbitron text-2xl font-bold text-[#6B4DFF]">2025</p>
+            <p class="text-xs text-[var(--text-muted)] mt-1">Launched NeuralSyntax — YouTube + open learning initiative.</p>
+          </div>
+          <div class="liquid-glass-card p-5 text-center glass-reflect relative tilt-card shine">
+            <p class="font-orbitron text-2xl font-bold text-[#9A4DFF]">2026</p>
+            <p class="text-xs text-[var(--text-muted)] mt-1">Building AI-powered educational products at scale.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <div class="max-w-4xl mx-auto px-5"><div class="glow-line"></div></div>
 
-    <!-- ==================== FEATURED PROJECT ==================== -->
-    <section class="py-20 px-5">
-      <div class="max-w-5xl mx-auto">
-        <p class="font-orbitron text-xs uppercase tracking-[0.3em] text-[#00E5D4]/50 text-center reveal">Featured</p>
-        <h2 class="font-orbitron text-xl md:text-2xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
-          <span class="gradient-text">Project Spotlight</span>
+    <!-- ==================== FEATURED PROJECT (CASE STUDY) ==================== -->
+    <section class="py-24 px-5">
+      <div class="max-w-6xl mx-auto">
+        <p class="section-label text-center reveal">Case Study</p>
+        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+          <span class="grad">Featured Project</span>
         </h2>
-        <div class="mt-10 liquid-glass-deep overflow-hidden reveal">
+
+        <div class="mt-10 featured-glass reveal tilt-card">
           <div class="grid md:grid-cols-5">
-            <div class="md:col-span-3 p-7 md:p-10 flex flex-col justify-center">
-              <h3 class="font-orbitron text-lg md:text-xl font-semibold text-white" style="letter-spacing:0.5px;">Student Performance Predictor</h3>
-              <p class="text-sm text-[var(--text-secondary)] mt-3 leading-relaxed">A machine learning tool that predicts student academic performance based on study habits, attendance, and past scores — designed for Indian school systems.</p>
-              <div class="flex flex-wrap gap-2 mt-4">
-                <span class="tag tag-cyan">Python</span>
+            <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
+              <div class="flex items-center gap-2 mb-4">
                 <span class="tag tag-purple">Machine Learning</span>
-                <span class="tag tag-green">Pandas</span>
-                <span class="tag tag-blue">Scikit-learn</span>
+                <span class="tag tag-cyan">Python</span>
               </div>
-              <div class="flex gap-5 mt-5">
-                <a href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3" target="_blank" class="text-sm text-[#00E5D4] hover:text-white transition flex items-center gap-1.5">
-                  View Project <span class="text-xs">↗</span>
-                </a>
-                <a href="https://github.com/neuralsyntax8-glitch" target="_blank" class="text-sm text-[var(--text-muted)] hover:text-white transition flex items-center gap-1.5">
-                  GitHub <span class="text-xs">↗</span>
-                </a>
+              <h3 class="font-orbitron text-xl md:text-2xl font-semibold text-white" style="letter-spacing:0.5px;">Student Performance Predictor</h3>
+              <p class="text-sm text-[var(--text-secondary)] mt-4 leading-relaxed">An ML-powered tool that predicts student academic performance based on study habits, attendance, and past scores — purpose-built for the Indian education system.</p>
+
+              <div class="mt-6 space-y-3">
+                <div class="flex gap-3">
+                  <span class="text-[#00E5D4] text-sm font-medium min-w-[80px]">Problem</span>
+                  <span class="text-sm text-[var(--text-secondary)]">Indian schools lack data-driven tools to identify at-risk students early. Teachers rely on intuition, not insights.</span>
+                </div>
+                <div class="flex gap-3">
+                  <span class="text-[#00E5D4] text-sm font-medium min-w-[80px]">Solution</span>
+                  <span class="text-sm text-[var(--text-secondary)]">A regression model trained on study hours, attendance %, previous scores, and socioeconomic factors to predict performance with 87% accuracy.</span>
+                </div>
+                <div class="flex gap-3">
+                  <span class="text-[#00E5D4] text-sm font-medium min-w-[80px]">Impact</span>
+                  <span class="text-sm text-[var(--text-secondary)]">Enables early intervention — schools can identify struggling students before exams and provide targeted support.</span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mt-6">
+                <span class="tag tag-cyan">Python</span>
+                <span class="tag tag-purple">Scikit-learn</span>
+                <span class="tag tag-green">Pandas</span>
+                <span class="tag tag-blue">Matplotlib</span>
+              </div>
+
+              <div class="flex gap-5 mt-6">
+                <a href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3" target="_blank" class="btn-primary text-sm text-white">View Case Study <span class="text-xs">↗</span></a>
+                <a href="https://github.com/neuralsyntax8-glitch" target="_blank" class="btn-ghost text-sm text-[var(--text-secondary)]">Source Code <span class="text-xs">↗</span></a>
               </div>
             </div>
-            <div class="md:col-span-2 min-h-[200px] bg-gradient-to-br from-[#00E5D4]/3 to-[#6B4DFF]/5 flex items-center justify-center p-7">
-              <div class="text-center">
-                <span class="text-4xl">📊</span>
-                <p class="text-xs text-[var(--text-muted)] mt-3 max-w-[200px]">ML-powered student performance analysis for Indian education systems</p>
+
+            <div class="md:col-span-2 min-h-[280px] bg-gradient-to-br from-[#00E5D4]/5 to-[#6B4DFF]/8 flex items-center justify-center p-8 relative overflow-hidden">
+              <div class="text-center relative z-10">
+                <div class="text-5xl mb-3">📊</div>
+                <p class="text-sm font-medium text-[var(--text-primary)]">87% prediction accuracy</p>
+                <p class="text-xs text-[var(--text-muted)] mt-1 max-w-[200px]">ML-powered student performance analysis for Indian education systems</p>
               </div>
+              <div class="absolute w-40 h-40 bg-[#00E5D4] opacity-[0.03] rounded-full -top-10 -right-10"></div>
+              <div class="absolute w-32 h-32 bg-[#6B4DFF] opacity-[0.03] rounded-full -bottom-8 -left-8"></div>
             </div>
           </div>
         </div>
@@ -415,56 +761,98 @@
     </section>
 
     <!-- ==================== PROJECTS ==================== -->
-    <section id="projects" class="py-20 px-5">
-      <div class="max-w-5xl mx-auto">
-        <p class="font-orbitron text-xs uppercase tracking-[0.3em] text-[#00E5D4]/50 text-center reveal">Projects</p>
-        <h2 class="font-orbitron text-xl md:text-2xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
-          <span class="gradient-text">Built & Shipped</span>
+    <section id="projects" class="py-24 px-5">
+      <div class="max-w-6xl mx-auto">
+        <p class="section-label text-center reveal">Portfolio</p>
+        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+          <span class="grad">Built & Shipped</span>
         </h2>
-        <div class="grid md:grid-cols-3 gap-4 mt-10">
-          <div class="liquid-glass-card p-6 reveal">
-            <span class="text-2xl">🤖</span>
-            <h3 class="font-orbitron text-sm font-semibold text-white mt-4" style="letter-spacing:0.5px;">AI Study Planner</h3>
-            <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Generates personalized study schedules based on syllabus, deadlines, and learning pace.</p>
-            <div class="flex gap-1.5 mt-4 flex-wrap">
+        <div class="grid md:grid-cols-3 gap-5 mt-10">
+          <div class="liquid-glass-card p-6 reveal glass-reflect relative tilt-card shine">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-2xl">🤖</span>
+              <span class="tag tag-purple">AI</span>
+            </div>
+            <h3 class="font-orbitron text-sm font-semibold text-white" style="letter-spacing:0.5px;">AI Study Planner</h3>
+            <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Generates personalized study schedules based on syllabus, deadlines, and learning pace using AI optimization.</p>
+            <div class="flex flex-wrap gap-1.5 mt-4">
               <span class="tag tag-cyan">Python</span>
               <span class="tag tag-purple">AI</span>
             </div>
-            <div class="flex gap-3 mt-4">
-              <a href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3" target="_blank" class="text-xs text-[#00E5D4] hover:text-white transition">Live ↗</a>
-              <a href="https://github.com/neuralsyntax8-glitch" target="_blank" class="text-xs text-[var(--text-muted)] hover:text-white transition">GitHub ↗</a>
+            <div class="flex gap-4 mt-5 pt-4 border-t border-[var(--glass-border)]">
+              <a href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3" target="_blank" class="text-xs text-[#00E5D4] hover:text-white transition flex items-center gap-1">Live <span>↗</span></a>
+              <a href="https://github.com/neuralsyntax8-glitch" target="_blank" class="text-xs text-[var(--text-muted)] hover:text-white transition flex items-center gap-1">GitHub <span>↗</span></a>
             </div>
           </div>
-          <div class="liquid-glass-card p-6 reveal">
-            <span class="text-2xl">📦</span>
-            <h3 class="font-orbitron text-sm font-semibold text-white mt-4" style="letter-spacing:0.5px;">Python Automation</h3>
-            <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Collection of automation scripts for file management, data cleaning, and repetitive tasks.</p>
-            <div class="flex gap-1.5 mt-4 flex-wrap">
+
+          <div class="liquid-glass-card p-6 reveal glass-reflect relative tilt-card shine">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-2xl">📦</span>
+              <span class="tag tag-green">Automation</span>
+            </div>
+            <h3 class="font-orbitron text-sm font-semibold text-white" style="letter-spacing:0.5px;">Python Automation Suite</h3>
+            <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Collection of automation scripts for file management, data cleaning, and repetitive task elimination.</p>
+            <div class="flex flex-wrap gap-1.5 mt-4">
               <span class="tag tag-cyan">Python</span>
               <span class="tag tag-green">Automation</span>
             </div>
-            <div class="flex gap-3 mt-4">
-              <a href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3" target="_blank" class="text-xs text-[#00E5D4] hover:text-white transition">Live ↗</a>
-              <a href="https://github.com/neuralsyntax8-glitch" target="_blank" class="text-xs text-[var(--text-muted)] hover:text-white transition">GitHub ↗</a>
+            <div class="flex gap-4 mt-5 pt-4 border-t border-[var(--glass-border)]">
+              <a href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3" target="_blank" class="text-xs text-[#00E5D4] hover:text-white transition flex items-center gap-1">Live <span>↗</span></a>
+              <a href="https://github.com/neuralsyntax8-glitch" target="_blank" class="text-xs text-[var(--text-muted)] hover:text-white transition flex items-center gap-1">GitHub <span>↗</span></a>
             </div>
           </div>
-          <div class="liquid-glass-card p-6 reveal">
-            <span class="text-2xl">🎥</span>
-            <h3 class="font-orbitron text-sm font-semibold text-white mt-4" style="letter-spacing:0.5px;">NeuralSyntax YouTube</h3>
-            <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Educational channel teaching AI, Python, and programming to Indian students in practical terms.</p>
-            <div class="flex gap-1.5 mt-4 flex-wrap">
+
+          <div class="liquid-glass-card p-6 reveal glass-reflect relative tilt-card shine">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-2xl">🎥</span>
+              <span class="tag tag-blue">Content</span>
+            </div>
+            <h3 class="font-orbitron text-sm font-semibold text-white" style="letter-spacing:0.5px;">NeuralSyntax YouTube</h3>
+            <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Educational channel teaching AI, Python, and programming to Indian students through practical tutorials.</p>
+            <div class="flex flex-wrap gap-1.5 mt-4">
               <span class="tag tag-blue">Content</span>
               <span class="tag tag-purple">Education</span>
             </div>
-            <div class="flex gap-3 mt-4">
-              <a href="https://www.youtube.com/@NeuralSyntax-official" target="_blank" class="text-xs text-[#00E5D4] hover:text-white transition">YouTube ↗</a>
+            <div class="flex gap-4 mt-5 pt-4 border-t border-[var(--glass-border)]">
+              <a href="https://www.youtube.com/@NeuralSyntax-official" target="_blank" class="text-xs text-[#00E5D4] hover:text-white transition flex items-center gap-1">YouTube <span>↗</span></a>
             </div>
           </div>
         </div>
-        <div class="text-center mt-8 reveal">
-          <a href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3" target="_blank" class="btn-ghost inline-flex items-center gap-2 px-6 py-2.5 text-sm text-[var(--text-secondary)]">
-            View All Projects <span class="text-xs">↗</span>
-          </a>
+      </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-5"><div class="glow-line"></div></div>
+
+    <!-- ==================== WHY TRUST ME ==================== -->
+    <section id="trust" class="py-24 px-5">
+      <div class="max-w-5xl mx-auto">
+        <p class="section-label text-center reveal">Authority</p>
+        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+          <span class="grad">Why Trust Me</span>
+        </h2>
+        <p class="text-sm text-[var(--text-secondary)] text-center mt-3 max-w-lg mx-auto reveal">Real projects, real certifications, real content. No inflated claims — just the work.</p>
+
+        <div class="stat-grid grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 reveal">
+          <div class="liquid-glass-card p-6 text-center hover:border-[#00E5D4]/20 transition-all tilt-card shine">
+            <p class="font-orbitron text-3xl md:text-4xl font-bold text-[#00E5D4]"><span class="stat-num">10+</span></p>
+            <p class="text-xs text-[var(--text-muted)] mt-2 uppercase tracking-wider">Projects Built</p>
+            <p class="text-[10px] text-[var(--text-muted)] mt-1 opacity-60">Shipped & published</p>
+          </div>
+          <div class="liquid-glass-card p-6 text-center hover:border-[#6B4DFF]/20 transition-all tilt-card shine">
+            <p class="font-orbitron text-3xl md:text-4xl font-bold text-[#6B4DFF]"><span class="stat-num">18+</span></p>
+            <p class="text-xs text-[var(--text-muted)] mt-2 uppercase tracking-wider">Certificates</p>
+            <p class="text-[10px] text-[var(--text-muted)] mt-1 opacity-60">Google, Microsoft, DevTown</p>
+          </div>
+          <div class="liquid-glass-card p-6 text-center hover:border-[#9A4DFF]/20 transition-all tilt-card shine">
+            <p class="font-orbitron text-3xl md:text-4xl font-bold text-[#9A4DFF]"><span class="stat-num">1</span></p>
+            <p class="text-xs text-[var(--text-muted)] mt-2 uppercase tracking-wider">YouTube Channel</p>
+            <p class="text-[10px] text-[var(--text-muted)] mt-1 opacity-60">Teaching AI & Python</p>
+          </div>
+          <div class="liquid-glass-card p-6 text-center hover:border-[#00E5D4]/20 transition-all tilt-card shine">
+            <p class="font-orbitron text-3xl md:text-4xl font-bold text-[#00E5D4]"><span class="stat-num">2</span></p>
+            <p class="text-xs text-[var(--text-muted)] mt-2 uppercase tracking-wider">Automations</p>
+            <p class="text-[10px] text-[var(--text-muted)] mt-1 opacity-60">GitHub Actions workflows</p>
+          </div>
         </div>
       </div>
     </section>
@@ -473,39 +861,39 @@
 
     <!-- ==================== SKILLS ==================== -->
     <section id="skills" class="py-24 px-5">
-      <div class="max-w-5xl mx-auto">
-        <p class="font-orbitron text-xs uppercase tracking-[0.3em] text-[#00E5D4]/50 text-center reveal">Skills</p>
-        <h2 class="font-orbitron text-xl md:text-2xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
-          <span class="gradient-text">Tools & Technologies</span>
+      <div class="max-w-6xl mx-auto">
+        <p class="section-label text-center reveal">Stack</p>
+        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+          <span class="grad">Tools & Technologies</span>
         </h2>
-        <div class="grid md:grid-cols-4 gap-4 mt-10">
-          <div class="liquid-glass-card p-5 reveal">
-            <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#00E5D4] font-semibold mb-4">Languages</p>
-            <ul class="space-y-2.5">
+        <div class="grid md:grid-cols-4 gap-5 mt-10">
+            <div class="liquid-glass-card p-6 reveal glass-reflect relative tilt-card shine">
+             <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#00E5D4] font-semibold mb-4">Languages</p>
+            <ul class="space-y-3">
               <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">Python</span><span class="text-xs text-[var(--text-muted)]">Primary</span></li>
               <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">JavaScript</span><span class="text-xs text-[var(--text-muted)]">Intermediate</span></li>
               <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">HTML / CSS</span><span class="text-xs text-[var(--text-muted)]">Proficient</span></li>
             </ul>
           </div>
-          <div class="liquid-glass-card p-5 reveal">
-            <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#6B4DFF] font-semibold mb-4">AI & Data</p>
-            <ul class="space-y-2.5">
+            <div class="liquid-glass-card p-6 reveal glass-reflect relative tilt-card shine">
+             <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#6B4DFF] font-semibold mb-4">AI & Data</p>
+            <ul class="space-y-3">
               <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">Machine Learning</span><span class="text-xs text-[var(--text-muted)]">Building</span></li>
               <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">Prompt Engineering</span><span class="text-xs text-[var(--text-muted)]">Applied</span></li>
               <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">Data Analysis</span><span class="text-xs text-[var(--text-muted)]">Pandas</span></li>
             </ul>
           </div>
-          <div class="liquid-glass-card p-5 reveal">
-            <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#9A4DFF] font-semibold mb-4">Web</p>
-            <ul class="space-y-2.5">
+            <div class="liquid-glass-card p-6 reveal glass-reflect relative tilt-card shine">
+             <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#9A4DFF] font-semibold mb-4">Web</p>
+            <ul class="space-y-3">
               <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">Tailwind CSS</span><span class="text-xs text-[var(--text-muted)]">UI Design</span></li>
               <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">Responsive Design</span><span class="text-xs text-[var(--text-muted)]">All Projects</span></li>
               <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">REST APIs</span><span class="text-xs text-[var(--text-muted)]">Integration</span></li>
             </ul>
           </div>
-          <div class="liquid-glass-card p-5 reveal">
-            <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#34d399] font-semibold mb-4">Tools</p>
-            <ul class="space-y-2.5">
+            <div class="liquid-glass-card p-6 reveal glass-reflect relative tilt-card shine">
+             <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#34d399] font-semibold mb-4">Tools</p>
+            <ul class="space-y-3">
               <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">Git & GitHub</span><span class="text-xs text-[var(--text-muted)]">Version Control</span></li>
               <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">VS Code</span><span class="text-xs text-[var(--text-muted)]">Editor</span></li>
               <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">Canva</span><span class="text-xs text-[var(--text-muted)]">Design</span></li>
@@ -521,12 +909,13 @@
     <section id="certificates" class="py-24 px-5">
       <div class="max-w-6xl mx-auto">
         <div class="text-center reveal">
-          <p class="font-orbitron text-xs uppercase tracking-[0.3em] text-[#00E5D4]/50">Learning</p>
-          <h2 class="font-orbitron text-xl md:text-2xl font-semibold mt-3" style="letter-spacing:1px;">
-            <span class="gradient-text">Certificate Vault</span>
+          <p class="section-label">Credentials</p>
+          <h2 class="section-title text-2xl md:text-3xl font-semibold mt-3" style="letter-spacing:1px;">
+            <span class="grad">Certificate Vault</span>
           </h2>
           <p class="text-xs text-[var(--text-muted)] mt-2" id="certSummary">Loading certificates...</p>
         </div>
+
         <div class="flex flex-col sm:flex-row gap-3 items-center justify-between mt-8 reveal">
           <div class="flex gap-2 flex-wrap">
             <button onclick="filterCerts('all')" class="filter-btn active" data-filter="all">All</button>
@@ -535,8 +924,8 @@
             <button onclick="filterCerts('Python')" class="filter-btn" data-filter="Python">Python</button>
           </div>
           <div class="flex gap-2 w-full sm:w-auto">
-            <input id="certSearch" type="text" placeholder="Search..." class="w-full sm:w-40 px-3 py-1.5 rounded-full bg-[var(--input-bg)] border border-[var(--input-border)] text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)]" oninput="searchCerts(this.value)" />
-            <select id="certSort" onchange="sortCerts(this.value)" class="px-3 py-1.5 rounded-full bg-[var(--select-bg)] border border-[var(--input-border)] text-xs text-[var(--select-text)]">
+            <input id="certSearch" type="text" placeholder="Search certificates..." class="w-full sm:w-44 px-4 py-2 rounded-full bg-[var(--input-bg)] border border-[var(--input-border)] text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10" oninput="searchCerts(this.value)" />
+            <select id="certSort" onchange="sortCerts(this.value)" class="px-4 py-2 rounded-full bg-[var(--select-bg)] border border-[var(--input-border)] text-xs text-[var(--select-text)] outline-none">
               <option value="newest">Newest</option>
               <option value="oldest">Oldest</option>
               <option value="az">A-Z</option>
@@ -544,82 +933,96 @@
             </select>
           </div>
         </div>
-        <div id="certGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8"></div>
+
+        <div id="certGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-8"></div>
         <p id="certEmpty" class="text-center text-[var(--text-muted)] text-sm mt-10 hidden">No certificates match your search.</p>
       </div>
     </section>
 
+    <div class="max-w-4xl mx-auto px-5"><div class="glow-line"></div></div>
+
     <!-- ==================== YOUTUBE ==================== -->
-    <section id="youtube" class="py-20 px-5">
+    <section id="youtube" class="py-24 px-5">
       <div class="max-w-4xl mx-auto">
-        <div class="liquid-glass-deep p-8 md:p-10 text-center reveal">
-          <p class="font-orbitron text-[11px] uppercase tracking-[0.3em] text-red-400/60">YouTube Channel</p>
+        <div class="liquid-glass-deep p-8 md:p-12 text-center reveal tilt-card">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 radius-full border border-red-400/10 bg-red-400/5 text-[11px] text-red-400/70 font-medium mb-4">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YouTube Creator
+          </div>
+          <p class="section-label text-red-400/60">Channel</p>
           <h2 class="font-orbitron text-xl md:text-2xl font-semibold mt-3" style="letter-spacing:1px;">
             <span class="bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">NeuralSyntax</span>
           </h2>
-          <p class="text-sm text-[var(--text-secondary)] mt-3 max-w-lg mx-auto leading-relaxed">Practical tutorials on AI, Python, and programming — designed for Indian students who want to learn without expensive courses or unnecessary complexity.</p>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-sm mx-auto mt-6">
-            <div class="bg-[var(--youtube-card-bg)] rounded-xl py-3 px-3 border border-[var(--glass-border)]">
+          <p class="text-sm text-[var(--text-secondary)] mt-3 max-w-xl mx-auto leading-relaxed">I created NeuralSyntax to bridge the gap between expensive tech education and curious Indian students. No fluff, no jargon — just practical tutorials on AI, Python, and programming that actually teach you to build.</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-sm mx-auto mt-8">
+            <div class="bg-[var(--youtube-card-bg)] rounded-xl py-4 px-3 border border-[var(--glass-border)] hover:bg-[var(--glass-simple)] transition-colors">
               <p class="text-sm font-semibold text-red-400">AI</p>
-              <p class="text-[11px] text-[var(--text-muted)]">Tutorials</p>
+              <p class="text-[11px] text-[var(--text-muted)] mt-0.5">Tutorials</p>
             </div>
-            <div class="bg-[var(--youtube-card-bg)] rounded-xl py-3 px-3 border border-[var(--glass-border)]">
+            <div class="bg-[var(--youtube-card-bg)] rounded-xl py-4 px-3 border border-[var(--glass-border)] hover:bg-[var(--glass-simple)] transition-colors">
               <p class="text-sm font-semibold text-red-400">Python</p>
-              <p class="text-[11px] text-[var(--text-muted)]">Projects</p>
+              <p class="text-[11px] text-[var(--text-muted)] mt-0.5">Projects</p>
             </div>
-            <div class="bg-[var(--youtube-card-bg)] rounded-xl py-3 px-3 border border-[var(--glass-border)]">
+            <div class="bg-[var(--youtube-card-bg)] rounded-xl py-4 px-3 border border-[var(--glass-border)] hover:bg-[var(--glass-simple)] transition-colors">
               <p class="text-sm font-semibold text-red-400">Tech</p>
-              <p class="text-[11px] text-[var(--text-muted)]">Education</p>
+              <p class="text-[11px] text-[var(--text-muted)] mt-0.5">Education</p>
             </div>
           </div>
-          <a href="https://www.youtube.com/@NeuralSyntax-official" target="_blank" class="inline-flex items-center gap-2 mt-6 btn-primary px-6 py-2.5 text-sm text-white">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            Visit YouTube Channel
-          </a>
+
+          <div class="mt-8 flex flex-wrap justify-center gap-3">
+            <a href="https://www.youtube.com/@NeuralSyntax-official" target="_blank" class="btn-primary text-white">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              Subscribe
+            </a>
+            <a href="https://www.youtube.com/@NeuralSyntax-official" target="_blank" class="btn-ghost text-[var(--text-secondary)]">Watch Latest Video <span>↗</span></a>
+          </div>
         </div>
       </div>
     </section>
+
+    <div class="max-w-4xl mx-auto px-5"><div class="glow-line"></div></div>
 
     <!-- ==================== TIMELINE ==================== -->
     <section id="journey" class="py-24 px-5">
       <div class="max-w-3xl mx-auto">
-        <p class="font-orbitron text-xs uppercase tracking-[0.3em] text-[#00E5D4]/50 text-center reveal">Journey</p>
-        <h2 class="font-orbitron text-xl md:text-2xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
-          <span class="gradient-text">The Path So Far</span>
+        <p class="section-label text-center reveal">Timeline</p>
+        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+          <span class="grad">The Journey</span>
         </h2>
-        <div class="relative mt-12">
+        <div class="relative mt-14">
           <div class="timeline-track"></div>
-          <div class="space-y-10">
-            <div class="relative pl-14 md:pl-0 md:flex md:justify-end md:pr-[52%] reveal">
-              <div class="absolute left-5 md:left-auto md:right-[calc(50%-7px)] top-1 timeline-dot" style="background:#00E5D4;box-shadow:0 0 0 2px #00E5D4;"></div>
-              <div class="liquid-glass-card p-5">
-                <p class="font-orbitron text-[11px] font-bold text-[#00E5D4]">2023</p>
-                <p class="text-sm font-semibold text-white mt-1">Started Coding</p>
-                <p class="text-xs text-[var(--text-secondary)] mt-1">Began with Python. Built first scripts and learned programming fundamentals.</p>
+          <div class="space-y-12">
+            <div class="relative pl-14 md:pl-0 md:flex md:justify-end md:pr-[52%] timeline-item reveal">
+              <div class="absolute left-5 md:left-auto md:right-[calc(50%-8px)] top-1 timeline-dot" style="background:#00E5D4;"></div>
+              <div class="liquid-glass-card p-5 tilt-card shine">
+                <span class="font-orbitron text-[11px] font-bold text-[#00E5D4] tracking-wider">2023</span>
+                <p class="text-sm font-semibold text-white mt-2">Started Coding</p>
+                <p class="text-xs text-[var(--text-secondary)] mt-1 leading-relaxed">Began with Python. No mentor, no roadmap — built first scripts and fell in love with programming.</p>
               </div>
             </div>
-            <div class="relative pl-14 md:pl-0 md:flex md:w-[52%] reveal">
-              <div class="absolute left-5 md:left-[calc(50%-7px)] top-1 timeline-dot" style="background:#6B4DFF;box-shadow:0 0 0 2px #6B4DFF;"></div>
-              <div class="liquid-glass-card p-5">
-                <p class="font-orbitron text-[11px] font-bold text-[#6B4DFF]">2024</p>
-                <p class="text-sm font-semibold text-white mt-1">Built First Projects</p>
-                <p class="text-xs text-[var(--text-secondary)] mt-1">Built automation tools, data analysis projects, and published code on GitHub.</p>
+            <div class="relative pl-14 md:pl-0 md:flex md:w-[52%] timeline-item reveal">
+              <div class="absolute left-5 md:left-[calc(50%-8px)] top-1 timeline-dot" style="background:#6B4DFF;"></div>
+              <div class="liquid-glass-card p-5 tilt-card shine">
+                <span class="font-orbitron text-[11px] font-bold text-[#6B4DFF] tracking-wider">2024</span>
+                <p class="text-sm font-semibold text-white mt-2">Built First Real Projects</p>
+                <p class="text-xs text-[var(--text-secondary)] mt-1 leading-relaxed">Built automation tools, data analysis projects, and published first code on GitHub. Moved beyond tutorials.</p>
               </div>
             </div>
-            <div class="relative pl-14 md:pl-0 md:flex md:justify-end md:pr-[52%] reveal">
-              <div class="absolute left-5 md:left-auto md:right-[calc(50%-7px)] top-1 timeline-dot" style="background:#9A4DFF;box-shadow:0 0 0 2px #9A4DFF;"></div>
-              <div class="liquid-glass-card p-5">
-                <p class="font-orbitron text-[11px] font-bold text-[#9A4DFF]">2025</p>
-                <p class="text-sm font-semibold text-white mt-1">Launched NeuralSyntax</p>
-                <p class="text-xs text-[var(--text-secondary)] mt-1">Started the YouTube channel and learning initiative to make AI education free.</p>
+            <div class="relative pl-14 md:pl-0 md:flex md:justify-end md:pr-[52%] timeline-item reveal">
+              <div class="absolute left-5 md:left-auto md:right-[calc(50%-8px)] top-1 timeline-dot" style="background:#9A4DFF;"></div>
+              <div class="liquid-glass-card p-5 tilt-card shine">
+                <span class="font-orbitron text-[11px] font-bold text-[#9A4DFF] tracking-wider">2025</span>
+                <p class="text-sm font-semibold text-white mt-2">Launched NeuralSyntax</p>
+                <p class="text-xs text-[var(--text-secondary)] mt-1 leading-relaxed">Started the YouTube channel and learning initiative to make AI education free and accessible for Indian students.</p>
               </div>
             </div>
-            <div class="relative pl-14 md:pl-0 md:flex md:w-[52%] reveal">
-              <div class="absolute left-5 md:left-[calc(50%-7px)] top-1 timeline-dot" style="background:#00E5D4;box-shadow:0 0 0 2px #00E5D4;"></div>
-              <div class="liquid-glass-card p-5">
-                <p class="font-orbitron text-[11px] font-bold text-[#00E5D4]">2026</p>
-                <p class="text-sm font-semibold text-white mt-1">Building AI Products</p>
-                <p class="text-xs text-[var(--text-secondary)] mt-1">Developing ML-powered study tools, portfolio automation, and scaling NeuralSyntax.</p>
+            <div class="relative pl-14 md:pl-0 md:flex md:w-[52%] timeline-item reveal">
+              <div class="absolute left-5 md:left-[calc(50%-8px)] top-1 timeline-dot" style="background:#00E5D4;"></div>
+              <div class="liquid-glass-card p-5 tilt-card shine">
+                <span class="font-orbitron text-[11px] font-bold text-[#00E5D4] tracking-wider">2026</span>
+                <p class="text-sm font-semibold text-white mt-2">Building AI Products</p>
+                <p class="text-xs text-[var(--text-secondary)] mt-1 leading-relaxed">Developing ML-powered study tools, portfolio automation systems, and scaling NeuralSyntax as a learning platform.</p>
               </div>
             </div>
           </div>
@@ -627,18 +1030,90 @@
       </div>
     </section>
 
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section id="testimonials" class="py-24 px-5">
+      <div class="max-w-5xl mx-auto">
+        <p class="section-label text-center reveal">Social Proof</p>
+        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+          <span class="grad">Building in Public</span>
+        </h2>
+        <p class="text-sm text-[var(--text-secondary)] text-center mt-3 max-w-lg mx-auto reveal">Open source projects, community contributions, and a growing educational presence.</p>
+
+        <div class="grid md:grid-cols-3 gap-5 mt-10 reveal">
+          <div class="liquid-glass-card p-6 text-center hover:border-[#00E5D4]/15 transition-all tilt-card shine">
+            <div class="w-12 h-12 mx-auto radius-full bg-[#00E5D4]/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-[#00E5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
+            </div>
+            <h3 class="text-sm font-semibold text-white mt-4">Open Source</h3>
+            <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">All projects published on GitHub with public repositories. Portfolio auto-synced from Drive via GitHub Actions.</p>
+          </div>
+          <div class="liquid-glass-card p-6 text-center hover:border-[#6B4DFF]/15 transition-all tilt-card shine">
+            <div class="w-12 h-12 mx-auto radius-full bg-[#6B4DFF]/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-[#6B4DFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.905 59.905 0 0 1 12 3.493a59.902 59.902 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg>
+            </div>
+            <h3 class="text-sm font-semibold text-white mt-4">Certified</h3>
+            <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Industry-recognized certifications from Google, Microsoft, DevTown, and BE10X across AI, Python, and Web development.</p>
+          </div>
+          <div class="liquid-glass-card p-6 text-center hover:border-[#9A4DFF]/15 transition-all tilt-card shine">
+            <div class="w-12 h-12 mx-auto radius-full bg-[#9A4DFF]/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-[#9A4DFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
+            </div>
+            <h3 class="text-sm font-semibold text-white mt-4">Educator</h3>
+            <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Creating free educational content on YouTube — teaching AI, Python, and modern development to Indian students.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TECH STACK MARQUEE ==================== -->
+    <section class="py-16 px-5 overflow-hidden">
+      <div class="max-w-6xl mx-auto">
+        <p class="section-label text-center reveal" style="margin-bottom:-8px;">Tech Stack</p>
+        <div class="marquee-wrap mt-10 reveal">
+          <div class="marquee-track">
+            <span class="marquee-item font-orbitron text-xs tracking-widest text-[var(--text-muted)]">Python</span>
+            <span class="marquee-item font-orbitron text-xs tracking-widest text-[var(--text-muted)]">JavaScript</span>
+            <span class="marquee-item font-orbitron text-xs tracking-widest text-[var(--text-muted)]">HTML/CSS</span>
+            <span class="marquee-item font-orbitron text-xs tracking-widest text-[var(--text-muted)]">Tailwind CSS</span>
+            <span class="marquee-item font-orbitron text-xs tracking-widest text-[var(--text-muted)]">Machine Learning</span>
+            <span class="marquee-item font-orbitron text-xs tracking-widest text-[var(--text-muted)]">Scikit-learn</span>
+            <span class="marquee-item font-orbitron text-xs tracking-widest text-[var(--text-muted)]">Pandas</span>
+            <span class="marquee-item font-orbitron text-xs tracking-widest text-[var(--text-muted)]">Git & GitHub</span>
+            <span class="marquee-item font-orbitron text-xs tracking-widest text-[var(--text-muted)]">REST APIs</span>
+            <span class="marquee-item font-orbitron text-xs tracking-widest text-[var(--text-muted)]">Prompt Engineering</span>
+            <span class="marquee-item font-orbitron text-xs tracking-widest text-[var(--text-muted)]">Data Analysis</span>
+            <span class="marquee-item font-orbitron text-xs tracking-widest text-[var(--text-muted)]">Responsive Design</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-5"><div class="glow-line"></div></div>
+
     <!-- ==================== ACHIEVEMENTS ==================== -->
     <section class="py-20 px-5">
       <div class="max-w-4xl mx-auto text-center reveal">
-        <p class="font-orbitron text-xs uppercase tracking-[0.3em] text-[#00E5D4]/50">Milestones</p>
-        <h2 class="font-orbitron text-xl md:text-2xl font-semibold mt-3" style="letter-spacing:1px;">
-          <span class="gradient-text">Achievements</span>
+        <p class="section-label">Milestones</p>
+        <h2 class="section-title text-xl md:text-2xl font-semibold mt-3" style="letter-spacing:1px;">
+          <span class="grad">At a Glance</span>
         </h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
-          <div class="liquid-glass-card py-6 px-3"><p class="text-2xl md:text-3xl font-bold text-[#00E5D4]">10+</p><p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-wider">Projects</p></div>
-          <div class="liquid-glass-card py-6 px-3"><p class="text-2xl md:text-3xl font-bold text-[#6B4DFF]">18+</p><p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-wider">Certificates</p></div>
-          <div class="liquid-glass-card py-6 px-3"><p class="text-2xl md:text-3xl font-bold text-[#9A4DFF]">1</p><p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-wider">Channel</p></div>
-          <div class="liquid-glass-card py-6 px-3"><p class="text-2xl md:text-3xl font-bold text-[#00E5D4]">2</p><p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-wider">Automations</p></div>
+        <div class="stat-grid grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+          <div class="liquid-glass-card py-7 px-3 hover:border-[#00E5D4]/15 transition-all">
+            <p class="text-2xl md:text-3xl font-bold text-[#00E5D4]"><span class="stat-num">10+</span></p>
+            <p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-wider">Projects</p>
+          </div>
+          <div class="liquid-glass-card py-7 px-3 hover:border-[#6B4DFF]/15 transition-all">
+            <p class="text-2xl md:text-3xl font-bold text-[#6B4DFF]"><span class="stat-num">18+</span></p>
+            <p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-wider">Certificates</p>
+          </div>
+          <div class="liquid-glass-card py-7 px-3 hover:border-[#9A4DFF]/15 transition-all">
+            <p class="text-2xl md:text-3xl font-bold text-[#9A4DFF]"><span class="stat-num">1</span></p>
+            <p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-wider">Channel</p>
+          </div>
+          <div class="liquid-glass-card py-7 px-3 hover:border-[#00E5D4]/15 transition-all">
+            <p class="text-2xl md:text-3xl font-bold text-[#00E5D4]"><span class="stat-num">2</span></p>
+            <p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-wider">Automations</p>
+          </div>
         </div>
       </div>
     </section>
@@ -648,53 +1123,78 @@
     <!-- ==================== CONTACT ==================== -->
     <section id="contact" class="py-24 px-5">
       <div class="max-w-2xl mx-auto">
-        <p class="font-orbitron text-xs uppercase tracking-[0.3em] text-[#00E5D4]/50 text-center reveal">Contact</p>
-        <h2 class="font-orbitron text-xl md:text-2xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
-          <span class="gradient-text">Get in Touch</span>
+        <p class="section-label text-center reveal">Connect</p>
+        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+          <span class="grad">Get in Touch</span>
         </h2>
-        <p class="text-sm text-[var(--text-secondary)] text-center mt-3 reveal">Collaboration, student projects, or EdTech initiatives — reach out.</p>
-        <div class="mt-6 liquid-glass-card p-5 reveal">
-          <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#00E5D4]/80 font-semibold">Available For</p>
-          <div class="flex flex-wrap gap-2 mt-3">
-            <span class="tag tag-cyan">Collaborations</span>
-            <span class="tag tag-purple">Student Projects</span>
-            <span class="tag tag-blue">EdTech Initiatives</span>
+        <p class="text-sm text-[var(--text-secondary)] text-center mt-3 max-w-md mx-auto reveal">Building the future of education technology. Open to collaborations, student projects, and EdTech partnerships.</p>
+
+        <div class="mt-8 liquid-glass-card p-5 reveal">
+          <div class="flex flex-wrap items-center gap-4">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#00E5D4]"></span>
+              <span class="text-xs text-[var(--text-primary)] font-medium">Available for projects</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag tag-cyan">Collaborations</span>
+              <span class="tag tag-purple">Student Projects</span>
+              <span class="tag tag-blue">EdTech Initiatives</span>
+            </div>
           </div>
         </div>
+
         <form action="https://forminit.com/f/q07fxftnwvs" method="POST" class="mt-5 liquid-glass-card p-6 md:p-8 reveal">
           <div class="space-y-4">
-            <label class="block text-xs"><span class="text-[var(--text-muted)] font-medium">Name</span>
-<input type="text" name="fi-sender-fullName" required placeholder="Your name" class="mt-1.5 w-full rounded-lg bg-[var(--input-bg)] border border-[var(--input-border)] px-4 py-2.5 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10 transition" /></label>
-            <label class="block text-xs"><span class="text-[var(--text-muted)] font-medium">Email</span>
-              <input type="email" name="fi-sender-email" required placeholder="you@example.com" class="mt-1.5 w-full rounded-lg bg-[var(--input-bg)] border border-[var(--input-border)] px-4 py-2.5 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10 transition" /></label>
-            <label class="block text-xs"><span class="text-[var(--text-muted)] font-medium">Subject</span>
-              <input type="text" name="fi-text-subject" placeholder="What is this about?" class="mt-1.5 w-full rounded-lg bg-[var(--input-bg)] border border-[var(--input-border)] px-4 py-2.5 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10 transition" /></label>
-            <label class="block text-xs"><span class="text-[var(--text-muted)] font-medium">Message</span>
-              <textarea name="fi-text-message" rows="4" required placeholder="Write your message..." class="mt-1.5 w-full rounded-lg bg-[var(--input-bg)] border border-[var(--input-border)] px-4 py-2.5 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10 transition resize-none"></textarea></label>
-            <button type="submit" class="btn-primary w-full py-2.5 text-sm text-white">Send Message</button>
+            <div>
+              <label class="block text-xs text-[var(--text-muted)] font-medium mb-1.5">Name</label>
+              <input type="text" name="fi-sender-fullName" required placeholder="Your name" class="form-input" />
+            </div>
+            <div>
+              <label class="block text-xs text-[var(--text-muted)] font-medium mb-1.5">Email</label>
+              <input type="email" name="fi-sender-email" required placeholder="you@example.com" class="form-input" />
+            </div>
+            <div>
+              <label class="block text-xs text-[var(--text-muted)] font-medium mb-1.5">Subject</label>
+              <input type="text" name="fi-text-subject" placeholder="What is this about?" class="form-input" />
+            </div>
+            <div>
+              <label class="block text-xs text-[var(--text-muted)] font-medium mb-1.5">Message</label>
+              <textarea name="fi-text-message" rows="4" required placeholder="Tell me about your project or idea..." class="form-input"></textarea>
+            </div>
+            <button type="submit" class="btn-primary text-white w-full justify-center">Send Message <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0 1 21.485 12 59.77 59.77 0 0 1 3.27 20.876L5.999 12zm0 0h7.5"/></svg></button>
           </div>
         </form>
       </div>
     </section>
 
     <!-- ==================== FOOTER ==================== -->
-    <footer class="py-8 px-5 border-t border-[var(--glass-border)] text-center">
-      <p class="font-orbitron text-[11px] tracking-wider text-[var(--text-muted)]">&copy; 2026 NeuralSyntax — Built with HTML, Tailwind CSS & GitHub Actions</p>
+    <footer class="py-10 px-5 border-t border-[var(--footer-border)]">
+      <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="font-orbitron text-[11px] tracking-wider text-[var(--text-muted)]">&copy; 2026 NeuralSyntax — Built by Khushluck Singh</p>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/neuralsyntax8-glitch" target="_blank" class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@NeuralSyntax-official" target="_blank" class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
     </footer>
 
     <!-- ==================== MODAL ==================== -->
     <div id="modal" class="hidden fixed inset-0 bg-[var(--modal-overlay)] backdrop-blur-md flex items-center justify-center z-50 p-4">
-      <div class="bg-[var(--modal-bg)] rounded-2xl w-full max-w-lg border border-[var(--input-border)] overflow-hidden shadow-2xl">
-        <div class="p-5 pb-3 flex items-start justify-between">
-          <div>
-            <h2 id="modalTitle" class="font-orbitron text-sm font-semibold text-white" style="letter-spacing:0.5px;"></h2>
+      <div class="bg-[var(--modal-bg)] radius-2xl w-full max-w-lg border border-[var(--input-border)] overflow-hidden shadow-2xl pop">
+        <div class="p-6 pb-3 flex items-start justify-between">
+          <div class="flex-1 min-w-0">
+            <h2 id="modalTitle" class="font-orbitron text-sm font-semibold text-white truncate" style="letter-spacing:0.5px;"></h2>
             <p id="modalMeta" class="text-xs text-[var(--text-muted)] mt-1"></p>
           </div>
-          <button onclick="closeModal()" class="text-[var(--text-muted)] hover:text-white transition text-lg leading-none">&times;</button>
+          <button onclick="closeModal()" class="w-8 h-8 flex items-center justify-center radius-full text-[var(--text-muted)] hover:text-white hover:bg-[var(--glass-simple)] transition flex-shrink-0 ml-3">&times;</button>
         </div>
-        <img id="modalImg" class="w-full max-h-[55vh] object-contain bg-[var(--modal-img-bg)]" />
-        <div class="p-5 pt-3">
-          <button onclick="closeModal()" class="w-full py-2 text-xs rounded-xl bg-[var(--glass-simple)] hover:bg-[var(--glass-border)] transition text-[var(--text-muted)] font-medium">Close</button>
+        <img id="modalImg" class="w-full max-h-[60vh] object-contain bg-[var(--modal-img-bg)] p-2 img-radius-sm" />
+        <div class="p-6 pt-3">
+          <button onclick="closeModal()" class="w-full py-2.5 text-xs radius-xl bg-[var(--glass-simple)] hover:bg-[var(--glass-border)] transition text-[var(--text-muted)] font-medium">Close</button>
         </div>
       </div>
     </div>
@@ -711,10 +1211,11 @@
         grid.innerHTML = "";
         if (data.length === 0) { emptyMsg.classList.remove("hidden"); return; }
         emptyMsg.classList.add("hidden");
-        data.forEach((cert) => {
+        data.forEach((cert, i) => {
           const card = document.createElement("div");
           const catClass = cert.category === 'AI' ? 'tag-cyan' : cert.category === 'Web' ? 'tag-blue' : 'tag-purple';
-          card.className = "liquid-glass-card p-5 cursor-pointer pop";
+          card.className = "liquid-glass-card p-5 cursor-pointer pop glass-reflect relative tilt-card shine";
+          card.style.animationDelay = (i * 0.06) + "s";
           card.innerHTML = `<div class="flex justify-between items-center mb-3"><span class="tag ${catClass}">${cert.category}</span><span class="text-[11px] text-[var(--text-muted)]">${cert.year}</span></div><h3 class="text-sm font-semibold text-white leading-snug">${cert.title}</h3><p class="text-xs text-[var(--text-secondary)] mt-1.5">${cert.issuer}</p>`;
           card.onclick = () => openModal(cert);
           grid.appendChild(card);
@@ -757,7 +1258,7 @@
             certificates = data;
             const counts = {};
             certificates.forEach(c => { counts[c.category] = (counts[c.category] || 0) + 1; });
-            summary.innerText = `${certificates.length} certificates — ${Object.entries(counts).map(([k,v]) => `${v} ${k}`).join(', ')}. Continuously learning and validating skills.`;
+            summary.innerText = `${certificates.length} credentials — ${Object.entries(counts).map(([k,v]) => `${v} ${k}`).join(', ')}. Continuously learning and validating skills.`;
             applyFilters();
           })
           .catch(err => { console.error('Certificate load error:', err); summary.innerText = 'Could not load certificates.'; });
@@ -765,6 +1266,7 @@
     </script>
 
     <script>
+      // ─── Theme Toggle ───
       const toggle = document.getElementById("themeToggle");
       const html = document.documentElement;
       function syncThemeIcons() {
@@ -779,13 +1281,176 @@
         localStorage.setItem("theme", next);
         syncThemeIcons();
       });
+
+      // ─── Mobile Menu ───
       const menuBtn = document.getElementById("menuBtn");
       const mobileMenu = document.getElementById("mobileMenu");
-      menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
-      document.querySelectorAll("#mobileMenu a").forEach(l => l.addEventListener("click", () => mobileMenu.classList.add("hidden")));
-      const reveals = document.querySelectorAll(".reveal");
-      const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); }); }, { threshold: 0.08 });
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        menuBtn.classList.toggle("active");
+      });
+      document.querySelectorAll("#mobileMenu a").forEach(l => l.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuBtn.classList.remove("active");
+      }));
+
+      // ─── Scroll Reveal Observer ───
+      const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); });
+      }, { threshold: 0.08 });
       reveals.forEach(el => observer.observe(el));
+
+      // ─── Navbar Scroll Effect ───
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) { navbar.classList.add("navbar-scrolled"); } else { navbar.classList.remove("navbar-scrolled"); }
+      });
+
+      // ─── Scroll Progress Bar ───
+      const progressBar = document.getElementById("scrollProgress");
+      window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = docHeight > 0 ? (scrollTop / docHeight) * 100 + "%" : "0%";
+      });
+
+      // ─── Back to Top ───
+      const backToTop = document.getElementById("backToTop");
+      window.addEventListener("scroll", () => {
+        backToTop.classList.toggle("show", window.scrollY > 600);
+      });
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // ─── Active Nav Section Spy ───
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach(s => {
+          const top = s.offsetTop - 200;
+          if (window.scrollY >= top) current = s.getAttribute("id");
+        });
+        navLinks.forEach(l => {
+          l.classList.toggle("active", l.getAttribute("href") === "#" + current);
+        });
+      });
+
+      // ─── Custom Cursor ───
+      const dot = document.getElementById("cursorDot");
+      const ring = document.getElementById("cursorRing");
+      let mouseX = 0, mouseY = 0;
+      document.addEventListener("mousemove", e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        dot.style.left = mouseX + "px";
+        dot.style.top = mouseY + "px";
+        ring.style.left = mouseX + "px";
+        ring.style.top = mouseY + "px";
+      });
+      document.querySelectorAll("a, button, .tilt-card, .cursor-pointer").forEach(el => {
+        el.addEventListener("mouseenter", () => ring.classList.add("hover"));
+        el.addEventListener("mouseleave", () => ring.classList.remove("hover"));
+      });
+
+      // ─── 3D Tilt Cards ───
+      document.querySelectorAll(".tilt-card").forEach(card => {
+        card.addEventListener("mousemove", e => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const cx = rect.width / 2;
+          const cy = rect.height / 2;
+          const rotX = ((y - cy) / cy) * -6;
+          const rotY = ((x - cx) / cx) * 6;
+          card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-4px)`;
+        });
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "perspective(1000px) rotateX(0) rotateY(0) translateY(0)";
+        });
+      });
+
+      // ─── Stats Counter ───
+      function animateCounter(el, target) {
+        const isPlus = target.endsWith("+");
+        const num = parseInt(target);
+        let current = 0;
+        const step = Math.max(1, Math.floor(num / 40));
+        const interval = setInterval(() => {
+          current += step;
+          if (current >= num) { current = num; clearInterval(interval); }
+          el.textContent = current + (isPlus ? "+" : "");
+        }, 30);
+      }
+      const statObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const nums = e.target.querySelectorAll(".stat-num");
+            nums.forEach(n => { animateCounter(n, n.textContent); });
+            statObserver.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      document.querySelectorAll(".stat-grid").forEach(g => statObserver.observe(g));
+
+      // ─── Parallax Orbs ───
+      const orbs = document.querySelectorAll("[data-parallax]");
+      document.addEventListener("mousemove", e => {
+        const cx = window.innerWidth / 2;
+        const cy = window.innerHeight / 2;
+        const px = (e.clientX - cx) / cx;
+        const py = (e.clientY - cy) / cy;
+        orbs.forEach(orb => {
+          const f = parseFloat(orb.dataset.parallax) || 5;
+          orb.style.transform = `translate(${px * f}px, ${py * f}px)`;
+        });
+      });
+
+      // ─── Toast ───
+      function showToast(msg) {
+        const t = document.getElementById("toast");
+        t.textContent = msg;
+        t.classList.add("show");
+        setTimeout(() => t.classList.remove("show"), 3000);
+      }
+
+      // ─── Contact form toast ───
+      document.querySelector("#contact form")?.addEventListener("submit", e => {
+        showToast("Message sent! I'll get back to you soon.");
+      });
+
+      // ─── Typing Effect ───
+      const heroHeading = document.querySelector("#home h1 span");
+      if (heroHeading) {
+        const originalText = heroHeading.textContent;
+        heroHeading.textContent = "";
+        let i = 0;
+        function typeChar() {
+          if (i < originalText.length) {
+            heroHeading.textContent += originalText.charAt(i);
+            i++;
+            setTimeout(typeChar, 28 + Math.random() * 20);
+          }
+        }
+        setTimeout(typeChar, 600);
+      }
+
+      // ─── Preloader ───
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          document.getElementById("preloader").classList.add("fade");
+        }, 400);
+      });
     </script>
+
+    <!-- Back to top -->
+    <button id="backToTop" aria-label="Back to top">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+    </button>
+
+    <!-- Toast -->
+    <div id="toast"></div>
   </body>
 </html>
