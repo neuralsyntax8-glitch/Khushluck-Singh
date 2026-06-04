@@ -40,7 +40,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
     <style>
       :root {
         --cyan: #00E5D4;
@@ -1233,6 +1232,7 @@
 
     <!-- ==================== SCRIPTS ==================== -->
     <script>
+      document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale").forEach(function(e){e.classList.add("show")});
       let certificates = [];
       const grid = document.getElementById("certGrid");
       const emptyMsg = document.getElementById("certEmpty");
