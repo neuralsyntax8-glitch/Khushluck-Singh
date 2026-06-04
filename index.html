@@ -517,10 +517,6 @@
       }
       #toast.show { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
 
-      /* ─── Typing cursor ─── */
-      .typing-cursor { display: inline-block; width: 2px; height: 1em; background: var(--cyan); margin-left: 2px; animation: blink 0.8s step-end infinite; vertical-align: text-bottom; }
-      @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
-
       /* ─── Hamburger X animation ─── */
       .hamburger-x span { transition: all 0.3s ease; }
       .hamburger-x.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
@@ -615,7 +611,7 @@
 
     <!-- ==================== HERO ==================== -->
     <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-5 pt-28 relative overflow-hidden">
-      <div class="flex flex-col items-center gap-5 reveal">
+      <div class="flex flex-col items-center gap-5 reveal show">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 radius-full border border-[var(--glass-border)] bg-[var(--glass-bg)] text-xs text-[var(--text-muted)] badge-pulse">
           <span class="w-1.5 h-1.5 rounded-full bg-[#00E5D4]"></span>
           Young AI Builder · Developer · Tech Educator
@@ -628,23 +624,23 @@
         </div>
       </div>
 
-      <div class="mt-6 reveal" style="transition-delay:0.1s">
+      <div class="mt-6 reveal show" style="transition-delay:0.1s">
         <h1 class="font-orbitron heading-xl font-semibold max-w-5xl leading-[1.1] text-balance" style="letter-spacing:1px;">
           <span class="gradient-text-wide">Building AI Products That Help Students Learn Smarter</span>
         </h1>
       </div>
 
-      <p class="text-[var(--text-secondary)] text-sm md:text-base max-w-lg mt-5 leading-relaxed reveal" style="transition-delay:0.2s">
+      <p class="text-[var(--text-secondary)] text-sm md:text-base max-w-lg mt-5 leading-relaxed reveal show" style="transition-delay:0.2s">
         I'm Khushluck Singh, a <span class="text-[var(--text-primary)] font-medium">16-year-old developer</span> from Delhi building educational technology that makes AI and programming accessible to students across India.
       </p>
 
-      <div class="flex flex-wrap justify-center gap-3 mt-8 reveal" style="transition-delay:0.3s">
+      <div class="flex flex-wrap justify-center gap-3 mt-8 reveal show" style="transition-delay:0.3s">
         <a href="#projects" class="btn-primary text-white">View Projects <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
         <a href="#certificates" class="btn-ghost text-[var(--text-secondary)]">Certificates</a>
         <a href="#contact" class="btn-ghost text-[var(--text-secondary)]">Contact</a>
       </div>
 
-      <div class="mt-16 w-full max-w-2xl reveal" style="transition-delay:0.4s">
+      <div class="mt-16 w-full max-w-2xl reveal show" style="transition-delay:0.4s">
         <div class="stat-grid grid grid-cols-2 md:grid-cols-4 gap-px radius-2xl overflow-hidden" style="background:var(--glass-border);">
           <div class="bg-[var(--trust-cell-bg)] py-6 px-3 text-center hover:bg-[var(--glass-simple)] transition-colors">
             <p class="text-2xl md:text-3xl font-bold text-[#00E5D4]"><span class="stat-num">10+</span></p>
@@ -1421,27 +1417,11 @@
         showToast("Message sent! I'll get back to you soon.");
       });
 
-      // ─── Typing Effect ───
-      const heroHeading = document.querySelector("#home h1 span");
-      if (heroHeading) {
-        const originalText = heroHeading.textContent;
-        heroHeading.textContent = "";
-        let i = 0;
-        function typeChar() {
-          if (i < originalText.length) {
-            heroHeading.textContent += originalText.charAt(i);
-            i++;
-            setTimeout(typeChar, 14 + Math.random() * 10);
-          }
-        }
-        setTimeout(typeChar, 100);
-      }
+      // ─── (typing effect removed for instant loading) ───
 
-      // ─── Preloader ───
+      // ─── Preloader (instant fade) ───
       document.addEventListener("DOMContentLoaded", () => {
-        setTimeout(() => {
-          document.getElementById("preloader").classList.add("fade");
-        }, 200);
+        document.getElementById("preloader").classList.add("fade");
       });
     </script>
 
