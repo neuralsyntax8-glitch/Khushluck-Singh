@@ -1,6 +1,7 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
+    <script>!function(){try{var t=localStorage.getItem("theme");if(t){document.documentElement.setAttribute("data-theme",t)}else if(window.matchMedia("(prefers-color-scheme:light)").matches){document.documentElement.setAttribute("data-theme","light")}}catch(e){}}()</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NeuralSyntax — AI Builder, Developer & Tech Educator</title>
@@ -45,12 +46,60 @@
         --purple: #6B4DFF;
         --pink: #9A4DFF;
         --bg: #0c0c14;
+        --text-primary: #f0f0f5;
+        --text-secondary: #8e8ea0;
+        --text-muted: #6b6b80;
         --glass-bg: rgba(255,255,255,0.04);
         --glass-border: rgba(255,255,255,0.07);
         --glass-highlight: rgba(255,255,255,0.05);
-        --text-primary: #f0f0f5;
-        --text-secondary: #8e8ea0;
+        --glass-simple: rgba(255,255,255,0.05);
+        --card-bg: rgba(255,255,255,0.03);
+        --input-bg: rgba(255,255,255,0.05);
+        --input-border: rgba(255,255,255,0.05);
+        --btn-ghost-border: rgba(255,255,255,0.1);
+        --btn-ghost-hover: rgba(0,229,212,0.04);
+        --modal-overlay: rgba(0,0,0,0.8);
+        --modal-img-bg: rgba(0,0,0,0.6);
+        --modal-bg: #141420;
+        --footer-border: rgba(255,255,255,0.05);
+        --trust-cell-bg: rgba(12,12,20,0.9);
+        --select-bg: rgba(255,255,255,0.05);
+        --select-text: #9ca3af;
+        --youtube-card-bg: rgba(255,255,255,0.05);
+        --hamburger: #6b7280;
+        --timeline-dot-border: #0c0c14;
+        --border-subtle: rgba(255,255,255,0.04);
+        --scrollbar-thumb: #2a2a3e;
       }
+      [data-theme="light"] {
+        --bg: #eef0f7;
+        --text-primary: #1a1a2e;
+        --text-secondary: #5a5a72;
+        --text-muted: #9090a8;
+        --glass-bg: rgba(255,255,255,0.7);
+        --glass-border: rgba(255,255,255,0.3);
+        --glass-highlight: rgba(255,255,255,0.95);
+        --glass-simple: rgba(255,255,255,0.5);
+        --card-bg: rgba(255,255,255,0.5);
+        --input-bg: rgba(255,255,255,0.7);
+        --input-border: rgba(0,0,0,0.08);
+        --btn-ghost-border: rgba(0,0,0,0.1);
+        --btn-ghost-hover: rgba(0,229,212,0.08);
+        --modal-overlay: rgba(0,0,0,0.5);
+        --modal-img-bg: rgba(238,240,247,0.8);
+        --modal-bg: #ffffff;
+        --footer-border: rgba(0,0,0,0.06);
+        --trust-cell-bg: rgba(238,240,247,0.9);
+        --select-bg: rgba(255,255,255,0.7);
+        --select-text: #5a5a72;
+        --youtube-card-bg: rgba(0,0,0,0.03);
+        --hamburger: #5a5a72;
+        --timeline-dot-border: #eef0f7;
+        --border-subtle: rgba(0,0,0,0.04);
+        --scrollbar-thumb: #c0c0d0;
+      }
+      [data-theme="light"] .text-white { color: var(--text-primary); }
+      [data-theme="light"] .text-gray-400 { color: var(--text-muted); }
 
       html { scroll-behavior: smooth; }
       body {
@@ -83,11 +132,11 @@
         transform: translateY(-3px);
       }
       .liquid-glass-deep {
-        background: rgba(255,255,255,0.06);
+        background: var(--glass-bg);
         backdrop-filter: blur(40px) saturate(1.3);
         -webkit-backdrop-filter: blur(40px) saturate(1.3);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-top: 1px solid rgba(255,255,255,0.06);
+        border: 1px solid var(--glass-border);
+        border-top: 1px solid var(--glass-highlight);
         border-radius: 22px;
       }
 
@@ -131,13 +180,13 @@
       }
       .btn-ghost {
         border-radius: 9999px;
-        border: 1px solid rgba(255,255,255,0.1);
+        border: 1px solid var(--btn-ghost-border);
         font-weight: 500;
         transition: all 0.3s ease;
       }
       .btn-ghost:hover {
         border-color: rgba(0, 229, 212, 0.3);
-        background: rgba(0, 229, 212, 0.04);
+        background: var(--btn-ghost-hover);
         box-shadow: 0 0 20px rgba(0, 229, 212, 0.04);
       }
 
@@ -188,7 +237,7 @@
       .timeline-dot {
         width: 14px; height: 14px;
         border-radius: 50%;
-        border: 3px solid var(--bg);
+        border: 3px solid var(--timeline-dot-border);
         box-shadow: 0 0 0 2px var(--cyan);
       }
 
@@ -200,18 +249,18 @@
       }
       ::-webkit-scrollbar { width: 5px; }
       ::-webkit-scrollbar-track { background: var(--bg); }
-      ::-webkit-scrollbar-thumb { background: #2a2a3e; border-radius: 3px; }
+      ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
       .glow-line {
         height: 1px;
         background: linear-gradient(90deg, transparent, rgba(0,229,212,0.15), rgba(107,77,255,0.15), transparent);
       }
       .filter-btn {
         font-size: 12px; padding: 5px 14px; border-radius: 9999px;
-        background: rgba(255,255,255,0.03); color: #8e8ea0;
+        background: var(--card-bg); color: var(--text-secondary);
         border: 1px solid transparent;
         transition: all 0.2s ease;
       }
-      .filter-btn:hover { background: rgba(255,255,255,0.06); }
+      .filter-btn:hover { background: var(--glass-simple); }
       .filter-btn.active {
         background: rgba(0,229,212,0.06);
         border-color: rgba(0,229,212,0.2);
@@ -235,26 +284,32 @@
         <span class="logo-text">Khushluck Singh</span>
       </a>
       <nav class="hidden md:flex items-center gap-7">
-        <a href="#home" class="text-sm text-[#8e8ea0] hover:text-white transition-colors font-medium">Home</a>
-        <a href="#projects" class="text-sm text-[#8e8ea0] hover:text-white transition-colors font-medium">Projects</a>
-        <a href="#skills" class="text-sm text-[#8e8ea0] hover:text-white transition-colors font-medium">Skills</a>
-        <a href="#certificates" class="text-sm text-[#8e8ea0] hover:text-white transition-colors font-medium">Certificates</a>
-        <a href="#youtube" class="text-sm text-[#8e8ea0] hover:text-white transition-colors font-medium">YouTube</a>
-        <a href="#contact" class="text-sm text-[#8e8ea0] hover:text-white transition-colors font-medium">Contact</a>
+        <a href="#home" class="text-sm text-[var(--text-secondary)] hover:text-white transition-colors font-medium">Home</a>
+        <a href="#projects" class="text-sm text-[var(--text-secondary)] hover:text-white transition-colors font-medium">Projects</a>
+        <a href="#skills" class="text-sm text-[var(--text-secondary)] hover:text-white transition-colors font-medium">Skills</a>
+        <a href="#certificates" class="text-sm text-[var(--text-secondary)] hover:text-white transition-colors font-medium">Certificates</a>
+        <a href="#youtube" class="text-sm text-[var(--text-secondary)] hover:text-white transition-colors font-medium">YouTube</a>
+        <a href="#contact" class="text-sm text-[var(--text-secondary)] hover:text-white transition-colors font-medium">Contact</a>
       </nav>
-      <button id="menuBtn" class="md:hidden flex flex-col gap-1 p-1.5" aria-label="Menu">
-        <span class="block w-5 h-[1.5px] bg-gray-500 rounded-full transition"></span>
-        <span class="block w-5 h-[1.5px] bg-gray-500 rounded-full transition"></span>
-        <span class="block w-5 h-[1.5px] bg-gray-500 rounded-full transition"></span>
+      <div class="flex items-center gap-2">
+        <button id="themeToggle" class="w-7 h-7 flex items-center justify-center rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors" aria-label="Toggle theme">
+          <svg class="sun-icon w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1m-16 0H3m15.66 6.34l-.71-.71M4.05 4.05l-.71-.71M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+          <svg class="moon-icon w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+        <button id="menuBtn" class="md:hidden flex flex-col gap-1 p-1.5" aria-label="Menu">
+        <span class="block w-5 h-[1.5px] bg-[var(--hamburger)] rounded-full transition"></span>
+        <span class="block w-5 h-[1.5px] bg-[var(--hamburger)] rounded-full transition"></span>
+        <span class="block w-5 h-[1.5px] bg-[var(--hamburger)] rounded-full transition"></span>
       </button>
+      </div>
       <div id="mobileMenu" class="hidden absolute top-16 left-4 right-4 liquid-glass rounded-2xl p-6 md:hidden shadow-2xl">
         <ul class="flex flex-col gap-5 text-center">
-          <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-          <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
-          <li><a href="#skills" class="text-gray-400 hover:text-white transition-colors">Skills</a></li>
-          <li><a href="#certificates" class="text-gray-400 hover:text-white transition-colors">Certificates</a></li>
-          <li><a href="#youtube" class="text-gray-400 hover:text-white transition-colors">YouTube</a></li>
-          <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+          <li><a href="#home" class="text-[var(--text-muted)] hover:text-white transition-colors">Home</a></li>
+          <li><a href="#projects" class="text-[var(--text-muted)] hover:text-white transition-colors">Projects</a></li>
+          <li><a href="#skills" class="text-[var(--text-muted)] hover:text-white transition-colors">Skills</a></li>
+          <li><a href="#certificates" class="text-[var(--text-muted)] hover:text-white transition-colors">Certificates</a></li>
+          <li><a href="#youtube" class="text-[var(--text-muted)] hover:text-white transition-colors">YouTube</a></li>
+          <li><a href="#contact" class="text-[var(--text-muted)] hover:text-white transition-colors">Contact</a></li>
         </ul>
       </div>
     </header>
@@ -271,33 +326,33 @@
       <h1 class="font-orbitron text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-semibold mt-4 max-w-5xl leading-[1.12] reveal" style="letter-spacing:1px;">
         <span class="gradient-text-wide">Building AI Tools, Educational Products & Developer Projects</span>
       </h1>
-      <p class="text-[#8e8ea0] text-sm md:text-base max-w-lg mt-5 leading-relaxed reveal">
+      <p class="text-[var(--text-secondary)] text-sm md:text-base max-w-lg mt-5 leading-relaxed reveal">
         I'm a 16-year-old developer from Delhi, building technology that helps students learn AI, programming, and modern development.
       </p>
       <div class="flex flex-wrap justify-center gap-3 mt-8 reveal">
         <a href="#projects" class="btn-primary px-7 py-2.5 text-sm text-white">View Projects</a>
-        <a href="#certificates" class="btn-ghost px-7 py-2.5 text-sm text-gray-300">Certificates</a>
-        <a href="#contact" class="btn-ghost px-7 py-2.5 text-sm text-gray-300">Contact</a>
+        <a href="#certificates" class="btn-ghost px-7 py-2.5 text-sm text-[var(--text-secondary)]">Certificates</a>
+        <a href="#contact" class="btn-ghost px-7 py-2.5 text-sm text-[var(--text-secondary)]">Contact</a>
       </div>
 
       <!-- Trust strip -->
       <div class="mt-16 w-full max-w-2xl reveal">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden" style="background:rgba(255,255,255,0.04);">
-          <div class="bg-[#0c0c14]/90 py-5 px-3 text-center">
+          <div class="bg-[var(--trust-cell-bg)] py-5 px-3 text-center">
             <p class="text-xl md:text-2xl font-bold text-[#00E5D4]">10+</p>
-            <p class="text-[11px] text-gray-600 mt-1 uppercase tracking-widest font-medium">Projects</p>
+            <p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-widest font-medium">Projects</p>
           </div>
-          <div class="bg-[#0c0c14]/90 py-5 px-3 text-center">
+          <div class="bg-[var(--trust-cell-bg)] py-5 px-3 text-center">
             <p class="text-xl md:text-2xl font-bold text-[#6B4DFF]">18+</p>
-            <p class="text-[11px] text-gray-600 mt-1 uppercase tracking-widest font-medium">Certificates</p>
+            <p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-widest font-medium">Certificates</p>
           </div>
-          <div class="bg-[#0c0c14]/90 py-5 px-3 text-center">
+          <div class="bg-[var(--trust-cell-bg)] py-5 px-3 text-center">
             <p class="text-xl md:text-2xl font-bold text-[#00E5D4]">AI</p>
-            <p class="text-[11px] text-gray-600 mt-1 uppercase tracking-widest font-medium">Creator</p>
+            <p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-widest font-medium">Creator</p>
           </div>
-          <div class="bg-[#0c0c14]/90 py-5 px-3 text-center">
+          <div class="bg-[var(--trust-cell-bg)] py-5 px-3 text-center">
             <p class="text-xl md:text-2xl font-bold text-[#9A4DFF]">YouTube</p>
-            <p class="text-[11px] text-gray-600 mt-1 uppercase tracking-widest font-medium">Educator</p>
+            <p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-widest font-medium">Educator</p>
           </div>
         </div>
       </div>
@@ -310,10 +365,10 @@
         <h2 class="font-orbitron text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
           <span class="gradient-text">The NeuralSyntax Story</span>
         </h2>
-        <div class="mt-10 space-y-4 text-sm md:text-base text-[#8e8ea0] leading-[1.8] reveal">
+        <div class="mt-10 space-y-4 text-sm md:text-base text-[var(--text-secondary)] leading-[1.8] reveal">
           <p>I started coding in 2023 with Python. I was 13, in Delhi, and like most students, I had no idea where to begin. Tutorials were either too expensive or too shallow — so I decided to build my own path.</p>
-          <p>By 2024, I had built my first real projects. By 2025, I launched <span class="text-[#00E5D4] font-medium">NeuralSyntax</span> — a YouTube channel and learning initiative. The goal: make AI and programming education <span class="text-gray-200">accessible, practical, and free</span> for Indian students.</p>
-          <p>I don't just consume content. I build. Over three years, I have built <span class="text-gray-200">student performance predictors, AI study planners, automation scripts</span>, and more. Every project is published, every lesson is shared on YouTube.</p>
+          <p>By 2024, I had built my first real projects. By 2025, I launched <span class="text-[#00E5D4] font-medium">NeuralSyntax</span> — a YouTube channel and learning initiative. The goal: make AI and programming education <span class="text-[var(--text-primary)]">accessible, practical, and free</span> for Indian students.</p>
+          <p>I don't just consume content. I build. Over three years, I have built <span class="text-[var(--text-primary)]">student performance predictors, AI study planners, automation scripts</span>, and more. Every project is published, every lesson is shared on YouTube.</p>
           <p>I'm not a student showing homework. I'm a young AI builder and tech educator — building real tools, earning real certifications, and helping students learn through technology.</p>
         </div>
       </div>
@@ -332,7 +387,7 @@
           <div class="grid md:grid-cols-5">
             <div class="md:col-span-3 p-7 md:p-10 flex flex-col justify-center">
               <h3 class="font-orbitron text-lg md:text-xl font-semibold text-white" style="letter-spacing:0.5px;">Student Performance Predictor</h3>
-              <p class="text-sm text-[#8e8ea0] mt-3 leading-relaxed">A machine learning tool that predicts student academic performance based on study habits, attendance, and past scores — designed for Indian school systems.</p>
+              <p class="text-sm text-[var(--text-secondary)] mt-3 leading-relaxed">A machine learning tool that predicts student academic performance based on study habits, attendance, and past scores — designed for Indian school systems.</p>
               <div class="flex flex-wrap gap-2 mt-4">
                 <span class="tag tag-cyan">Python</span>
                 <span class="tag tag-purple">Machine Learning</span>
@@ -343,7 +398,7 @@
                 <a href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3" target="_blank" class="text-sm text-[#00E5D4] hover:text-white transition flex items-center gap-1.5">
                   View Project <span class="text-xs">↗</span>
                 </a>
-                <a href="https://github.com/neuralsyntax8-glitch" target="_blank" class="text-sm text-gray-500 hover:text-white transition flex items-center gap-1.5">
+                <a href="https://github.com/neuralsyntax8-glitch" target="_blank" class="text-sm text-[var(--text-muted)] hover:text-white transition flex items-center gap-1.5">
                   GitHub <span class="text-xs">↗</span>
                 </a>
               </div>
@@ -351,7 +406,7 @@
             <div class="md:col-span-2 min-h-[200px] bg-gradient-to-br from-[#00E5D4]/3 to-[#6B4DFF]/5 flex items-center justify-center p-7">
               <div class="text-center">
                 <span class="text-4xl">📊</span>
-                <p class="text-xs text-gray-600 mt-3 max-w-[200px]">ML-powered student performance analysis for Indian education systems</p>
+                <p class="text-xs text-[var(--text-muted)] mt-3 max-w-[200px]">ML-powered student performance analysis for Indian education systems</p>
               </div>
             </div>
           </div>
@@ -370,33 +425,33 @@
           <div class="liquid-glass-card p-6 reveal">
             <span class="text-2xl">🤖</span>
             <h3 class="font-orbitron text-sm font-semibold text-white mt-4" style="letter-spacing:0.5px;">AI Study Planner</h3>
-            <p class="text-xs text-[#8e8ea0] mt-2 leading-relaxed">Generates personalized study schedules based on syllabus, deadlines, and learning pace.</p>
+            <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Generates personalized study schedules based on syllabus, deadlines, and learning pace.</p>
             <div class="flex gap-1.5 mt-4 flex-wrap">
               <span class="tag tag-cyan">Python</span>
               <span class="tag tag-purple">AI</span>
             </div>
             <div class="flex gap-3 mt-4">
               <a href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3" target="_blank" class="text-xs text-[#00E5D4] hover:text-white transition">Live ↗</a>
-              <a href="https://github.com/neuralsyntax8-glitch" target="_blank" class="text-xs text-gray-500 hover:text-white transition">GitHub ↗</a>
+              <a href="https://github.com/neuralsyntax8-glitch" target="_blank" class="text-xs text-[var(--text-muted)] hover:text-white transition">GitHub ↗</a>
             </div>
           </div>
           <div class="liquid-glass-card p-6 reveal">
             <span class="text-2xl">📦</span>
             <h3 class="font-orbitron text-sm font-semibold text-white mt-4" style="letter-spacing:0.5px;">Python Automation</h3>
-            <p class="text-xs text-[#8e8ea0] mt-2 leading-relaxed">Collection of automation scripts for file management, data cleaning, and repetitive tasks.</p>
+            <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Collection of automation scripts for file management, data cleaning, and repetitive tasks.</p>
             <div class="flex gap-1.5 mt-4 flex-wrap">
               <span class="tag tag-cyan">Python</span>
               <span class="tag tag-green">Automation</span>
             </div>
             <div class="flex gap-3 mt-4">
               <a href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3" target="_blank" class="text-xs text-[#00E5D4] hover:text-white transition">Live ↗</a>
-              <a href="https://github.com/neuralsyntax8-glitch" target="_blank" class="text-xs text-gray-500 hover:text-white transition">GitHub ↗</a>
+              <a href="https://github.com/neuralsyntax8-glitch" target="_blank" class="text-xs text-[var(--text-muted)] hover:text-white transition">GitHub ↗</a>
             </div>
           </div>
           <div class="liquid-glass-card p-6 reveal">
             <span class="text-2xl">🎥</span>
             <h3 class="font-orbitron text-sm font-semibold text-white mt-4" style="letter-spacing:0.5px;">NeuralSyntax YouTube</h3>
-            <p class="text-xs text-[#8e8ea0] mt-2 leading-relaxed">Educational channel teaching AI, Python, and programming to Indian students in practical terms.</p>
+            <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Educational channel teaching AI, Python, and programming to Indian students in practical terms.</p>
             <div class="flex gap-1.5 mt-4 flex-wrap">
               <span class="tag tag-blue">Content</span>
               <span class="tag tag-purple">Education</span>
@@ -407,7 +462,7 @@
           </div>
         </div>
         <div class="text-center mt-8 reveal">
-          <a href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3" target="_blank" class="btn-ghost inline-flex items-center gap-2 px-6 py-2.5 text-sm text-gray-300">
+          <a href="https://drive.google.com/drive/folders/1lriP6Or-nTssBONRuN0qtPK3XHn07o-3" target="_blank" class="btn-ghost inline-flex items-center gap-2 px-6 py-2.5 text-sm text-[var(--text-secondary)]">
             View All Projects <span class="text-xs">↗</span>
           </a>
         </div>
@@ -427,33 +482,33 @@
           <div class="liquid-glass-card p-5 reveal">
             <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#00E5D4] font-semibold mb-4">Languages</p>
             <ul class="space-y-2.5">
-              <li class="flex justify-between text-sm"><span class="text-gray-200">Python</span><span class="text-xs text-gray-600">Primary</span></li>
-              <li class="flex justify-between text-sm"><span class="text-gray-200">JavaScript</span><span class="text-xs text-gray-600">Intermediate</span></li>
-              <li class="flex justify-between text-sm"><span class="text-gray-200">HTML / CSS</span><span class="text-xs text-gray-600">Proficient</span></li>
+              <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">Python</span><span class="text-xs text-[var(--text-muted)]">Primary</span></li>
+              <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">JavaScript</span><span class="text-xs text-[var(--text-muted)]">Intermediate</span></li>
+              <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">HTML / CSS</span><span class="text-xs text-[var(--text-muted)]">Proficient</span></li>
             </ul>
           </div>
           <div class="liquid-glass-card p-5 reveal">
             <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#6B4DFF] font-semibold mb-4">AI & Data</p>
             <ul class="space-y-2.5">
-              <li class="flex justify-between text-sm"><span class="text-gray-200">Machine Learning</span><span class="text-xs text-gray-600">Building</span></li>
-              <li class="flex justify-between text-sm"><span class="text-gray-200">Prompt Engineering</span><span class="text-xs text-gray-600">Applied</span></li>
-              <li class="flex justify-between text-sm"><span class="text-gray-200">Data Analysis</span><span class="text-xs text-gray-600">Pandas</span></li>
+              <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">Machine Learning</span><span class="text-xs text-[var(--text-muted)]">Building</span></li>
+              <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">Prompt Engineering</span><span class="text-xs text-[var(--text-muted)]">Applied</span></li>
+              <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">Data Analysis</span><span class="text-xs text-[var(--text-muted)]">Pandas</span></li>
             </ul>
           </div>
           <div class="liquid-glass-card p-5 reveal">
             <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#9A4DFF] font-semibold mb-4">Web</p>
             <ul class="space-y-2.5">
-              <li class="flex justify-between text-sm"><span class="text-gray-200">Tailwind CSS</span><span class="text-xs text-gray-600">UI Design</span></li>
-              <li class="flex justify-between text-sm"><span class="text-gray-200">Responsive Design</span><span class="text-xs text-gray-600">All Projects</span></li>
-              <li class="flex justify-between text-sm"><span class="text-gray-200">REST APIs</span><span class="text-xs text-gray-600">Integration</span></li>
+              <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">Tailwind CSS</span><span class="text-xs text-[var(--text-muted)]">UI Design</span></li>
+              <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">Responsive Design</span><span class="text-xs text-[var(--text-muted)]">All Projects</span></li>
+              <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">REST APIs</span><span class="text-xs text-[var(--text-muted)]">Integration</span></li>
             </ul>
           </div>
           <div class="liquid-glass-card p-5 reveal">
             <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#34d399] font-semibold mb-4">Tools</p>
             <ul class="space-y-2.5">
-              <li class="flex justify-between text-sm"><span class="text-gray-200">Git & GitHub</span><span class="text-xs text-gray-600">Version Control</span></li>
-              <li class="flex justify-between text-sm"><span class="text-gray-200">VS Code</span><span class="text-xs text-gray-600">Editor</span></li>
-              <li class="flex justify-between text-sm"><span class="text-gray-200">Canva</span><span class="text-xs text-gray-600">Design</span></li>
+              <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">Git & GitHub</span><span class="text-xs text-[var(--text-muted)]">Version Control</span></li>
+              <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">VS Code</span><span class="text-xs text-[var(--text-muted)]">Editor</span></li>
+              <li class="flex justify-between text-sm"><span class="text-[var(--text-primary)]">Canva</span><span class="text-xs text-[var(--text-muted)]">Design</span></li>
             </ul>
           </div>
         </div>
@@ -470,7 +525,7 @@
           <h2 class="font-orbitron text-xl md:text-2xl font-semibold mt-3" style="letter-spacing:1px;">
             <span class="gradient-text">Certificate Vault</span>
           </h2>
-          <p class="text-xs text-gray-600 mt-2" id="certSummary">Loading certificates...</p>
+          <p class="text-xs text-[var(--text-muted)] mt-2" id="certSummary">Loading certificates...</p>
         </div>
         <div class="flex flex-col sm:flex-row gap-3 items-center justify-between mt-8 reveal">
           <div class="flex gap-2 flex-wrap">
@@ -480,8 +535,8 @@
             <button onclick="filterCerts('Python')" class="filter-btn" data-filter="Python">Python</button>
           </div>
           <div class="flex gap-2 w-full sm:w-auto">
-            <input id="certSearch" type="text" placeholder="Search..." class="w-full sm:w-40 px-3 py-1.5 rounded-full bg-white/5 border border-white/5 text-xs text-white placeholder-gray-600" oninput="searchCerts(this.value)" />
-            <select id="certSort" onchange="sortCerts(this.value)" class="px-3 py-1.5 rounded-full bg-white/5 border border-white/5 text-xs text-gray-400">
+            <input id="certSearch" type="text" placeholder="Search..." class="w-full sm:w-40 px-3 py-1.5 rounded-full bg-[var(--input-bg)] border border-[var(--input-border)] text-xs text-[var(--text-primary)] placeholder-[var(--text-muted)]" oninput="searchCerts(this.value)" />
+            <select id="certSort" onchange="sortCerts(this.value)" class="px-3 py-1.5 rounded-full bg-[var(--select-bg)] border border-[var(--input-border)] text-xs text-[var(--select-text)]">
               <option value="newest">Newest</option>
               <option value="oldest">Oldest</option>
               <option value="az">A-Z</option>
@@ -490,7 +545,7 @@
           </div>
         </div>
         <div id="certGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8"></div>
-        <p id="certEmpty" class="text-center text-gray-600 text-sm mt-10 hidden">No certificates match your search.</p>
+        <p id="certEmpty" class="text-center text-[var(--text-muted)] text-sm mt-10 hidden">No certificates match your search.</p>
       </div>
     </section>
 
@@ -502,19 +557,19 @@
           <h2 class="font-orbitron text-xl md:text-2xl font-semibold mt-3" style="letter-spacing:1px;">
             <span class="bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">NeuralSyntax</span>
           </h2>
-          <p class="text-sm text-[#8e8ea0] mt-3 max-w-lg mx-auto leading-relaxed">Practical tutorials on AI, Python, and programming — designed for Indian students who want to learn without expensive courses or unnecessary complexity.</p>
+          <p class="text-sm text-[var(--text-secondary)] mt-3 max-w-lg mx-auto leading-relaxed">Practical tutorials on AI, Python, and programming — designed for Indian students who want to learn without expensive courses or unnecessary complexity.</p>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-sm mx-auto mt-6">
-            <div class="bg-white/5 rounded-xl py-3 px-3 border border-white/5">
+            <div class="bg-[var(--youtube-card-bg)] rounded-xl py-3 px-3 border border-[var(--glass-border)]">
               <p class="text-sm font-semibold text-red-400">AI</p>
-              <p class="text-[11px] text-gray-600">Tutorials</p>
+              <p class="text-[11px] text-[var(--text-muted)]">Tutorials</p>
             </div>
-            <div class="bg-white/5 rounded-xl py-3 px-3 border border-white/5">
+            <div class="bg-[var(--youtube-card-bg)] rounded-xl py-3 px-3 border border-[var(--glass-border)]">
               <p class="text-sm font-semibold text-red-400">Python</p>
-              <p class="text-[11px] text-gray-600">Projects</p>
+              <p class="text-[11px] text-[var(--text-muted)]">Projects</p>
             </div>
-            <div class="bg-white/5 rounded-xl py-3 px-3 border border-white/5">
+            <div class="bg-[var(--youtube-card-bg)] rounded-xl py-3 px-3 border border-[var(--glass-border)]">
               <p class="text-sm font-semibold text-red-400">Tech</p>
-              <p class="text-[11px] text-gray-600">Education</p>
+              <p class="text-[11px] text-[var(--text-muted)]">Education</p>
             </div>
           </div>
           <a href="https://www.youtube.com/@NeuralSyntax-official" target="_blank" class="inline-flex items-center gap-2 mt-6 btn-primary px-6 py-2.5 text-sm text-white">
@@ -540,7 +595,7 @@
               <div class="liquid-glass-card p-5">
                 <p class="font-orbitron text-[11px] font-bold text-[#00E5D4]">2023</p>
                 <p class="text-sm font-semibold text-white mt-1">Started Coding</p>
-                <p class="text-xs text-[#8e8ea0] mt-1">Began with Python. Built first scripts and learned programming fundamentals.</p>
+                <p class="text-xs text-[var(--text-secondary)] mt-1">Began with Python. Built first scripts and learned programming fundamentals.</p>
               </div>
             </div>
             <div class="relative pl-14 md:pl-0 md:flex md:w-[52%] reveal">
@@ -548,7 +603,7 @@
               <div class="liquid-glass-card p-5">
                 <p class="font-orbitron text-[11px] font-bold text-[#6B4DFF]">2024</p>
                 <p class="text-sm font-semibold text-white mt-1">Built First Projects</p>
-                <p class="text-xs text-[#8e8ea0] mt-1">Built automation tools, data analysis projects, and published code on GitHub.</p>
+                <p class="text-xs text-[var(--text-secondary)] mt-1">Built automation tools, data analysis projects, and published code on GitHub.</p>
               </div>
             </div>
             <div class="relative pl-14 md:pl-0 md:flex md:justify-end md:pr-[52%] reveal">
@@ -556,7 +611,7 @@
               <div class="liquid-glass-card p-5">
                 <p class="font-orbitron text-[11px] font-bold text-[#9A4DFF]">2025</p>
                 <p class="text-sm font-semibold text-white mt-1">Launched NeuralSyntax</p>
-                <p class="text-xs text-[#8e8ea0] mt-1">Started the YouTube channel and learning initiative to make AI education free.</p>
+                <p class="text-xs text-[var(--text-secondary)] mt-1">Started the YouTube channel and learning initiative to make AI education free.</p>
               </div>
             </div>
             <div class="relative pl-14 md:pl-0 md:flex md:w-[52%] reveal">
@@ -564,7 +619,7 @@
               <div class="liquid-glass-card p-5">
                 <p class="font-orbitron text-[11px] font-bold text-[#00E5D4]">2026</p>
                 <p class="text-sm font-semibold text-white mt-1">Building AI Products</p>
-                <p class="text-xs text-[#8e8ea0] mt-1">Developing ML-powered study tools, portfolio automation, and scaling NeuralSyntax.</p>
+                <p class="text-xs text-[var(--text-secondary)] mt-1">Developing ML-powered study tools, portfolio automation, and scaling NeuralSyntax.</p>
               </div>
             </div>
           </div>
@@ -580,10 +635,10 @@
           <span class="gradient-text">Achievements</span>
         </h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
-          <div class="liquid-glass-card py-6 px-3"><p class="text-2xl md:text-3xl font-bold text-[#00E5D4]">10+</p><p class="text-[11px] text-gray-600 mt-1 uppercase tracking-wider">Projects</p></div>
-          <div class="liquid-glass-card py-6 px-3"><p class="text-2xl md:text-3xl font-bold text-[#6B4DFF]">18+</p><p class="text-[11px] text-gray-600 mt-1 uppercase tracking-wider">Certificates</p></div>
-          <div class="liquid-glass-card py-6 px-3"><p class="text-2xl md:text-3xl font-bold text-[#9A4DFF]">1</p><p class="text-[11px] text-gray-600 mt-1 uppercase tracking-wider">Channel</p></div>
-          <div class="liquid-glass-card py-6 px-3"><p class="text-2xl md:text-3xl font-bold text-[#00E5D4]">2</p><p class="text-[11px] text-gray-600 mt-1 uppercase tracking-wider">Automations</p></div>
+          <div class="liquid-glass-card py-6 px-3"><p class="text-2xl md:text-3xl font-bold text-[#00E5D4]">10+</p><p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-wider">Projects</p></div>
+          <div class="liquid-glass-card py-6 px-3"><p class="text-2xl md:text-3xl font-bold text-[#6B4DFF]">18+</p><p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-wider">Certificates</p></div>
+          <div class="liquid-glass-card py-6 px-3"><p class="text-2xl md:text-3xl font-bold text-[#9A4DFF]">1</p><p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-wider">Channel</p></div>
+          <div class="liquid-glass-card py-6 px-3"><p class="text-2xl md:text-3xl font-bold text-[#00E5D4]">2</p><p class="text-[11px] text-[var(--text-muted)] mt-1 uppercase tracking-wider">Automations</p></div>
         </div>
       </div>
     </section>
@@ -597,7 +652,7 @@
         <h2 class="font-orbitron text-xl md:text-2xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
           <span class="gradient-text">Get in Touch</span>
         </h2>
-        <p class="text-sm text-[#8e8ea0] text-center mt-3 reveal">Collaboration, student projects, or EdTech initiatives — reach out.</p>
+        <p class="text-sm text-[var(--text-secondary)] text-center mt-3 reveal">Collaboration, student projects, or EdTech initiatives — reach out.</p>
         <div class="mt-6 liquid-glass-card p-5 reveal">
           <p class="font-orbitron text-[11px] uppercase tracking-wider text-[#00E5D4]/80 font-semibold">Available For</p>
           <div class="flex flex-wrap gap-2 mt-3">
@@ -608,14 +663,14 @@
         </div>
         <form action="https://forminit.com/f/q07fxftnwvs" method="POST" class="mt-5 liquid-glass-card p-6 md:p-8 reveal">
           <div class="space-y-4">
-            <label class="block text-xs"><span class="text-gray-400 font-medium">Name</span>
-              <input type="text" name="fi-sender-fullName" required placeholder="Your name" class="mt-1.5 w-full rounded-lg bg-white/5 border border-white/5 px-4 py-2.5 text-sm text-white placeholder-gray-600 outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10 transition" /></label>
-            <label class="block text-xs"><span class="text-gray-400 font-medium">Email</span>
-              <input type="email" name="fi-sender-email" required placeholder="you@example.com" class="mt-1.5 w-full rounded-lg bg-white/5 border border-white/5 px-4 py-2.5 text-sm text-white placeholder-gray-600 outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10 transition" /></label>
-            <label class="block text-xs"><span class="text-gray-400 font-medium">Subject</span>
-              <input type="text" name="fi-text-subject" placeholder="What is this about?" class="mt-1.5 w-full rounded-lg bg-white/5 border border-white/5 px-4 py-2.5 text-sm text-white placeholder-gray-600 outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10 transition" /></label>
-            <label class="block text-xs"><span class="text-gray-400 font-medium">Message</span>
-              <textarea name="fi-text-message" rows="4" required placeholder="Write your message..." class="mt-1.5 w-full rounded-lg bg-white/5 border border-white/5 px-4 py-2.5 text-sm text-white placeholder-gray-600 outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10 transition resize-none"></textarea></label>
+            <label class="block text-xs"><span class="text-[var(--text-muted)] font-medium">Name</span>
+<input type="text" name="fi-sender-fullName" required placeholder="Your name" class="mt-1.5 w-full rounded-lg bg-[var(--input-bg)] border border-[var(--input-border)] px-4 py-2.5 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10 transition" /></label>
+            <label class="block text-xs"><span class="text-[var(--text-muted)] font-medium">Email</span>
+              <input type="email" name="fi-sender-email" required placeholder="you@example.com" class="mt-1.5 w-full rounded-lg bg-[var(--input-bg)] border border-[var(--input-border)] px-4 py-2.5 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10 transition" /></label>
+            <label class="block text-xs"><span class="text-[var(--text-muted)] font-medium">Subject</span>
+              <input type="text" name="fi-text-subject" placeholder="What is this about?" class="mt-1.5 w-full rounded-lg bg-[var(--input-bg)] border border-[var(--input-border)] px-4 py-2.5 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10 transition" /></label>
+            <label class="block text-xs"><span class="text-[var(--text-muted)] font-medium">Message</span>
+              <textarea name="fi-text-message" rows="4" required placeholder="Write your message..." class="mt-1.5 w-full rounded-lg bg-[var(--input-bg)] border border-[var(--input-border)] px-4 py-2.5 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none focus:border-[#00E5D4]/30 focus:ring-1 focus:ring-[#00E5D4]/10 transition resize-none"></textarea></label>
             <button type="submit" class="btn-primary w-full py-2.5 text-sm text-white">Send Message</button>
           </div>
         </form>
@@ -623,23 +678,23 @@
     </section>
 
     <!-- ==================== FOOTER ==================== -->
-    <footer class="py-8 px-5 border-t border-white/5 text-center">
-      <p class="font-orbitron text-[11px] tracking-wider text-gray-600">&copy; 2026 NeuralSyntax — Built with HTML, Tailwind CSS & GitHub Actions</p>
+    <footer class="py-8 px-5 border-t border-[var(--glass-border)] text-center">
+      <p class="font-orbitron text-[11px] tracking-wider text-[var(--text-muted)]">&copy; 2026 NeuralSyntax — Built with HTML, Tailwind CSS & GitHub Actions</p>
     </footer>
 
     <!-- ==================== MODAL ==================== -->
-    <div id="modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4">
-      <div class="bg-[#141420] rounded-2xl w-full max-w-lg border border-white/5 overflow-hidden shadow-2xl">
+    <div id="modal" class="hidden fixed inset-0 bg-[var(--modal-overlay)] backdrop-blur-md flex items-center justify-center z-50 p-4">
+      <div class="bg-[var(--modal-bg)] rounded-2xl w-full max-w-lg border border-[var(--input-border)] overflow-hidden shadow-2xl">
         <div class="p-5 pb-3 flex items-start justify-between">
           <div>
             <h2 id="modalTitle" class="font-orbitron text-sm font-semibold text-white" style="letter-spacing:0.5px;"></h2>
-            <p id="modalMeta" class="text-xs text-gray-500 mt-1"></p>
+            <p id="modalMeta" class="text-xs text-[var(--text-muted)] mt-1"></p>
           </div>
-          <button onclick="closeModal()" class="text-gray-500 hover:text-white transition text-lg leading-none">&times;</button>
+          <button onclick="closeModal()" class="text-[var(--text-muted)] hover:text-white transition text-lg leading-none">&times;</button>
         </div>
-        <img id="modalImg" class="w-full max-h-[55vh] object-contain bg-black/60" />
+        <img id="modalImg" class="w-full max-h-[55vh] object-contain bg-[var(--modal-img-bg)]" />
         <div class="p-5 pt-3">
-          <button onclick="closeModal()" class="w-full py-2 text-xs rounded-xl bg-white/5 hover:bg-white/10 transition text-gray-400 font-medium">Close</button>
+          <button onclick="closeModal()" class="w-full py-2 text-xs rounded-xl bg-[var(--glass-simple)] hover:bg-[var(--glass-border)] transition text-[var(--text-muted)] font-medium">Close</button>
         </div>
       </div>
     </div>
@@ -660,7 +715,7 @@
           const card = document.createElement("div");
           const catClass = cert.category === 'AI' ? 'tag-cyan' : cert.category === 'Web' ? 'tag-blue' : 'tag-purple';
           card.className = "liquid-glass-card p-5 cursor-pointer pop";
-          card.innerHTML = `<div class="flex justify-between items-center mb-3"><span class="tag ${catClass}">${cert.category}</span><span class="text-[11px] text-gray-600">${cert.year}</span></div><h3 class="text-sm font-semibold text-white leading-snug">${cert.title}</h3><p class="text-xs text-[#8e8ea0] mt-1.5">${cert.issuer}</p>`;
+          card.innerHTML = `<div class="flex justify-between items-center mb-3"><span class="tag ${catClass}">${cert.category}</span><span class="text-[11px] text-[var(--text-muted)]">${cert.year}</span></div><h3 class="text-sm font-semibold text-white leading-snug">${cert.title}</h3><p class="text-xs text-[var(--text-secondary)] mt-1.5">${cert.issuer}</p>`;
           card.onclick = () => openModal(cert);
           grid.appendChild(card);
         });
@@ -710,6 +765,20 @@
     </script>
 
     <script>
+      const toggle = document.getElementById("themeToggle");
+      const html = document.documentElement;
+      function syncThemeIcons() {
+        const isLight = html.getAttribute("data-theme") === "light";
+        toggle.querySelector(".sun-icon").classList.toggle("hidden", isLight);
+        toggle.querySelector(".moon-icon").classList.toggle("hidden", !isLight);
+      }
+      syncThemeIcons();
+      toggle.addEventListener("click", () => {
+        const next = html.getAttribute("data-theme") === "light" ? "dark" : "light";
+        html.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+        syncThemeIcons();
+      });
       const menuBtn = document.getElementById("menuBtn");
       const mobileMenu = document.getElementById("mobileMenu");
       menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
