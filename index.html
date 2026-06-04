@@ -38,7 +38,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
@@ -525,9 +524,6 @@
 
       /* ─── Active nav link ─── */
       .nav-link.active { color: var(--cyan) !important; }
-
-      /* ─── Lenis scroll ─── */
-      html.lenis { scroll-behavior: auto; }
 
       /* ─── GSAP reveal ─── */
       .gsap-reveal { opacity: 0; transform: translateY(40px); }
@@ -1313,55 +1309,48 @@
       }));
 
       // ═══════════════════════════════════════════
-      // LENIS SMOOTH SCROLL
+      // REFS
       // ═══════════════════════════════════════════
-      let lenis;
-      try {
-        lenis = new Lenis({ lerp: 0.12, wheelMultiplier: 1.2, infinite: false });
-        lenis.on("scroll", e => {
-          progressBar.style.width = e.progress * 100 + "%";
-          backToTop.classList.toggle("show", e.actualScroll > 600);
-          let current = "";
-          sections.forEach(s => {
-            const top = s.offsetTop - 200;
-            if (e.actualScroll >= top) current = s.getAttribute("id");
-          });
-          navLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + current));
-          navbar.classList.toggle("navbar-scrolled", e.actualScroll > 100);
-        });
-        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-        requestAnimationFrame(raf);
-      } catch(e) { console.warn("Lenis unavailable, using native scroll"); }
-
-      // ─── Scroll Reveal Observer (fallback for non-GSAP) ───
-      const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale");
-      const revealObserver = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); });
-      }, { threshold: 0.08 });
-      reveals.forEach(el => revealObserver.observe(el));
-
-      // ─── Refs ───
       const navbar = document.getElementById("navbar");
       const progressBar = document.getElementById("scrollProgress");
       const backToTop = document.getElementById("backToTop");
       const sections = document.querySelectorAll("section[id]");
       const navLinks = document.querySelectorAll(".nav-link");
 
-      function smoothScroll(target) {
-        if (lenis) { lenis.scrollTo(target, { duration: 1.2 }); }
-        else { target.scrollIntoView({ behavior: "smooth" }); }
-      }
-      backToTop.addEventListener("click", () => smoothScroll(0));
+      // ═══════════════════════════════════════════
+      // NATIVE SCROLL EVENTS
+      // ═══════════════════════════════════════════
+      window.addEventListener("scroll", () => {
+        const s = window.scrollY;
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = h > 0 ? (s / h) * 100 + "%" : "0%";
+        backToTop.classList.toggle("show", s > 600);
+        navbar.classList.toggle("navbar-scrolled", s > 100);
+        let current = "";
+        sections.forEach(sec => {
+          if (s >= sec.offsetTop - 200) current = sec.getAttribute("id");
+        });
+        navLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + current));
+      });
+
+      backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
       document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener("click", e => {
           const id = a.getAttribute("href");
           if (id && id.length > 1) {
             const target = document.querySelector(id);
-            if (target) { e.preventDefault(); smoothScroll(target); }
+            if (target) { e.preventDefault(); target.scrollIntoView({ behavior: "smooth" }); }
           }
         });
       });
+
+      // ─── Scroll Reveal Observer ───
+      const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale");
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); });
+      }, { threshold: 0.08 });
+      reveals.forEach(el => revealObserver.observe(el));
 
       // ═══════════════════════════════════════════
       // PARTICLES
