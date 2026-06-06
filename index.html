@@ -112,10 +112,13 @@
 
       html { scroll-behavior: smooth; }
       body {
-        font-family: 'Inter', -apple-system, sans-serif;
+        font-family: Inter, "Segoe UI Variable", -apple-system, sans-serif;
         background: var(--bg);
         color: var(--text-primary);
+        letter-spacing: -0.02em;
       }
+      h1, .heading-xl { letter-spacing: -0.05em; }
+      h2, .heading-lg { letter-spacing: -0.03em; }
       .font-orbitron { font-family: 'Orbitron', sans-serif; }
 
       /* ─── Design System ─── */
@@ -138,7 +141,7 @@
       .section-title {
         font-family: 'Orbitron', sans-serif;
         font-weight: 600;
-        letter-spacing: 1px;
+        letter-spacing: -0.02em;
       }
       .section-title .grad {
         background: linear-gradient(135deg, #00E5D4, #6B4DFF);
@@ -159,7 +162,10 @@
         position:relative;
         overflow:hidden;
         background: linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.04));
-        border:1px solid rgba(255,255,255,.15);
+        border-top:1px solid rgba(255,255,255,.35);
+        border-left:1px solid rgba(255,255,255,.25);
+        border-right:1px solid rgba(255,255,255,.08);
+        border-bottom:1px solid rgba(255,255,255,.05);
         backdrop-filter: blur(40px) saturate(180%);
         -webkit-backdrop-filter: blur(40px) saturate(180%);
         border-radius:28px;
@@ -170,7 +176,7 @@
         content:"";
         position:absolute;
         inset:0;
-        background: linear-gradient(135deg,rgba(255,255,255,.30),rgba(255,255,255,.02) 50%);
+        background: radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(255,255,255,.35),transparent 30%);
         pointer-events:none;
       }
       .liquid-glass-card::after{
@@ -283,273 +289,13 @@
 
       /* ─── Reveal ─── */
       .reveal {
-        opacity: 0; transform: translateY(28px);
+        opacity: 0; transform: translateY(28px) scale(.98);
         transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
       }
-      .reveal.show { opacity: 1; transform: translateY(0); }
-
-      @keyframes pop {
-        from { opacity: 0; transform: scale(0.93); }
-        to { opacity: 1; transform: scale(1); }
-      }
-      .pop { animation: pop 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-
-      /* ─── Counter ─── */
-      @keyframes countUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-      .count-anim { animation: countUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-
-      /* ─── Timeline ─── */
-      .timeline-track {
-        position: absolute;
-        left: 50%; top: 0; bottom: 0;
-        width: 2px;
-        background: linear-gradient(to bottom, var(--cyan), var(--purple), var(--pink));
-        transform: translateX(-50%);
-        opacity: 0.5;
-      }
-      @media (max-width: 768px) { .timeline-track { left: 24px; } }
-      .timeline-dot {
-        width: 16px; height: 16px;
-        border-radius: 50%;
-        border: 3px solid var(--timeline-dot-border);
-        box-shadow: 0 0 0 3px var(--cyan);
-        transition: all 0.3s ease;
-      }
-      .timeline-item:hover .timeline-dot {
-        box-shadow: 0 0 0 5px var(--cyan), 0 0 20px rgba(0,229,212,0.2);
-        transform: scale(1.15);
-      }
-
-      /* ─── Featured project ─── */
-      .featured-glass {
-        background: var(--glass-bg);
-        backdrop-filter: blur(28px) saturate(1.15);
-        -webkit-backdrop-filter: blur(28px) saturate(1.15);
-        border: 1px solid var(--glass-border);
-        border-radius: 36px;
-        overflow: hidden;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .featured-glass:hover {
-        border-color: rgba(0, 229, 212, 0.15);
-        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 229, 212, 0.06);
-        transform: translateY(-4px);
-      }
-
-      /* ─── Misc ─── */
-      #certSearch:focus {
-        outline: none;
-        border-color: rgba(0, 229, 212, 0.3);
-        box-shadow: 0 0 0 3px rgba(0, 229, 212, 0.06);
-      }
-      ::-webkit-scrollbar { width: 5px; }
-      ::-webkit-scrollbar-track { background: var(--bg); }
-      ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
-      .glow-line {
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(0,229,212,0.12), rgba(107,77,255,0.12), transparent);
-        opacity: 0;
-        transform: scaleX(0);
-        transform-origin: center;
-      }
-      .filter-btn {
-        font-size: 12px; padding: 6px 16px; border-radius: 9999px;
-        background: var(--card-bg); color: var(--text-secondary);
-        border: 1px solid transparent;
-        transition: all 0.25s ease;
-        cursor: pointer;
-      }
-      .filter-btn:hover { background: var(--glass-simple); }
-      .filter-btn.active {
-        background: rgba(0,229,212,0.08);
-        border-color: rgba(0,229,212,0.2);
-        color: #00E5D4;
-      }
-
-      /* ─── Shimmer ─── */
-      @keyframes shimmer {
-        0% { background-position: -200% 0; }
-        100% { background-position: 200% 0; }
-      }
-      .shimmer {
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
-        background-size: 200% 100%;
-        animation: shimmer 3s infinite;
-      }
-
-      /* ─── Hero badge pulse ─── */
-      @keyframes pulse-glow {
-        0%, 100% { box-shadow: 0 0 0 0 rgba(0, 229, 212, 0.3); }
-        50% { box-shadow: 0 0 0 8px rgba(0, 229, 212, 0); }
-      }
-      .badge-pulse { animation: pulse-glow 2.5s infinite; }
-
-      /* ─── Glass card inner reflection ─── */
-      .glass-reflect::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-        border-radius: 28px 28px 0 0;
-        pointer-events: none;
-      }
-
-      /* ─── Smooth image radius ─── */
-      .img-radius { border-radius: 24px; }
-      .img-radius-sm { border-radius: 16px; }
-
-      /* ─── Content above particles ─── */
-      section, header, footer, #backToTop, #toast { position: relative; z-index: 1; }
-
-      /* ─── Navbar scroll effect ─── */
-      .navbar-scrolled {
-        background: rgba(12,12,20,0.85);
-        backdrop-filter: blur(40px) saturate(1.4);
-        -webkit-backdrop-filter: blur(40px) saturate(1.4);
-        border-color: rgba(255,255,255,0.06);
-      }
-      [data-theme="light"] .navbar-scrolled {
-        background: rgba(238,240,247,0.85);
-        border-color: rgba(0,0,0,0.06);
-      }
-
-      /* ─── Typography refinements ─── */
-      .heading-xl { font-size: clamp(2rem, 5vw, 3.5rem); }
-      .heading-lg { font-size: clamp(1.5rem, 3vw, 2rem); }
-      .text-balance { text-wrap: balance; }
-
-      /* ─── Form inputs ─── */
-      .form-input {
-        width: 100%;
-        border-radius: 16px;
-        background: var(--input-bg);
-        border: 1px solid var(--input-border);
-        padding: 12px 16px;
-        font-size: 14px;
-        color: var(--text-primary);
-        outline: none;
-        transition: all 0.25s ease;
-      }
-      .form-input:focus {
-        border-color: rgba(0, 229, 212, 0.3);
-        box-shadow: 0 0 0 3px rgba(0, 229, 212, 0.06);
-      }
-      .form-input::placeholder { color: var(--text-muted); }
-      textarea.form-input { resize: vertical; min-height: 100px; }
-
-      /* ─── Select ─── */
-      .form-select {
-        border-radius: 16px;
-        background: var(--select-bg);
-        border: 1px solid var(--input-border);
-        padding: 8px 16px;
-        font-size: 12px;
-        color: var(--select-text);
-        outline: none;
-        transition: all 0.25s ease;
-      }
-      .form-select:focus {
-        border-color: rgba(0, 229, 212, 0.3);
-        box-shadow: 0 0 0 3px rgba(0, 229, 212, 0.06);
-      }
-
-      /* ─── Particles canvas ─── */
-      #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-
-      /* ─── Custom cursor ─── */
-      .cursor-dot {
-        position: fixed; pointer-events: none; z-index: 9999;
-        width: 6px; height: 6px; border-radius: 50%;
-        background: var(--cyan);
-        transform: translate(-50%, -50%);
-        transition: width 0.2s, height 0.2s, background 0.2s;
-        mix-blend-mode: difference;
-      }
-      .cursor-ring {
-        position: fixed; pointer-events: none; z-index: 9998;
-        width: 32px; height: 32px; border-radius: 50%;
-        border: 1px solid rgba(0, 229, 212, 0.3);
-        transform: translate(-50%, -50%);
-        transition: width 0.35s ease, height 0.35s ease, border-color 0.35s ease;
-      }
-      .cursor-ring.hover { width: 52px; height: 52px; border-color: rgba(0, 229, 212, 0.6); }
-      @media (hover:none),(pointer:coarse) { .cursor-dot, .cursor-ring, .cursor-trail { display: none; } }
-
-      /* ─── Cursor trail ─── */
-      .cursor-trail { position: fixed; border-radius: 50%; pointer-events: none; z-index: 9997; background: var(--cyan); }
-
-      /* ─── Noise overlay ─── */
-      .noise-overlay {
-        position: fixed; inset: 0; z-index: 9997; pointer-events: none;
-        opacity: 0.015;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        background-repeat: repeat;
-        background-size: 256px 256px;
-      }
-
-      /* ─── Scroll progress bar ─── */
-      #scrollProgress {
-        position: fixed; top: 0; left: 0; height: 2px; z-index: 9996;
-        background: linear-gradient(90deg, var(--cyan), var(--purple));
-        width: 0%; transition: width 0.1s linear;
-      }
-
-      /* ─── Back to top ─── */
-      #backToTop {
-        position: fixed; bottom: 28px; right: 28px; z-index: 9995;
-        width: 40px; height: 40px; border-radius: 50%;
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        color: var(--text-secondary);
-        display: flex; align-items: center; justify-content: center;
-        cursor: pointer; opacity: 0; visibility: hidden;
-        transform: translateY(12px);
-        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      #backToTop.show { opacity: 1; visibility: visible; transform: translateY(0); }
-      #backToTop:hover { color: var(--cyan); border-color: rgba(0,229,212,0.3); }
-
-      /* ─── 3D tilt cards ─── */
-      .tilt-card { transform-style: preserve-3d; perspective: 1000px; }
-      .tilt-card-inner { transition: transform 0.15s ease-out; will-change: transform; }
-
-      /* ─── Marquee ─── */
-      .marquee-wrap { overflow: hidden; position: relative; }
-      .marquee-track {
-        display: flex; gap: 48px; width: max-content;
-        animation: marquee 30s linear infinite;
-      }
-      @keyframes marquee {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-      .marquee-item { white-space: nowrap; }
-
-      /* ─── Toast ─── */
-      #toast {
-        position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(80px);
-        z-index: 9994; padding: 12px 24px; border-radius: 18px;
-        background: var(--glass-bg); backdrop-filter: blur(24px);
-        border: 1px solid var(--glass-border);
-        font-size: 13px; color: var(--text-primary);
-        opacity: 0; visibility: hidden;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        white-space: nowrap;
-      }
-      #toast.show { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-
-      /* ─── Hamburger X animation ─── */
-      .hamburger-x span { transition: all 0.3s ease; }
-      .hamburger-x.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-      .hamburger-x.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-      .hamburger-x.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-      /* ─── Staggered reveal variants ─── */
-      .reveal-left { opacity: 0; transform: translateX(-30px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
-      .reveal-right { opacity: 0; transform: translateX(30px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
-      .reveal-left.show, .reveal-right.show { opacity: 1; transform: translateX(0); }
+      .reveal.show { opacity: 1; transform: translateY(0) scale(1); }
+      .reveal-left { opacity: 0; transform: translateX(-30px) scale(.98); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+      .reveal-right { opacity: 0; transform: translateX(30px) scale(.98); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+      .reveal-left.show, .reveal-right.show { opacity: 1; transform: translateX(0) scale(1); }
       .reveal-scale { opacity: 0; transform: scale(0.93); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
       .reveal-scale.show { opacity: 1; transform: scale(1); }
 
@@ -622,9 +368,6 @@
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- Particles canvas -->
-    <canvas id="particles"></canvas>
-
     <!-- Noise overlay -->
     <div class="noise-overlay"></div>
 
@@ -690,7 +433,7 @@
       </div>
 
       <div class="hero-layer hero-layer-1 mt-6 reveal show" style="transition-delay:0.1s">
-        <h1 class="font-orbitron heading-xl font-semibold max-w-5xl leading-[1.1] text-balance" style="letter-spacing:1px;">
+        <h1 class="font-orbitron heading-xl font-semibold max-w-5xl leading-[1.1] text-balance">
           <span class="gradient-text-wide" id="heroText">Building AI Products That Help Students Learn Smarter</span>
         </h1>
       </div>
@@ -731,7 +474,7 @@
     <section id="story" class="py-28 px-5">
       <div class="max-w-3xl mx-auto">
         <p class="section-label text-center reveal">Origin</p>
-        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" >
           <span class="grad">Why NeuralSyntax Exists</span>
         </h2>
         <div class="mt-10 space-y-5 text-sm md:text-base text-[var(--text-secondary)] leading-[1.9] reveal">
@@ -765,7 +508,7 @@
     <section class="py-24 px-5">
       <div class="max-w-6xl mx-auto">
         <p class="section-label text-center reveal">Case Study</p>
-        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" >
           <span class="grad">Featured Project</span>
         </h2>
 
@@ -776,7 +519,7 @@
                 <span class="tag tag-purple">Machine Learning</span>
                 <span class="tag tag-cyan">Python</span>
               </div>
-              <h3 class="font-orbitron text-xl md:text-2xl font-semibold text-white" style="letter-spacing:0.5px;">Student Performance Predictor</h3>
+              <h3 class="font-orbitron text-xl md:text-2xl font-semibold text-white" >Student Performance Predictor</h3>
               <p class="text-sm text-[var(--text-secondary)] mt-4 leading-relaxed">An ML-powered tool that predicts student academic performance based on study habits, attendance, and past scores — purpose-built for the Indian education system.</p>
 
               <div class="mt-6 space-y-3">
@@ -825,7 +568,7 @@
     <section id="projects" class="py-24 px-5">
       <div class="max-w-6xl mx-auto">
         <p class="section-label text-center reveal">Portfolio</p>
-        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" >
           <span class="grad">Built & Shipped</span>
         </h2>
         <div class="mt-10 flex flex-col gap-5">
@@ -835,7 +578,7 @@
                 <span class="text-2xl">🤖</span>
                 <span class="tag tag-purple">AI</span>
               </div>
-              <h3 class="font-orbitron text-lg md:text-xl font-semibold text-white" style="letter-spacing:0.5px;">AI Study Planner</h3>
+              <h3 class="font-orbitron text-lg md:text-xl font-semibold text-white" >AI Study Planner</h3>
               <p class="text-sm text-[var(--text-secondary)] mt-2 leading-relaxed">Generates personalized study schedules based on syllabus, deadlines, and learning pace using AI optimization.</p>
               <div class="flex flex-wrap gap-1.5 mt-4">
                 <span class="tag tag-cyan">Python</span>
@@ -851,7 +594,7 @@
                 <span class="text-2xl">📦</span>
                 <span class="tag tag-green">Automation</span>
               </div>
-              <h3 class="font-orbitron text-base font-semibold text-white" style="letter-spacing:0.5px;">Python Automation Suite</h3>
+              <h3 class="font-orbitron text-base font-semibold text-white" >Python Automation Suite</h3>
               <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Collection of automation scripts for file management, data cleaning, and repetitive task elimination.</p>
               <div class="flex flex-wrap gap-1.5 mt-4">
                 <span class="tag tag-cyan">Python</span>
@@ -869,7 +612,7 @@
                 <span class="text-2xl">🎥</span>
                 <span class="tag tag-blue">Content</span>
               </div>
-              <h3 class="font-orbitron text-sm font-semibold text-white" style="letter-spacing:0.5px;">NeuralSyntax YouTube</h3>
+              <h3 class="font-orbitron text-sm font-semibold text-white" >NeuralSyntax YouTube</h3>
               <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Educational channel teaching AI, Python, and programming to Indian students through practical tutorials.</p>
               <div class="flex flex-wrap gap-1.5 mt-4">
                 <span class="tag tag-blue">Content</span>
@@ -899,7 +642,7 @@
     <section id="trust" class="py-24 px-5">
       <div class="max-w-5xl mx-auto">
         <p class="section-label text-center reveal">Authority</p>
-        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" >
           <span class="grad">Why Trust Me</span>
         </h2>
         <p class="text-sm text-[var(--text-secondary)] text-center mt-3 max-w-lg mx-auto reveal">Real projects, real certifications, real content. No inflated claims — just the work.</p>
@@ -935,7 +678,7 @@
     <section id="skills" class="py-24 px-5">
       <div class="max-w-6xl mx-auto">
         <p class="section-label text-center reveal">Stack</p>
-        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" >
           <span class="grad">Tools & Technologies</span>
         </h2>
         <div class="grid md:grid-cols-4 gap-5 mt-10">
@@ -982,7 +725,7 @@
       <div class="max-w-6xl mx-auto">
         <div class="text-center reveal">
           <p class="section-label">Credentials</p>
-          <h2 class="section-title text-2xl md:text-3xl font-semibold mt-3" style="letter-spacing:1px;">
+          <h2 class="section-title text-2xl md:text-3xl font-semibold mt-3" >
             <span class="grad">Certificate Vault</span>
           </h2>
           <p class="text-xs text-[var(--text-muted)] mt-2" id="certSummary">Loading certificates...</p>
@@ -1022,7 +765,7 @@
             YouTube Creator
           </div>
           <p class="section-label text-red-400/60">Channel</p>
-          <h2 class="font-orbitron text-xl md:text-2xl font-semibold mt-3" style="letter-spacing:1px;">
+          <h2 class="font-orbitron text-xl md:text-2xl font-semibold mt-3" >
             <span class="bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">NeuralSyntax</span>
           </h2>
           <p class="text-sm text-[var(--text-secondary)] mt-3 max-w-xl mx-auto leading-relaxed">I created NeuralSyntax to bridge the gap between expensive tech education and curious Indian students. No fluff, no jargon — just practical tutorials on AI, Python, and programming that actually teach you to build.</p>
@@ -1059,7 +802,7 @@
     <section id="journey" class="py-24 px-5">
       <div class="max-w-3xl mx-auto">
         <p class="section-label text-center reveal">Timeline</p>
-        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" >
           <span class="grad">The Journey</span>
         </h2>
         <div class="relative mt-14">
@@ -1106,7 +849,7 @@
     <section id="testimonials" class="py-24 px-5">
       <div class="max-w-5xl mx-auto">
         <p class="section-label text-center reveal">Social Proof</p>
-        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" >
           <span class="grad">Building in Public</span>
         </h2>
         <p class="text-sm text-[var(--text-secondary)] text-center mt-3 max-w-lg mx-auto reveal">Open source projects, community contributions, and a growing educational presence.</p>
@@ -1166,7 +909,7 @@
     <section class="py-20 px-5">
       <div class="max-w-4xl mx-auto text-center reveal">
         <p class="section-label">Milestones</p>
-        <h2 class="section-title text-xl md:text-2xl font-semibold mt-3" style="letter-spacing:1px;">
+        <h2 class="section-title text-xl md:text-2xl font-semibold mt-3" >
           <span class="grad">At a Glance</span>
         </h2>
         <div class="stat-grid grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
@@ -1196,7 +939,7 @@
     <section id="contact" class="py-24 px-5">
       <div class="max-w-2xl mx-auto">
         <p class="section-label text-center reveal">Connect</p>
-        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" style="letter-spacing:1px;">
+        <h2 class="section-title text-2xl md:text-3xl font-semibold text-center mt-3 reveal" >
           <span class="grad">Get in Touch</span>
         </h2>
         <p class="text-sm text-[var(--text-secondary)] text-center mt-3 max-w-md mx-auto reveal">Building the future of education technology. Open to collaborations, student projects, and EdTech partnerships.</p>
@@ -1259,7 +1002,7 @@
       <div class="bg-[var(--modal-bg)] radius-2xl w-full max-w-lg border border-[var(--input-border)] overflow-hidden shadow-2xl pop">
         <div class="p-6 pb-3 flex items-start justify-between">
           <div class="flex-1 min-w-0">
-            <h2 id="modalTitle" class="font-orbitron text-sm font-semibold text-white truncate" style="letter-spacing:0.5px;"></h2>
+            <h2 id="modalTitle" class="font-orbitron text-sm font-semibold text-white truncate" ></h2>
             <p id="modalMeta" class="text-xs text-[var(--text-muted)] mt-1"></p>
           </div>
           <button onclick="closeModal()" class="w-8 h-8 flex items-center justify-center radius-full text-[var(--text-muted)] hover:text-white hover:bg-[var(--glass-simple)] transition flex-shrink-0 ml-3">&times;</button>
@@ -1418,82 +1161,17 @@
       reveals.forEach(el => revealObserver.observe(el));
 
       // ═══════════════════════════════════════════
-      // PARTICLES
+      // DYNAMIC GLASS REFLECTIONS
       // ═══════════════════════════════════════════
-      const canvas = document.getElementById("particles");
-      const ctx = canvas.getContext("2d");
-      let particles = [];
-      let mouse = { x: -1000, y: -1000 };
-
-      function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-      resizeCanvas();
-      window.addEventListener("resize", resizeCanvas);
-
-      class Particle {
-        constructor() { this.reset(); }
-        reset() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.size = Math.random() * 2 + 0.5;
-          this.speedX = (Math.random() - 0.5) * 0.3;
-          this.speedY = (Math.random() - 0.5) * 0.3;
-          this.opacity = Math.random() * 0.4 + 0.1;
-        }
-        update() {
-          this.x += this.speedX;
-          this.y += this.speedY;
-          const dx = mouse.x - this.x;
-          const dy = mouse.y - this.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 150) {
-            const force = (150 - dist) / 150;
-            this.x -= dx * force * 0.008;
-            this.y -= dy * force * 0.008;
-          }
-          if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
-        }
-        draw() {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(0, 229, 212, ${this.opacity})`;
-          ctx.fill();
-        }
-      }
-
-      function initParticles() {
-        particles = [];
-        const count = Math.min(80, Math.floor((canvas.width * canvas.height) / 15000));
-        for (let i = 0; i < count; i++) particles.push(new Particle());
-      }
-      initParticles();
-
-      function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => { p.update(); p.draw(); });
-        // Draw connections
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 120) {
-              ctx.beginPath();
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = `rgba(0, 229, 212, ${0.06 * (1 - dist / 120)})`;
-              ctx.stroke();
-            }
-          }
-        }
-        requestAnimationFrame(animateParticles);
-      }
-      animateParticles();
-
-      document.addEventListener("mousemove", e => { mouse.x = e.clientX; mouse.y = e.clientY; });
-      document.addEventListener("touchmove", e => { mouse.x = e.touches[0].clientX; mouse.y = e.touches[0].clientY; });
+      document.querySelectorAll('.liquid-glass-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          card.style.setProperty('--mouse-x', `${x}%`);
+          card.style.setProperty('--mouse-y', `${y}%`);
+        });
+      });
 
       // ═══════════════════════════════════════════
       // CUSTOM CURSOR
