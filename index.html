@@ -312,7 +312,46 @@
       .split-char { display: inline-block; opacity: 0; transform: translateY(40px) rotateX(-20deg); }
 
       /* ─── Magnetic buttons ─── */
-      .magnetic { position: relative; display: inline-flex; }
+      .magnetic { position: relative; display: inline-flex; touch-action: manipulation; }
+
+      /* ─── Form inputs ─── */
+      .form-input {
+        width: 100%;
+        padding: 12px 16px;
+        border-radius: 14px;
+        background: var(--input-bg);
+        border: 1px solid var(--input-border);
+        color: var(--text-primary);
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        min-height: 44px;
+        touch-action: manipulation;
+      }
+      .form-input:focus { border-color: rgba(0,229,212,.3); box-shadow: 0 0 0 3px rgba(0,229,212,.08); }
+      .form-input::placeholder { color: var(--text-muted); }
+      textarea.form-input { min-height: auto; }
+
+      /* ─── Filter buttons ─── */
+      .filter-btn {
+        padding: 8px 20px; border-radius: 9999px; font-size: 12px;
+        background: var(--glass-simple); color: var(--text-muted); border: 1px solid var(--glass-border);
+        cursor: pointer; transition: all .3s ease;
+        min-height: 44px;
+        touch-action: manipulation;
+      }
+      .filter-btn:hover, .filter-btn.active { background: rgba(0,229,212,.1); color: #00E5D4; border-color: rgba(0,229,212,.2); }
+
+      /* ─── Project metrics ─── */
+      .project-stat {
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 4px 12px; border-radius: 9999px;
+        font-size: 11px; font-weight: 600;
+        background: rgba(0,229,212,.08); color: #00E5D4;
+        border: 1px solid rgba(0,229,212,.12);
+      }
+      .project-stat.purple { background: rgba(107,77,255,.08); color: #6B4DFF; border-color: rgba(107,77,255,.12); }
+      .project-stat.green { background: rgba(52,211,153,.08); color: #34d399; border-color: rgba(52,211,153,.12); }
 
       /* ─── Hero 3D layers ─── */
       .hero-3d { perspective: 1200px; transform-style: preserve-3d; }
@@ -359,6 +398,33 @@
         50%{ transform:translate(10%,10%); }
         100%{ transform:translate(-10%,-10%); }
       }
+
+      /* ─── Reduced motion ─── */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+        html { scroll-behavior: auto; }
+        .orb, body::before, .aurora-bg { display: none; }
+      }
+
+      /* ─── Touch device overrides ─── */
+      @media (hover: none) and (pointer: coarse) {
+        .liquid-glass-card::before { background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.15), transparent 30%); }
+        .tilt-card, .magnetic { transform: none !important; }
+        .hero-3d .hero-layer { transform: none !important; }
+        [data-parallax] { transform: none !important; }
+        .liquid-glass-card:hover { transform: none; }
+        .btn-primary:hover { transform: none; }
+      }
+
+      /* ─── Keyboard focus ─── */
+      a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+        outline: 2px solid #00E5D4;
+        outline-offset: 2px;
+      }
+
+      /* ─── Page fade-in ─── */
+      body { animation: pageIn 0.6s ease both; }
+      @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
   </head>
 
@@ -383,7 +449,7 @@
     <!-- ==================== NAVBAR ==================== -->
     <header id="navbar" class="fixed top-5 left-1/2 -translate-x-1/2 w-[94%] md:w-[88%] max-w-6xl z-50 liquid-glass radius-2xl px-5 md:px-7 py-3 flex items-center justify-between transition-all duration-300 shadow-lg shadow-black/20">
       <a href="#home" class="flex items-center gap-3">
-        <img src="assets/WhatsApp%20Image%202026-04-03%20at%201.08.35%20PM.jpeg" class="w-7 h-7 object-cover img-radius-sm" alt="Khushluck Singh" />
+        <img src="assets/WhatsApp%20Image%202026-04-03%20at%201.08.35%20PM.jpeg" width="28" height="28" class="w-7 h-7 object-cover img-radius-sm" alt="Khushluck Singh" />
         <span class="logo-text">Khushluck Singh</span>
       </a>
       <nav class="hidden md:flex items-center gap-8">
@@ -425,7 +491,7 @@
           Young AI Builder · Developer · Tech Educator
         </div>
         <div class="hero-layer hero-layer-2 relative inline-block mt-2">
-          <img src="assets/Gemini_Generated_Image_6ge9646ge9646ge9.png" class="w-28 h-28 md:w-32 md:h-32 img-radius border-2 border-[#00E5D4]/20 shadow-2xl shadow-black/40 object-cover" alt="Khushluck Singh" />
+          <img src="assets/Gemini_Generated_Image_6ge9646ge9646ge9.png" fetchpriority="high" width="128" height="128" class="w-28 h-28 md:w-32 md:h-32 img-radius border-2 border-[#00E5D4]/20 shadow-2xl shadow-black/40 object-cover" alt="Khushluck Singh" />
           <div class="absolute -bottom-1 -right-1 w-8 h-8 radius-full liquid-glass-deep flex items-center justify-center shadow-lg">
             <span class="text-xs text-[#00E5D4]">✦</span>
           </div>
@@ -574,12 +640,16 @@
         <div class="mt-10 flex flex-col gap-5">
           <div class="grid md:grid-cols-5 gap-5">
             <div class="md:col-span-3 liquid-glass-card p-7 reveal glass-reflect relative tilt-card shine">
-              <div class="flex items-center gap-3 mb-4">
-                <span class="text-2xl">🤖</span>
-                <span class="tag tag-purple">AI</span>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl">🤖</span>
+                  <span class="tag tag-purple">AI</span>
+                </div>
+                <span class="project-stat">Optimizes 100+ sessions</span>
               </div>
               <h3 class="font-orbitron text-lg md:text-xl font-semibold text-white" >AI Study Planner</h3>
-              <p class="text-sm text-[var(--text-secondary)] mt-2 leading-relaxed">Generates personalized study schedules based on syllabus, deadlines, and learning pace using AI optimization.</p>
+              <p class="text-sm text-[var(--text-secondary)] mt-2 leading-relaxed"><span class="text-[var(--text-primary)] font-medium">Problem:</span> Indian students juggle multiple subjects with tight deadlines — no tool helps them plan efficiently.</p>
+              <p class="text-sm text-[var(--text-secondary)] mt-1 leading-relaxed"><span class="text-[var(--text-primary)] font-medium">Solution:</span> Constraint-optimized scheduler that maps syllabi, deadlines, and learning pace into personalized study plans.</p>
               <div class="flex flex-wrap gap-1.5 mt-4">
                 <span class="tag tag-cyan">Python</span>
                 <span class="tag tag-purple">AI</span>
@@ -590,12 +660,16 @@
               </div>
             </div>
             <div class="md:col-span-2 liquid-glass-card p-7 reveal glass-reflect relative tilt-card shine">
-              <div class="flex items-center gap-3 mb-4">
-                <span class="text-2xl">📦</span>
-                <span class="tag tag-green">Automation</span>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl">📦</span>
+                  <span class="tag tag-green">Automation</span>
+                </div>
+                <span class="project-stat green">Saves 5+ hrs/week</span>
               </div>
               <h3 class="font-orbitron text-base font-semibold text-white" >Python Automation Suite</h3>
-              <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Collection of automation scripts for file management, data cleaning, and repetitive task elimination.</p>
+              <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed"><span class="text-[var(--text-primary)] font-medium">Problem:</span> Repetitive file management, data cleaning, and batch tasks consume hours every week.</p>
+              <p class="text-xs text-[var(--text-secondary)] mt-1 leading-relaxed"><span class="text-[var(--text-primary)] font-medium">Solution:</span> Modular automation scripts — file organizer, CSV cleaner, batch renamer, and report generator.</p>
               <div class="flex flex-wrap gap-1.5 mt-4">
                 <span class="tag tag-cyan">Python</span>
                 <span class="tag tag-green">Automation</span>
@@ -608,12 +682,15 @@
           </div>
           <div class="grid md:grid-cols-3 gap-5">
             <div class="md:col-span-1 liquid-glass-card p-6 reveal glass-reflect relative tilt-card shine">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="text-2xl">🎥</span>
-                <span class="tag tag-blue">Content</span>
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl">🎥</span>
+                  <span class="tag tag-blue">Content</span>
+                </div>
               </div>
               <h3 class="font-orbitron text-sm font-semibold text-white" >NeuralSyntax YouTube</h3>
-              <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">Educational channel teaching AI, Python, and programming to Indian students through practical tutorials.</p>
+              <p class="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed"><span class="text-[var(--text-primary)] font-medium">Problem:</span> Quality AI & Python education is locked behind paywalls in India.</p>
+              <p class="text-xs text-[var(--text-secondary)] mt-1 leading-relaxed"><span class="text-[var(--text-primary)] font-medium">Solution:</span> A free YouTube channel with practical, project-based tutorials for Indian students.</p>
               <div class="flex flex-wrap gap-1.5 mt-4">
                 <span class="tag tag-blue">Content</span>
                 <span class="tag tag-purple">Education</span>
@@ -623,12 +700,15 @@
               </div>
             </div>
             <div class="md:col-span-2 liquid-glass-card p-6 reveal glass-reflect relative tilt-card shine" style="background:linear-gradient(135deg, var(--glass-bg), rgba(107,77,255,0.04));">
-              <div class="flex items-center gap-2 justify-center h-full">
-                <span class="font-orbitron text-[10px] tracking-[0.3em] text-[var(--text-muted)]">10+ PROJECTS SHIPPED</span>
-                <span class="text-[var(--text-muted)] mx-2">·</span>
-                <span class="font-orbitron text-[10px] tracking-[0.3em] text-[var(--text-muted)]">18+ CERTIFICATES</span>
-                <span class="text-[var(--text-muted)] mx-2">·</span>
-                <span class="font-orbitron text-[10px] tracking-[0.3em] text-[var(--text-muted)]">1 CHANNEL</span>
+              <div class="flex flex-col items-center justify-center h-full gap-2">
+                <div class="flex items-center gap-2 flex-wrap justify-center">
+                  <span class="font-orbitron text-[10px] tracking-[0.3em] text-[var(--text-muted)]">10+ PROJECTS SHIPPED</span>
+                  <span class="text-[var(--text-muted)] mx-2 hidden sm:inline">·</span>
+                  <span class="font-orbitron text-[10px] tracking-[0.3em] text-[var(--text-muted)]">18+ CERTIFICATES</span>
+                  <span class="text-[var(--text-muted)] mx-2 hidden sm:inline">·</span>
+                  <span class="font-orbitron text-[10px] tracking-[0.3em] text-[var(--text-muted)]">1 CHANNEL</span>
+                </div>
+                <p class="text-[10px] text-[var(--text-muted)] mt-1 opacity-60">All projects built end-to-end, shipped, and documented</p>
               </div>
             </div>
           </div>
@@ -1007,7 +1087,7 @@
           </div>
           <button onclick="closeModal()" class="w-8 h-8 flex items-center justify-center radius-full text-[var(--text-muted)] hover:text-white hover:bg-[var(--glass-simple)] transition flex-shrink-0 ml-3">&times;</button>
         </div>
-        <img id="modalImg" class="w-full max-h-[60vh] object-contain bg-[var(--modal-img-bg)] p-2 img-radius-sm" />
+        <img id="modalImg" loading="lazy" class="w-full max-h-[60vh] object-contain bg-[var(--modal-img-bg)] p-2 img-radius-sm" />
         <div class="p-6 pt-3">
           <button onclick="closeModal()" class="w-full py-2.5 text-xs radius-xl bg-[var(--glass-simple)] hover:bg-[var(--glass-border)] transition text-[var(--text-muted)] font-medium">Close</button>
         </div>
@@ -1136,7 +1216,11 @@
         sections.forEach(sec => {
           if (s >= sec.offsetTop - 200) current = sec.getAttribute("id");
         });
-        navLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + current));
+        navLinks.forEach(l => {
+          const isActive = l.getAttribute("href") === "#" + current;
+          l.classList.toggle("active", isActive);
+          if (isActive) l.setAttribute("aria-current", "page"); else l.removeAttribute("aria-current");
+        });
       }
       window.addEventListener("scroll", handleScroll);
       handleScroll();
@@ -1161,23 +1245,31 @@
       reveals.forEach(el => revealObserver.observe(el));
 
       // ═══════════════════════════════════════════
-      // DYNAMIC GLASS REFLECTIONS
+      // DYNAMIC GLASS REFLECTIONS (skip on touch)
       // ═══════════════════════════════════════════
-      document.querySelectorAll('.liquid-glass-card').forEach(card => {
-        card.addEventListener('mousemove', e => {
-          const rect = card.getBoundingClientRect();
-          const x = ((e.clientX - rect.left) / rect.width) * 100;
-          const y = ((e.clientY - rect.top) / rect.height) * 100;
-          card.style.setProperty('--mouse-x', `${x}%`);
-          card.style.setProperty('--mouse-y', `${y}%`);
+      if (!isTouchDevice) {
+        document.querySelectorAll('.liquid-glass-card').forEach(card => {
+          card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            card.style.setProperty('--mouse-x', `${x}%`);
+            card.style.setProperty('--mouse-y', `${y}%`);
+          });
         });
-      });
+      }
 
       // ═══════════════════════════════════════════
-      // CUSTOM CURSOR
+      // TOUCH DEVICE CHECK
+      // ═══════════════════════════════════════════
+      const isTouchDevice = matchMedia("(hover: none) and (pointer: coarse)").matches;
+
+      // ═══════════════════════════════════════════
+      // CUSTOM CURSOR (skip on touch)
       // ═══════════════════════════════════════════
       const dot = document.getElementById("cursorDot");
       const ring = document.getElementById("cursorRing");
+      if (isTouchDevice) { dot.style.display = "none"; ring.style.display = "none"; }
       let cursorX = 0, cursorY = 0;
       document.addEventListener("mousemove", e => {
         cursorX = e.clientX;
@@ -1192,33 +1284,36 @@
         el.addEventListener("mouseleave", () => ring.classList.remove("hover"));
       });
 
-      // ─── Cursor Trail ───
+      // ─── Cursor Trail (skip on touch) ───
       const trail = [];
-      const TRAIL_LEN = 12;
-      for (let i = 0; i < TRAIL_LEN; i++) {
-        const dot = document.createElement("div");
-        dot.className = "cursor-trail";
-        dot.style.width = dot.style.height = (6 - i * 0.35) + "px";
-        dot.style.opacity = 0.3 - i * 0.025;
-        document.body.appendChild(dot);
-        trail.push({ el: dot, x: -100, y: -100 });
-      }
-      let trailIdx = 0;
-      document.addEventListener("mousemove", e => {
-        trail[trailIdx].x = e.clientX;
-        trail[trailIdx].y = e.clientY;
-        trailIdx = (trailIdx + 1) % TRAIL_LEN;
-        trail.forEach((t, i) => {
-          const follower = trail[(trailIdx + i) % TRAIL_LEN];
-          t.el.style.left = follower.x + "px";
-          t.el.style.top = follower.y + "px";
+      if (!isTouchDevice) {
+        const TRAIL_LEN = 12;
+        for (let i = 0; i < TRAIL_LEN; i++) {
+          const d = document.createElement("div");
+          d.className = "cursor-trail";
+          d.style.width = d.style.height = (6 - i * 0.35) + "px";
+          d.style.opacity = 0.3 - i * 0.025;
+          document.body.appendChild(d);
+          trail.push({ el: d, x: -100, y: -100 });
+        }
+        let trailIdx = 0;
+        document.addEventListener("mousemove", e => {
+          trail[trailIdx].x = e.clientX;
+          trail[trailIdx].y = e.clientY;
+          trailIdx = (trailIdx + 1) % TRAIL_LEN;
+          trail.forEach((t, i) => {
+            const follower = trail[(trailIdx + i) % TRAIL_LEN];
+            t.el.style.left = follower.x + "px";
+            t.el.style.top = follower.y + "px";
+          });
         });
-      });
+      }
 
       // ═══════════════════════════════════════════
-      // 3D TILT CARDS
+      // 3D TILT CARDS (skip on touch)
       // ═══════════════════════════════════════════
-      document.querySelectorAll(".tilt-card:not(.magnetic)").forEach(card => {
+      if (!isTouchDevice) {
+        document.querySelectorAll(".tilt-card:not(.magnetic)").forEach(card => {
         card.addEventListener("mousemove", e => {
           const rect = card.getBoundingClientRect();
           const x = e.clientX - rect.left;
@@ -1230,12 +1325,13 @@
         card.addEventListener("mouseleave", () => {
           card.style.transform = "perspective(1000px) rotateX(0) rotateY(0) translateY(0)";
         });
-      });
+      }
 
       // ═══════════════════════════════════════════
-      // MAGNETIC BUTTONS
+      // MAGNETIC BUTTONS (skip on touch)
       // ═══════════════════════════════════════════
-      document.querySelectorAll(".magnetic").forEach(btn => {
+      if (!isTouchDevice) {
+        document.querySelectorAll(".magnetic").forEach(btn => {
         btn.addEventListener("mousemove", e => {
           const rect = btn.getBoundingClientRect();
           const x = e.clientX - rect.left - rect.width / 2;
@@ -1246,6 +1342,7 @@
           btn.style.transform = "";
         });
       });
+      }
 
       // ═══════════════════════════════════════════
       // STATS COUNTER
@@ -1272,9 +1369,10 @@
       document.querySelectorAll(".stat-grid").forEach(g => statObserver.observe(g));
 
       // ═══════════════════════════════════════════
-      // PARALLAX ORBS
+      // PARALLAX ORBS (skip on touch)
       // ═══════════════════════════════════════════
-      const orbs = document.querySelectorAll("[data-parallax]");
+      if (!isTouchDevice) {
+        const orbs = document.querySelectorAll("[data-parallax]");
       document.addEventListener("mousemove", e => {
         const cx = window.innerWidth / 2;
         const cy = window.innerHeight / 2;
@@ -1285,10 +1383,6 @@
           orb.style.transform = `translate(${px * f}px, ${py * f}px)`;
         });
       });
-
-      // ═══════════════════════════════════════════
-      // HERO 3D MOUSE TRACKING
-      // ═══════════════════════════════════════════
       document.querySelector(".hero-3d")?.addEventListener("mousemove", e => {
         const rect = document.querySelector(".hero-3d").getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
@@ -1302,6 +1396,7 @@
       document.querySelector(".hero-3d")?.addEventListener("mouseleave", () => {
         document.querySelectorAll(".hero-layer").forEach(l => l.style.transform = "");
       });
+      }
 
       // ═══════════════════════════════════════════
       // GSAP SCROLLTRIGGER ANIMATIONS (graceful fallback)
