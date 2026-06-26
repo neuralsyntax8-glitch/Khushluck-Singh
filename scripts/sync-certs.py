@@ -71,7 +71,17 @@ def sync():
         sys.exit(1)
 
     certs = load_certificates()
-    existing_images = {c["image"] for c in certs if "image" in c}
+    existing_images = {c["imageUrl"] for c in certs if "imageUrl" in c}
+    # Also support old key "image" for backward compatibility during transition
+    existing_images.update({c["image"] for c in certs if "image" in c})
+
+    # Determine next ID
+    max_id = 0
+    for c in certs:
+        cid = c.get("id")
+        if isinstance(cid, int) and cid > max_id:
+            max_id = cid
+    next_id = max_id + 1
 
     new_count = 0
     for fpath in sorted(ASSETS_DIR.iterdir()):
@@ -82,16 +92,29 @@ def sync():
             continue
 
         title = infer_title(fpath.name)
+        if not title:
+            title = fpath.stem.replace("_", " ").replace("-", " ").title()
         cat = infer_category(title or fpath.stem)
 
-        certs.append({
-            "title": title or fpath.stem,
+        # Build certificate object matching the expected schema
+        cert = {
+            "id": next_id,
+            "title": title,
+            "provider": "Auto-Synced",  # using issuer as provider
             "category": cat,
-            "year": "2026",
-            "issuer": "Auto-Synced",
-            "image": rel_path,
-        })
+            "year": 2026,
+            "issueDate": "2026",
+            "credentialId": f"AUTO-{next_id:04d}",
+            "imageUrl": rel_path,
+            "description": "Auto-synced certificate from Google Drive",
+            "skills": "",
+            "tags": [],
+            "verified": True
+        }
+
+        certs.append(cert)
         existing_images.add(rel_path)
+        next_id += 1
         new_count += 1
 
     print(f"New certificates found: {new_count}")
