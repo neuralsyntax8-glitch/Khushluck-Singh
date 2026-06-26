@@ -71,7 +71,7 @@ def sync():
         sys.exit(1)
 
     certs = load_certificates()
-    existing_images = {c["image"] for c in certs}
+    existing_images = {c["image"] for c in certs if "image" in c}
 
     new_count = 0
     for fpath in sorted(ASSETS_DIR.iterdir()):
