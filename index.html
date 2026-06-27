@@ -591,22 +591,7 @@
      <p class="mt-4 text-gray-400">Loading certificates...</p>
    </div>
 
-   <script id="certificateData" type="application/json" href="data/certificates.json"></script>
-
    <script>
-     const embeddedCertificateData = document.getElementById('certificateData');
-
-     function parseEmbeddedCertificates() {
-       try {
-         const parsed = JSON.parse(embeddedCertificateData?.textContent || '[]');
-         return Array.isArray(parsed) ? parsed : [];
-       } catch (error) {
-         return [];
-       }
-     }
-
-     let fallbackCertificates = parseEmbeddedCertificates();
-
      // DOM Elements
      const certificateGrid = document.getElementById('certificateGrid');
      const filterButtons = document.querySelectorAll('.filter-btn');
@@ -640,27 +625,19 @@
      let currentSearch = '';
      let currentSort = 'newest';
      
-     async function loadCertificates() {
-       const embeddedCertificates = parseEmbeddedCertificates();
-       if (embeddedCertificates.length > 0) {
-         certificates = embeddedCertificates;
-         filteredCertificates = [...certificates];
-         renderCertificates();
-         return;
-       }
+      async function loadCertificates() {
+        try {
+          const response = await fetch('data/certificates.json', { cache: 'no-store' });
+          if (!response.ok) throw new Error('Failed to load certificate data');
+          const data = await response.json();
+          certificates = Array.isArray(data) ? data : [];
+        } catch (error) {
+          certificates = [];
+        }
 
-       try {
-         const response = await fetch('assets/certificates.json', { cache: 'no-store' });
-         if (!response.ok) throw new Error('Failed to load certificate data');
-         const data = await response.json();
-         certificates = Array.isArray(data) ? data : fallbackCertificates;
-       } catch (error) {
-         certificates = fallbackCertificates;
-       }
-
-       filteredCertificates = [...certificates];
-       renderCertificates();
-     }
+        filteredCertificates = [...certificates];
+        renderCertificates();
+      }
      
      // Initialize
      document.addEventListener('DOMContentLoaded', () => {
