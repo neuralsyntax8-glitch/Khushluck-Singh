@@ -14,11 +14,12 @@ import subprocess
 import sys
 from pathlib import Path
 
-DRIVE_FOLDER_ID = "1RbNOUtxlTRy16sK-JhqxLsbgJ9t6LS1B"
+# ---------- CONFIG ----------
+DRIVE_FOLDER_ID = "1RbNOUtxlTRy16sK-JhqxLsbgJ9t6LS1B"  # from your share link
 ASSETS_DIR = Path("assets")
 CERTS_JSON = Path("data/certificates.json")
 ALLOWED_EXT = {".png", ".jpg", ".jpeg", ".gif", ".webp"}
-
+# ---------------------------
 
 def run_gdown():
     """Download all files from the public Drive folder using gdown."""
@@ -30,21 +31,19 @@ def run_gdown():
         return False
     return True
 
-
 def load_certificates():
     if CERTS_JSON.exists():
         with open(CERTS_JSON) as f:
             return json.load(f)
     return []
 
-
 def save_certificates(certs):
     with open(CERTS_JSON, "w") as f:
         json.dump(certs, f, indent=2)
     print(f"Saved {len(certs)} certificates to {CERTS_JSON}")
 
-
 def infer_category(title):
+    """Guess category from filename/title."""
     t = title.lower()
     if "python" in t or "data" in t:
         return "Python"
@@ -54,15 +53,14 @@ def infer_category(title):
         return "Web"
     return "AI"
 
-
 def infer_title(filename):
+    """Create a readable title from the filename."""
     name = Path(filename).stem
     name = name.replace("_", " ").replace("-", " ")
     name = re.sub(r"\s+", " ", name).strip()
-    if re.match(r"^\w{5,7}\s\d$", name):
+    if re.match(r"^\w{5,7}\s\d$", name):  # ignore things like "ABC123 4"
         return ""
     return name.title()
-
 
 def sync():
     print("Downloading images from Drive folder...")
@@ -70,12 +68,16 @@ def sync():
         print("gdown failed. Is the folder public?")
         sys.exit(1)
 
+    # Load existing certificates (if any)
     certs = load_certificates()
-    existing_images = {c["imageUrl"] for c in certs if "imageUrl" in c}
-    # Also support old key "image" for backward compatibility during transition
-    existing_images.update({c["image"] for c in certs if "image" in c})
+    # Build a set of already‑seen image paths (support both old & new keys)
+    existing_images = {
+        c.get("imageUrl") or c.get("image")
+        for c in certs
+        if c.get("imageUrl") or c.get("image")
+    }
 
-    # Determine next ID
+    # Determine next available ID
     max_id = 0
     for c in certs:
         cid = c.get("id")
@@ -84,26 +86,26 @@ def sync():
     next_id = max_id + 1
 
     new_count = 0
+    # Process files in alphabetical order for determinism
     for fpath in sorted(ASSETS_DIR.iterdir()):
         if fpath.suffix.lower() not in ALLOWED_EXT:
             continue
-        rel_path = str(fpath.as_posix())
+        rel_path = str(fpath.as_posix())  # e.g. "assets/Cert1.png"
         if rel_path in existing_images:
-            continue
+            continue  # already recorded
 
+        # ----- Build certificate object -----
         title = infer_title(fpath.name)
         if not title:
             title = fpath.stem.replace("_", " ").replace("-", " ").title()
-        cat = infer_category(title or fpath.stem)
 
-        # Build certificate object matching the expected schema
         cert = {
             "id": next_id,
             "title": title,
-            "provider": "Auto-Synced",  # using issuer as provider
-            "category": cat,
-            "year": 2026,
-            "issueDate": "2026",
+            "provider": "Auto-Synced",          # you can refine this later if you store provider in filename/metadata
+            "category": infer_category(title or fpath.stem),
+            "year": 2026,                        # you could extract year from filename if desired
+            "issueDate": "2026",                 # same as above
             "credentialId": f"AUTO-{next_id:04d}",
             "imageUrl": rel_path,
             "description": "Auto-synced certificate from Google Drive",
@@ -111,6 +113,7 @@ def sync():
             "tags": [],
             "verified": True
         }
+        # ------------------------------------
 
         certs.append(cert)
         existing_images.add(rel_path)
@@ -119,7 +122,6 @@ def sync():
 
     print(f"New certificates found: {new_count}")
     save_certificates(certs)
-
 
 if __name__ == "__main__":
     sync()
