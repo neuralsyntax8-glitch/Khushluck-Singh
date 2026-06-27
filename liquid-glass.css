@@ -267,6 +267,16 @@ body::before{
  box-shadow:inset 0 1px rgba(255,255,255,.08);
 }
 
+#menuToggle{
+ align-items:center;
+ justify-content:center;
+ background:none;
+ border:none;
+ color:#fff;
+ cursor:pointer;
+ padding:8px;
+ z-index:1000;
+}
 .logo{
  display:flex;
  align-items:center;
@@ -538,20 +548,47 @@ footer{
 }
 
 @media(max-width:900px){
-.grid-2,.grid-3,.grid-4,.hero-stats,.contact-card,.hero-card,.blog-list,.footer-grid{grid-template-columns:1fr}
+.grid-2,.grid-3,.grid-4,.hero-stats,.about-stats,.contact-card,.hero-card,.blog-list,.footer-grid{grid-template-columns:1fr}
+.about-grid,.skills-grid,.projects-grid{grid-template-columns:1fr}
 .hero-copy h1{font-size:3rem}
 .navbar{padding:16px 20px}
 .nav ul{gap:12px}
 .hero-content{padding:28px}
-.contact-card{padding:24px}
-.hero-card{padding:24px}
+.contact-card,.about-card,.hero-card{padding:24px}
+.card{padding:24px}
+section, .about-section, .skills-section, .projects-section, .content-section, .blog-section, .contact-section{padding:60px 0}
 footer{text-align:left}
 }
 
 @media(max-width:640px){
-.navbar{flex-direction:column;gap:14px;align-items:flex-start}
-.nav ul{flex-wrap:wrap}
-.hero{padding:140px 16px 80px}
+.navbar{flex-direction:row;gap:0;align-items:center;justify-content:space-between}
+.nav{display:none;position:absolute;top:100%;left:0;width:100%;background:rgba(0,0,0,.92);backdrop-filter:blur(30px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav.open{display:block}
+.nav ul{flex-direction:column;gap:0;padding:16px 20px}
+.nav ul li a{display:block;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.nav ul li:last-child a{border-bottom:none}
+.hero{padding:120px 16px 60px}
 .hero-content{text-align:left}
 .hero-actions{flex-direction:column;align-items:flex-start}
+.hero-card{grid-template-columns:1fr;padding:20px}
+.hero-visual{order:-1}
+.portrait-frame img{max-width:280px}
+section, .about-section, .skills-section, .projects-section, .content-section, .blog-section, .contact-section{padding:40px 0}
+.about-card,.skills-card,.project-card,.contact-card,.content-card,.blog-card{padding:20px}
+.about-grid,.skills-grid,.projects-grid,.about-stats{grid-template-columns:1fr;gap:16px}
+.footer-grid{grid-template-columns:1fr;gap:20px}
+.timeline-content{margin-left:24px;padding:16px}
+.timeline-item .absolute.left-1\/2{left:0!important}
+.timeline-line{left:8px!important}
+}
+
+@media(max-width:480px){
+.hero-copy h1{font-size:2rem}
+.hero{padding:100px 12px 40px}
+.container{width:92%}
+.about-card,.skills-card,.project-card,.contact-card{padding:16px;border-radius:20px}
+.about-stat{padding:12px}
+.contact-form input,.contact-form textarea{padding:12px 14px}
+.footer-grid{gap:16px}
+section, .about-section, .skills-section, .projects-section, .content-section, .blog-section, .contact-section{padding:32px 0}
 }
