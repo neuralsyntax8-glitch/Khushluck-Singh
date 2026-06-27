@@ -10,7 +10,10 @@
     "imageUrl": "assets/CBS-36-1.png",
     "description": "Chatbot development certification.",
     "skills": "Chatbots, AI",
-    "tags": ["Chatbot", "AI"],
+    "tags": [
+      "Chatbot",
+      "AI"
+    ],
     "verified": true
   },
   {
@@ -24,7 +27,10 @@
     "imageUrl": "assets/Cert2.png",
     "description": "Prompt engineering certification.",
     "skills": "Prompt Engineering, AI",
-    "tags": ["Prompt", "AI"],
+    "tags": [
+      "Prompt",
+      "AI"
+    ],
     "verified": true
   },
   {
@@ -38,7 +44,9 @@
     "imageUrl": "assets/Cert1.png",
     "description": "ChatGPT mastery.",
     "skills": "ChatGPT, AI",
-    "tags": ["ChatGPT"],
+    "tags": [
+      "ChatGPT"
+    ],
     "verified": true
   },
   {
@@ -52,7 +60,9 @@
     "imageUrl": "assets/Google Certificate of CSS-1.png",
     "description": "Tailwind CSS.",
     "skills": "Tailwind CSS",
-    "tags": ["Tailwind"],
+    "tags": [
+      "Tailwind"
+    ],
     "verified": true
   },
   {
@@ -66,7 +76,9 @@
     "imageUrl": "assets/Microsoft Certification of CSS-1.png",
     "description": "Tailwind CSS.",
     "skills": "Tailwind CSS",
-    "tags": ["Tailwind"],
+    "tags": [
+      "Tailwind"
+    ],
     "verified": true
   },
   {
@@ -80,7 +92,9 @@
     "imageUrl": "assets/Certificate from Microsoft-1.png",
     "description": "Python course.",
     "skills": "Python",
-    "tags": ["Python"],
+    "tags": [
+      "Python"
+    ],
     "verified": true
   },
   {
@@ -94,7 +108,9 @@
     "imageUrl": "assets/Certificate from Google-1.png",
     "description": "Python course.",
     "skills": "Python",
-    "tags": ["Python"],
+    "tags": [
+      "Python"
+    ],
     "verified": true
   },
   {
@@ -108,7 +124,9 @@
     "imageUrl": "assets/DevTown Participation Certificate-1.png",
     "description": "Participation.",
     "skills": "Python",
-    "tags": ["DevTown"],
+    "tags": [
+      "DevTown"
+    ],
     "verified": true
   },
   {
@@ -122,7 +140,9 @@
     "imageUrl": "assets/ZvHrSx-1.png",
     "description": "Appreciation.",
     "skills": "Web",
-    "tags": ["Award"],
+    "tags": [
+      "Award"
+    ],
     "verified": true
   },
   {
@@ -136,7 +156,9 @@
     "imageUrl": "assets/t7uUD-1.png",
     "description": "Data science.",
     "skills": "Python, Data Science",
-    "tags": ["Data"],
+    "tags": [
+      "Data"
+    ],
     "verified": true
   },
   {
@@ -150,7 +172,9 @@
     "imageUrl": "assets/Zhdy9k-1.png",
     "description": "Data science.",
     "skills": "Python, Data Science",
-    "tags": ["Data"],
+    "tags": [
+      "Data"
+    ],
     "verified": true
   },
   {
@@ -164,7 +188,9 @@
     "imageUrl": "assets/Z9Esxx-1.png",
     "description": "Participation.",
     "skills": "Python",
-    "tags": ["DevTown"],
+    "tags": [
+      "DevTown"
+    ],
     "verified": true
   },
   {
@@ -178,7 +204,9 @@
     "imageUrl": "assets/Certificate_page-0001.jpg",
     "description": "Python with AI.",
     "skills": "Python, AI",
-    "tags": ["AI"],
+    "tags": [
+      "AI"
+    ],
     "verified": true
   },
   {
@@ -192,7 +220,9 @@
     "imageUrl": "assets/Certification of Appericiation.png",
     "description": "Appreciation.",
     "skills": "AI",
-    "tags": ["Award"],
+    "tags": [
+      "Award"
+    ],
     "verified": true
   },
   {
@@ -206,7 +236,9 @@
     "imageUrl": "assets/Certification of Participation - Machine Learning Mastery-1.png",
     "description": "Participation.",
     "skills": "Machine Learning",
-    "tags": ["ML"],
+    "tags": [
+      "ML"
+    ],
     "verified": true
   },
   {
@@ -220,7 +252,9 @@
     "imageUrl": "assets/Google Certificate - Machine Learning Mastery_page-0001.jpg",
     "description": "ML.",
     "skills": "Machine Learning",
-    "tags": ["ML"],
+    "tags": [
+      "ML"
+    ],
     "verified": true
   },
   {
@@ -234,7 +268,9 @@
     "imageUrl": "assets/Microsoft Certificate - Machine Learning Mastery_page-0001.jpg",
     "description": "ML.",
     "skills": "Machine Learning",
-    "tags": ["ML"],
+    "tags": [
+      "ML"
+    ],
     "verified": true
   },
   {
@@ -248,7 +284,9 @@
     "imageUrl": "assets/wHWyn-1.png",
     "description": "Tailwind.",
     "skills": "Tailwind",
-    "tags": ["CSS"],
+    "tags": [
+      "CSS"
+    ],
     "verified": true
   },
   {
@@ -262,7 +300,9 @@
     "imageUrl": "assets/Certificate of Participation - Annual Education Summit.png",
     "description": "Participation.",
     "skills": "Education",
-    "tags": ["Summit"],
+    "tags": [
+      "Summit"
+    ],
     "verified": true
   },
   {
@@ -276,7 +316,38 @@
     "imageUrl": "assets/Certificate of Completion - AI Tools Workshop.jpg",
     "description": "AI Tools Workshop completion certificate.",
     "skills": "AI Tools",
-    "tags": ["AI", "Tools"],
+    "tags": [
+      "AI",
+      "Tools"
+    ],
+    "verified": true
+  },
+  {
+    "id": 21,
+    "title": "Gemini Generated Image 6Ge9646Ge9646Ge9",
+    "provider": "Auto-Synced",
+    "category": "AI",
+    "year": 2026,
+    "issueDate": "2026",
+    "credentialId": "SYNC-0021",
+    "imageUrl": "assets/Gemini_Generated_Image_6ge9646ge9646ge9.png",
+    "description": "Certificate from Google Drive sync.",
+    "skills": "",
+    "tags": [],
+    "verified": true
+  },
+  {
+    "id": 22,
+    "title": "Whatsapp Image 2026 04 03 At 1.08.35 Pm",
+    "provider": "Auto-Synced",
+    "category": "AI",
+    "year": 2026,
+    "issueDate": "2026",
+    "credentialId": "SYNC-0022",
+    "imageUrl": "assets/WhatsApp Image 2026-04-03 at 1.08.35 PM.jpeg",
+    "description": "Certificate from Google Drive sync.",
+    "skills": "",
+    "tags": [],
     "verified": true
   }
 ]
