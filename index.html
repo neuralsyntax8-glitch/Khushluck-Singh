@@ -892,10 +892,12 @@
        
         modalVerificationStatus.textContent = certificate.verified ? 'Verified' : 'Pending';
         modal.classList.remove('hidden');
+        document.body.classList.add('modal-open');
       }
 
       function closeModal() {
         modal.classList.add('hidden');
+        document.body.classList.remove('modal-open');
       }
 
      function showLoading() {

@@ -561,6 +561,7 @@ footer{text-align:left}
 }
 
 @media(max-width:640px){
+body.modal-open .navbar{display:none}
 .navbar{flex-direction:row;gap:0;align-items:center;justify-content:space-between}
 .nav{display:none;position:absolute;top:100%;left:0;width:100%;background:rgba(0,0,0,.92);backdrop-filter:blur(30px);border-bottom:1px solid rgba(255,255,255,.06)}
 .nav.open{display:block}
