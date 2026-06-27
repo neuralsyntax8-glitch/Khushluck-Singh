@@ -252,17 +252,31 @@
     "verified": true
   },
   {
-    "id": 21,
+    "id": 19,
     "title": "Certificate of Participation - Annual Education Summit",
     "provider": "Annual Education Summit",
     "category": "Other",
     "year": 2026,
     "issueDate": "2026",
-    "credentialId": "AES-021",
+    "credentialId": "AES-019",
     "imageUrl": "assets/Certificate of Participation - Annual Education Summit.png",
     "description": "Participation.",
     "skills": "Education",
     "tags": ["Summit"],
+    "verified": true
+  },
+  {
+    "id": 20,
+    "title": "Certificate of Completion - AI Tools Workshop",
+    "provider": "Clapingo",
+    "category": "AI",
+    "year": 2026,
+    "issueDate": "2026",
+    "credentialId": "CLA-020",
+    "imageUrl": "assets/Certificate of Completion - AI Tools Workshop.jpg",
+    "description": "Completion",
+    "skills": "AI",
+    "tags": ["AI"],
     "verified": true
   }
 ]
