@@ -50,15 +50,22 @@ def infer_category(title):
     if any(k in t for k in ("ai", "chatgpt", "prompt", "chatbot", "machine learning")):
         return "AI"
     if any(k in t for k in ("css", "html", "tailwind", "web", "javascript", "react")):
-        return "Web"
+        return "Web Development"
+    if any(k in t for k in ("workshop", "summit", "seminar")):
+        return "Other"
     return "AI"
+
+def clean_filename(name):
+    """Remove unwanted characters and normalize spaces."""
+    name = name.replace("_", " ").replace("-", " ").replace("|", " ")
+    name = re.sub(r"\s+", " ", name).strip()
+    return name
 
 def infer_title(filename):
     """Create a readable title from the filename."""
     name = Path(filename).stem
-    name = name.replace("_", " ").replace("-", " ")
-    name = re.sub(r"\s+", " ", name).strip()
-    if re.match(r"^\w{5,7}\s\d$", name):  # ignore things like "ABC123 4"
+    name = clean_filename(name)
+    if re.match(r"^\w{5,7}\s\d$", name):
         return ""
     return name.title()
 
@@ -97,18 +104,22 @@ def sync():
         # ----- Build certificate object -----
         title = infer_title(fpath.name)
         if not title:
-            title = fpath.stem.replace("_", " ").replace("-", " ").title()
+            title = clean_filename(fpath.stem).title()
+
+        # Try to extract year from filename (e.g. "2025", "2026")
+        year_match = re.search(r"\b(202[3-6])\b", title)
+        year = int(year_match.group(1)) if year_match else 2026
 
         cert = {
             "id": next_id,
             "title": title,
-            "provider": "Auto-Synced",          # you can refine this later if you store provider in filename/metadata
+            "provider": "Auto-Synced",
             "category": infer_category(title or fpath.stem),
-            "year": 2026,                        # you could extract year from filename if desired
-            "issueDate": "2026",                 # same as above
-            "credentialId": f"AUTO-{next_id:04d}",
+            "year": year,
+            "issueDate": str(year),
+            "credentialId": f"SYNC-{next_id:04d}",
             "imageUrl": rel_path,
-            "description": "Auto-synced certificate from Google Drive",
+            "description": "Certificate from Google Drive sync.",
             "skills": "",
             "tags": [],
             "verified": True
