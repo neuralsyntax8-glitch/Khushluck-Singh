@@ -894,10 +894,19 @@
        
         modalVerificationStatus.textContent = certificate.verified ? 'Verified' : 'Pending';
         modal.classList.remove('hidden');
+        document.body.dataset.scrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${window.scrollY}px`;
+        document.body.style.width = '100%';
       }
 
       function closeModal() {
         modal.classList.add('hidden');
+        const scrollY = parseInt(document.body.dataset.scrollY || '0');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        window.scrollTo(0, scrollY);
       }
 
      function showLoading() {
